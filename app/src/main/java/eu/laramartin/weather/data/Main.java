@@ -1,12 +1,16 @@
 package eu.laramartin.weather.data;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Lara on 12/10/2016.
  */
 
 public class Main {
 
+    @SerializedName("temp")
     double temperature;
+    double humidity;
 
     public double getTemperature() {
         return temperature;
@@ -14,5 +18,13 @@ public class Main {
 
     public void setTemperature(double temperature) {
         this.temperature = temperature;
+    }
+
+    public double getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(double humidity) {
+        this.humidity = humidity;
     }
 }
