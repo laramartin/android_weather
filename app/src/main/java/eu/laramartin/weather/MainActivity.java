@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 city.setText(response.body().getName());
                 temperature.setText(String.valueOf(response.body().getMain().getTemperature()) +
                         getString(R.string.degree_fahrenheit) );
+                description.setText(response.body().getWeather().get(0).getDescription());
                 Log.v(LOG_TAG, "temperature: " + String.valueOf(response.body().getMain().getTemperature()));
                 Log.v(LOG_TAG, "humidity: " + String.valueOf(response.body().getMain().getHumidity()));
             }
