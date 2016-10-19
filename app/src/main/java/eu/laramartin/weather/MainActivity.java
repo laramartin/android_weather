@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import eu.laramartin.weather.data.WeatherResponse;
+import eu.laramartin.weather.data.ForecastResponse;
 import eu.laramartin.weather.data.WeatherService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,23 +37,23 @@ public class MainActivity extends AppCompatActivity {
 
         WeatherService weatherService = retrofit.create(WeatherService.class);
 
-        String location = "london";
+        String location = "berlin";
         String appid = "";
-        Call<WeatherResponse> call = weatherService.getWeather(location, appid);
-        call.enqueue(new Callback<WeatherResponse>() {
+        Call<ForecastResponse> call = weatherService.getForecasts(location, appid);
+        call.enqueue(new Callback<ForecastResponse>() {
             @Override
-            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
-                Log.v("Mainactivity", response.body().getName());
-                city.setText(response.body().getName());
-                temperature.setText(String.valueOf(response.body().getMain().getTemperature()) +
-                        getString(R.string.degree_fahrenheit) );
-                description.setText(response.body().getWeather().get(0).getDescription());
-                Log.v(LOG_TAG, "temperature: " + String.valueOf(response.body().getMain().getTemperature()));
-                Log.v(LOG_TAG, "humidity: " + String.valueOf(response.body().getMain().getHumidity()));
+            public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
+                Log.v("Mainactivity", response.body().getForecasts().get(0).getWeather().get(0).getDescription());
+//                city.setText(response.body().getName());
+//                temperature.setText(String.valueOf(response.body().getMain().getTemperature()) +
+//                        getString(R.string.degree_fahrenheit) );
+//                description.setText(response.body().getWeather().get(0).getDescription());
+//                Log.v(LOG_TAG, "temperature: " + String.valueOf(response.body().getMain().getTemperature()));
+//                Log.v(LOG_TAG, "humidity: " + String.valueOf(response.body().getMain().getHumidity()));
             }
 
             @Override
-            public void onFailure(Call<WeatherResponse> call, Throwable t) {
+            public void onFailure(Call<ForecastResponse> call, Throwable t) {
                 Log.e("Mainactivity", "error in response: " + t.getLocalizedMessage());
             }
         });

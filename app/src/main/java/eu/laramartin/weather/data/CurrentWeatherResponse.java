@@ -3,14 +3,13 @@ package eu.laramartin.weather.data;
 import java.util.List;
 
 /**
- * Created by Lara on 12/10/2016.
+ * Created by Lara on 19/10/2016.
  */
 
-public class WeatherResponse {
+public class CurrentWeatherResponse {
 
     List<Weather> weather;
     Main main;
-
     String name;
 
     public List<Weather> getWeather() {
