@@ -2,5 +2,8 @@
     <string name="app_name">Weather</string>
     <string name="degree_fahrenheit">°F</string>
     <string name="degree_celsius">°C</string>
+    <string name="humidity">Humidity</string>
     <string name="percentage">%</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="pressure">Pressure</string>
 </resources>

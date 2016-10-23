@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
 
     @Override
     public void displayHumidity(int humidity) {
-        humidityTextView.setText(getString(R.string.humidity) + String.valueOf(humidity) +
+        humidityTextView.setText(getString(R.string.humidity) + " " + String.valueOf(humidity) +
                 getString(R.string.percentage));
     }
 
     @Override
     public void displayPressure(int pressure) {
-        pressureTextView.setText(getString(R.string.pressure) + String.valueOf(pressure) +
-                getString(R.string.pressure_unit));
+        pressureTextView.setText(getString(R.string.pressure) + " " + String.valueOf(pressure) +
+                " " + getString(R.string.pressure_unit));
     }
 }
