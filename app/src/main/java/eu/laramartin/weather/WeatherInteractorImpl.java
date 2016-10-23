@@ -18,7 +18,8 @@ public class WeatherInteractorImpl implements WeatherInteractor {
     private String appid;
     private String units = "celsius";
 
-    public WeatherInteractorImpl() {
+    public WeatherInteractorImpl(String appid) {
+        this.appid = appid;
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

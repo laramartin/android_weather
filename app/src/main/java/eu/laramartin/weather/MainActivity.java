@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        presenter = new WeatherPresenter(new WeatherInteractorImpl());
+        presenter = new WeatherPresenter(new WeatherInteractorImpl(getString(R.string.appid)));
         presenter.bind(this);
         ButterKnife.bind(this);
         presenter.performCall("berlin");

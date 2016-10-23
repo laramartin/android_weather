@@ -8,3 +8,4 @@
 /captures
 .externalNativeBuild
 design/drawable-hdpi/Thumbs.db
+app/src/main/res/values/api.xml
