@@ -15,7 +15,8 @@ public class WeatherInteractorImpl implements WeatherInteractor {
 
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private WeatherService weatherService;
-    private String appid = "";
+    private String appid;
+    private String units = "celsius";
 
     public WeatherInteractorImpl() {
 
@@ -29,11 +30,11 @@ public class WeatherInteractorImpl implements WeatherInteractor {
 
     @Override
     public Call<ForecastResponse> getForecasts(String location) {
-        return weatherService.getForecasts(location, appid);
+        return weatherService.getForecasts(location, appid, units);
     }
 
     @Override
     public Call<CurrentWeatherResponse> getWeather(String location) {
-        return weatherService.getWeather(location, appid);
+        return weatherService.getWeather(location, appid, units);
     }
 }

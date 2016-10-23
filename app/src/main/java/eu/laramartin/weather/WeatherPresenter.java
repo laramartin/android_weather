@@ -52,11 +52,12 @@ public class WeatherPresenter {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 view.displayTemp(response.body().getMain().getTemperature());
+                view.displayDescription(response.body().getWeather().get(0).getDescription());
             }
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
-
+                Log.e("Mainactivity", "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
     }

@@ -5,4 +5,5 @@ package eu.laramartin.weather;
  */
 public interface WeatherView {
     void displayTemp(double temperature);
+    void displayDescription(String description);
 }
