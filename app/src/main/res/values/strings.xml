@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="degree_fahrenheit">°F</string>
+    <string name="degree_celsius">°C</string>
 </resources>

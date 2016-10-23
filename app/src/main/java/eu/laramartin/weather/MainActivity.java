@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void displayTemp(double temp) {
-        temperatureTextView.setText(String.valueOf(temp) + getString(R.string.degree_fahrenheit));
+    public void displayTemp(int temp) {
+        temperatureTextView.setText(String.valueOf(temp));
     }
 
     @Override

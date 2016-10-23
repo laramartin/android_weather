@@ -21,11 +21,6 @@
         style="@style/CurrentTemperature" />
 
     <TextView
-        android:id="@+id/temperatureUnitTextView"
-        tools:text="°C"
-        style="@style/CurrentTemperatureUnit" />
-
-    <TextView
         android:id="@+id/description_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,5 +73,14 @@
         android:layout_below="@+id/current_pressure"
         android:layout_alignLeft="@+id/current_pressure"
         android:layout_alignStart="@+id/current_pressure" />
+
+    <TextView
+        android:id="@+id/temperatureUnitTextView"
+        android:text="@string/degree_celsius"
+        style="@style/CurrentTemperatureUnit"
+        android:layout_alignTop="@+id/temperature_TextView"
+        android:layout_toRightOf="@+id/temperature_TextView"
+        android:layout_toEndOf="@+id/temperature_TextView"
+        android:layout_marginTop="11dp" />
 
 </RelativeLayout>

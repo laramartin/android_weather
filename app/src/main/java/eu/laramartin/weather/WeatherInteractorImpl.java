@@ -16,7 +16,7 @@ public class WeatherInteractorImpl implements WeatherInteractor {
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private WeatherService weatherService;
     private String appid;
-    private String units = "celsius";
+    private String units = "metric";
 
     public WeatherInteractorImpl(String appid) {
         this.appid = appid;

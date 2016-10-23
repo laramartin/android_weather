@@ -51,7 +51,7 @@ public class WeatherPresenter {
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
-                view.displayTemp(response.body().getMain().getTemperature());
+                view.displayTemp((int) response.body().getMain().getTemperature());
                 view.displayDescription(response.body().getWeather().get(0).getDescription());
             }
 
