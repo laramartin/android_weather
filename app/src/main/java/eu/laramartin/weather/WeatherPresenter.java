@@ -55,6 +55,7 @@ public class WeatherPresenter {
                 view.displayDescription(response.body().getWeather().get(0).getDescription());
                 view.displayHumidity((int) response.body().getMain().getHumidity());
                 view.displayPressure((int) response.body().getMain().getPressure());
+                view.displayWind(response.body().getWind().getWindSpeed());
             }
 
             @Override

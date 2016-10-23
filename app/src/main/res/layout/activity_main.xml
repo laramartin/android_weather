@@ -94,7 +94,7 @@
                 android:layout_marginTop="8dp"/>
 
             <TextView
-                android:id="@+id/current_wind"
+                android:id="@+id/wind_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Wind 7 mph SW"

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @BindView(R.id.description_TextView) TextView descriptionTextView;
     @BindView(R.id.humidity_TextView) TextView humidityTextView;
     @BindView(R.id.pressure_TextView) TextView pressureTextView;
+    @BindView(R.id.wind_TextView) TextView windTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +50,10 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     public void displayPressure(int pressure) {
         pressureTextView.setText(getString(R.string.pressure) + " " + String.valueOf(pressure) +
                 " " + getString(R.string.pressure_unit));
+    }
+
+    @Override
+    public void displayWind(double windSpeed) {
+        windTextView.setText(getString(R.string.wind, windSpeed));
     }
 }

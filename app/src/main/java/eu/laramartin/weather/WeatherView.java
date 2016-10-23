@@ -8,4 +8,5 @@ public interface WeatherView {
     void displayDescription(String description);
     void displayHumidity(int humidity);
     void displayPressure(int pressure);
+    void displayWind(double windSpeed);
 }

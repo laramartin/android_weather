@@ -6,4 +6,5 @@
     <string name="percentage">%</string>
     <string name="pressure_unit">hPa</string>
     <string name="pressure">Pressure</string>
+    <string name="wind">Wind %.1f m/s</string>
 </resources>

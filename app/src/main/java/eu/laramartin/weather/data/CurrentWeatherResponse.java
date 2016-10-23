@@ -10,6 +10,7 @@ public class CurrentWeatherResponse {
 
     List<Weather> weather;
     Main main;
+    Wind wind;
     String name;
 
     public List<Weather> getWeather() {
@@ -34,5 +35,13 @@ public class CurrentWeatherResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Wind getWind() {
+        return wind;
+    }
+
+    public void setWind(Wind wind) {
+        this.wind = wind;
     }
 }
