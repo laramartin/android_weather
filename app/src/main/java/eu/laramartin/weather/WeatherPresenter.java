@@ -53,6 +53,8 @@ public class WeatherPresenter {
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 view.displayTemp((int) response.body().getMain().getTemperature());
                 view.displayDescription(response.body().getWeather().get(0).getDescription());
+                view.displayHumidity((int) response.body().getMain().getHumidity());
+                view.displayPressure((int) response.body().getMain().getPressure());
             }
 
             @Override

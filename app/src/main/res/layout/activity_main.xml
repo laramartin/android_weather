@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:src="@drawable/cloud"
             android:id="@+id/image_View"
             android:layout_gravity="center_vertical"
@@ -39,7 +39,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="6"
             android:orientation="vertical"
             android:gravity="left"
             android:layout_gravity="">
@@ -69,28 +69,28 @@
                 android:gravity="center"
                 tools:text="Mostly cloudy"
                 android:textSize="16sp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/current_humidity"
+                android:id="@+id/humidity_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Humidity 71%"
                 android:textSize="14sp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"/>
 
             <TextView
-                android:id="@+id/current_pressure"
+                android:id="@+id/pressure_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Pressure 1012 hPa"
                 android:textSize="14sp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"/>
 
             <TextView
@@ -99,8 +99,8 @@
                 android:layout_height="wrap_content"
                 tools:text="Wind 7 mph SW"
                 android:textSize="14sp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp" />
 
         </LinearLayout>

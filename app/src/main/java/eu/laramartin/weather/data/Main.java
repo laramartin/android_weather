@@ -11,6 +11,7 @@ public class Main {
     @SerializedName("temp")
     double temperature;
     double humidity;
+    double pressure;
 
     public double getTemperature() {
         return temperature;
@@ -26,5 +27,13 @@ public class Main {
 
     public void setHumidity(double humidity) {
         this.humidity = humidity;
+    }
+
+    public double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(double pressure) {
+        this.pressure = pressure;
     }
 }

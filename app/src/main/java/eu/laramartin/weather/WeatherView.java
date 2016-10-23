@@ -6,4 +6,6 @@ package eu.laramartin.weather;
 public interface WeatherView {
     void displayTemp(int temperature);
     void displayDescription(String description);
+    void displayHumidity(int humidity);
+    void displayPressure(int pressure);
 }
