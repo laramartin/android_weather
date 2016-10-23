@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/almostWhiteGrey"
     tools:context="eu.laramartin.weather.MainActivity">
 
     <TextView
@@ -15,72 +16,95 @@
         tools:text="Berlin"
         style="@style/CityTitle" />
 
-    <TextView
-        android:id="@+id/temperature_TextView"
-        tools:text="106"
-        style="@style/CurrentTemperature" />
 
-    <TextView
-        android:id="@+id/description_TextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:text="Mostly cloudy"
-        android:textSize="16sp"
-        android:layout_below="@+id/temperature_TextView"
-        android:layout_alignLeft="@+id/temperature_TextView"
-        android:layout_alignStart="@+id/temperature_TextView"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" />
+        android:orientation="horizontal"
+        android:layout_below="@+id/city_TextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/cloud"
-        android:id="@+id/image_View"
-        android:layout_marginRight="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_below="@+id/temperatureUnitTextView"
-        android:layout_toLeftOf="@+id/description_TextView"
-        android:layout_toStartOf="@+id/description_TextView" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cloud"
+            android:id="@+id/image_View"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="36dp"
+            android:layout_marginEnd="36dp"/>
 
-    <TextView
-        android:id="@+id/current_humidity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Humidity 71%"
-        android:textSize="14sp"
-        android:layout_below="@+id/image_View"
-        android:layout_alignRight="@+id/description_TextView"
-        android:layout_alignEnd="@+id/description_TextView" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:layout_gravity="">
 
-    <TextView
-        android:id="@+id/current_pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Pressure 1012 hPa"
-        android:textSize="14sp"
-        android:layout_below="@+id/current_humidity"
-        android:layout_alignLeft="@+id/current_humidity"
-        android:layout_alignStart="@+id/current_humidity" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/current_wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Wind 7 mph SW"
-        android:textSize="14sp"
-        android:layout_below="@+id/current_pressure"
-        android:layout_alignLeft="@+id/current_pressure"
-        android:layout_alignStart="@+id/current_pressure" />
 
-    <TextView
-        android:id="@+id/temperatureUnitTextView"
-        android:text="@string/degree_celsius"
-        style="@style/CurrentTemperatureUnit"
-        android:layout_alignTop="@+id/temperature_TextView"
-        android:layout_toRightOf="@+id/temperature_TextView"
-        android:layout_toEndOf="@+id/temperature_TextView"
-        android:layout_marginTop="11dp" />
+                <TextView
+                    android:id="@+id/temperature_TextView"
+                    tools:text="106"
+                    style="@style/CurrentTemperature"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/temperatureUnitTextView"
+                    android:text="@string/degree_celsius"
+                    style="@style/CurrentTemperatureUnit" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/description_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Mostly cloudy"
+                android:textSize="16sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/current_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Humidity 71%"
+                android:textSize="14sp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/current_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Pressure 1012 hPa"
+                android:textSize="14sp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/current_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Wind 7 mph SW"
+                android:textSize="14sp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

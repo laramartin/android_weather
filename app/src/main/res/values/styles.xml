@@ -23,14 +23,7 @@
     <style name="CurrentTemperature">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">72sp</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:layout_below">@+id/city_TextView</item>
-        <item name="android:layout_toRightOf">@+id/city_TextView</item>
-        <item name="android:layout_toEndOf">@+id/city_TextView</item>
-        <item name="android:layout_marginLeft">91dp</item>
-        <item name="android:layout_marginStart">91dp</item>
+        <item name="android:textSize">64sp</item>
     </style>
 
     <style name="CurrentTemperatureUnit">
