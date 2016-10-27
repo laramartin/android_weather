@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @BindView(R.id.humidity_TextView) TextView humidityTextView;
     @BindView(R.id.pressure_TextView) TextView pressureTextView;
     @BindView(R.id.wind_TextView) TextView windTextView;
+    @BindView(R.id.forecast_5) ForecastView forecastView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         presenter.bind(this);
         ButterKnife.bind(this);
         presenter.performCall("berlin");
+
+//        forecastView.textView.setText();
     }
 
     @Override
