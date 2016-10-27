@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_favorite_city"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_select_cities"
+        android:enabled="true"
+        android:icon="@drawable/ic_public_black_24dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_settings"
+        android:enabled="true"
+        android:icon="@drawable/gruppe_7"
+        app:showAsAction="ifRoom" />
+</menu>
