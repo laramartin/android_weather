@@ -12,6 +12,8 @@ public class Forecast {
 
     List<Weather> weather;
     double humidity;
+    @SerializedName("dt")
+    long date;
 
     @SerializedName("temp")
     Temperature temperature;
@@ -40,11 +42,20 @@ public class Forecast {
         this.temperature = temperature;
     }
 
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Forecast{" +
                 "weather=" + weather +
                 ", humidity=" + humidity +
+                ", date=" + date +
                 ", temperature=" + temperature +
                 '}';
     }

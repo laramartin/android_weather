@@ -36,9 +36,13 @@ public class WeatherPresenter {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 for (Forecast forecast : response.body().getForecasts()) {
-                    Log.v("MainActivity", "forecast temp: " + String.valueOf(forecast.getTemperature().getTempDay()));
-                    Log.v("MainActivity", "forecast descript: " + forecast.getWeather().get(0).getDescription());
-                    Log.v("MainActivity", "forecast humidity: " + String.valueOf(forecast.getHumidity()));
+//                    Log.v("MainActivity", "forecast temp: " + String.valueOf(forecast.getTemperature().getTempDay()));
+//                    Log.v("MainActivity", "forecast descript: " + forecast.getWeather().get(0).getDescription());
+//                    Log.v("MainActivity", "forecast humidity: " + String.valueOf(forecast.getHumidity()));
+                    Log.v("MainActivity", forecast.toString());
+                    Log.v("MainActivity", String.valueOf(forecast.getDate()));
+                    Log.v("MainActivity", "min: " + String.valueOf(forecast.getTemperature().getTempMin()));
+                    Log.v("MainActivity", "max: " + String.valueOf(forecast.getTemperature().getTempMax()));
                 }
                 Log.v("Mainactivity", "day 1: " );
             }
