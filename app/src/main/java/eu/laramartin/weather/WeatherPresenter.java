@@ -18,6 +18,7 @@ import retrofit2.Response;
 
 public class WeatherPresenter {
 
+    private final static String LOG_TAG = WeatherPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
     WeatherView view;
 
@@ -53,7 +54,7 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<ForecastResponse> call, Throwable t) {
-                Log.e("WeatherPresenter", "error in ForecastResponse: " + t.getLocalizedMessage(), t);
+                Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
@@ -68,7 +69,7 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
-                Log.e("WeatherPresenter", "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
+                Log.e(LOG_TAG, "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
     }

@@ -1,7 +1,11 @@
 package eu.laramartin.weather;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.List;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @BindView(R.id.wind_TextView) TextView windTextView;
     @BindViews({ R.id.forecast_1, R.id.forecast_2, R.id.forecast_3, R.id.forecast_4, R.id.forecast_5})
     List<ForecastView> forecastViews;
+    @BindView(R.id.bottom_navigation)
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,24 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         ButterKnife.bind(this);
         presenter.performCall("berlin");
 
-//        forecastView.dayWeekTextView.setText();
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_favorite_city:
+                                Log.v(LOG_TAG, "favorite city");
+                                break;
+                            case R.id.action_select_cities:
+                                Log.v(LOG_TAG, "select cities");
+                                break;
+                            case R.id.action_settings:
+                                Log.v(LOG_TAG, "settings");
+                                break;
+                        }
+                        return false;
+                    }
+                });
     }
 
     @Override
