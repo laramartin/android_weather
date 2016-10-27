@@ -17,6 +17,7 @@ public class WeatherInteractorImpl implements WeatherInteractor {
     private WeatherService weatherService;
     private String appid;
     private String units = "metric";
+    private int numberOfDays = 5;
 
     public WeatherInteractorImpl(String appid) {
         this.appid = appid;
@@ -31,7 +32,7 @@ public class WeatherInteractorImpl implements WeatherInteractor {
 
     @Override
     public Call<ForecastResponse> getForecasts(String location) {
-        return weatherService.getForecasts(location, appid, units);
+        return weatherService.getForecasts(location, appid, units, numberOfDays);
     }
 
     @Override

@@ -18,5 +18,6 @@ public interface WeatherService {
     @GET("forecast/daily")
     Call<ForecastResponse> getForecasts(@Query("q") String location,
                                         @Query("appid") String appid,
-                                        @Query("units") String unit);
+                                        @Query("units") String unit,
+                                        @Query("cnt") int numberOfDays);
 }
