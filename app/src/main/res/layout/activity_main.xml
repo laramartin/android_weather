@@ -114,97 +114,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <eu.laramartin.weather.ForecastView
+            android:id="@+id/forecast_1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:id="@+id/linear_layout_forecast_1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Tue"
-                android:id="@+id/day_week_1_forecast_text_view"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/cloud"
-                android:id="@+id/icon_1_forecast_image_view"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="2/8°C"
-                android:id="@+id/temp_1_forecast_text_view"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
+        <eu.laramartin.weather.ForecastView
+            android:id="@+id/forecast_2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:id="@+id/linear_layout_forecast_2">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Tue"
-                android:id="@+id/day_week_2_forecast_text_view"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/cloud"
-                android:id="@+id/icon_2_forecast_image_view"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="2/8°C"
-                android:id="@+id/temp_2_forecast_text_view"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
+        <eu.laramartin.weather.ForecastView
+            android:id="@+id/forecast_3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:id="@+id/linear_layout_forecast_3">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Tue"
-                android:id="@+id/day_week_3_forecast_text_view"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/cloud"
-                android:id="@+id/icon_3_forecast_image_view"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="2/8°C"
-                android:id="@+id/temp_31_forecast_text_view"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
+        <eu.laramartin.weather.ForecastView
+            android:id="@+id/forecast_4"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:id="@+id/linear_layout_forecast_4">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Tue"
-                android:id="@+id/day_week_4_forecast_text_view"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/cloud"
-                android:id="@+id/icon_4_forecast_image_view"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="2/8°C"
-                android:id="@+id/temp_4_forecast_text_view"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
+
         <eu.laramartin.weather.ForecastView
             android:id="@+id/forecast_5"
             android:layout_width="0dp"
