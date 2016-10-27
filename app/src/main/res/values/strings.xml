@@ -5,4 +5,5 @@
     <string name="humidity">Humidity %d%%</string>
     <string name="pressure">Pressure %d hPa</string>
     <string name="wind">Wind %.1f m/s</string>
+    <string name="min_max_temp">%1$d/%2$d°C</string>
 </resources>

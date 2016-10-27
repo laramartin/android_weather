@@ -15,7 +15,9 @@ import butterknife.ButterKnife;
 
 public class ForecastView extends LinearLayout {
     @BindView(R.id.day_week_forecast_text_view)
-    TextView textView;
+    TextView dayWeekTextView;
+    @BindView(R.id.temp_forecast_text_view)
+    TextView tempTextView;
 
     public ForecastView(Context context, AttributeSet attrs) {
         super(context, attrs);

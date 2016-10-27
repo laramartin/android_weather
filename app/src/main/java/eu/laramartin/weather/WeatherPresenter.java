@@ -35,6 +35,7 @@ public class WeatherPresenter {
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
+                int i = 0;
                 for (Forecast forecast : response.body().getForecasts()) {
 //                    Log.v("MainActivity", "forecast temp: " + String.valueOf(forecast.getTemperature().getTempDay()));
 //                    Log.v("MainActivity", "forecast descript: " + forecast.getWeather().get(0).getDescription());
@@ -43,8 +44,11 @@ public class WeatherPresenter {
                     Log.v("MainActivity", String.valueOf(forecast.getDate()));
                     Log.v("MainActivity", "min: " + String.valueOf(forecast.getTemperature().getTempMin()));
                     Log.v("MainActivity", "max: " + String.valueOf(forecast.getTemperature().getTempMax()));
+                    view.displayForecast(i, String.valueOf(forecast.getDate()),
+                            (int) forecast.getTemperature().getTempMin(),
+                            (int) forecast.getTemperature().getTempMax());
+                    i++;
                 }
-                Log.v("Mainactivity", "day 1: " );
             }
 
             @Override

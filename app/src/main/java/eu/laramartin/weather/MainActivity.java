@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements WeatherView {
@@ -19,7 +22,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @BindView(R.id.humidity_TextView) TextView humidityTextView;
     @BindView(R.id.pressure_TextView) TextView pressureTextView;
     @BindView(R.id.wind_TextView) TextView windTextView;
-    @BindView(R.id.forecast_5) ForecastView forecastView;
+    @BindViews({ R.id.forecast_1, R.id.forecast_2, R.id.forecast_3, R.id.forecast_4, R.id.forecast_5})
+    List<ForecastView> forecastViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         ButterKnife.bind(this);
         presenter.performCall("berlin");
 
-//        forecastView.textView.setText();
+//        forecastView.dayWeekTextView.setText();
     }
 
     @Override
@@ -56,5 +60,12 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @Override
     public void displayWind(double windSpeed) {
         windTextView.setText(getString(R.string.wind, windSpeed));
+    }
+
+    @Override
+    public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp) {
+        ForecastView currentForecastView = forecastViews.get(i);
+        currentForecastView.dayWeekTextView.setText(dayOfWeek);
+        currentForecastView.tempTextView.setText(getString(R.string.min_max_temp, minTemp, maxTemp));
     }
 }

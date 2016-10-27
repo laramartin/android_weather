@@ -9,4 +9,5 @@ public interface WeatherView {
     void displayHumidity(int humidity);
     void displayPressure(int pressure);
     void displayWind(double windSpeed);
+    void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp);
 }
