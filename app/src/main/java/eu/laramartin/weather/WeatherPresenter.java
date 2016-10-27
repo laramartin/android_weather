@@ -2,6 +2,9 @@ package eu.laramartin.weather;
 
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import eu.laramartin.weather.data.CurrentWeatherResponse;
 import eu.laramartin.weather.data.Forecast;
 import eu.laramartin.weather.data.ForecastResponse;
@@ -37,14 +40,11 @@ public class WeatherPresenter {
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 int i = 0;
                 for (Forecast forecast : response.body().getForecasts()) {
-//                    Log.v("MainActivity", "forecast temp: " + String.valueOf(forecast.getTemperature().getTempDay()));
-//                    Log.v("MainActivity", "forecast descript: " + forecast.getWeather().get(0).getDescription());
-//                    Log.v("MainActivity", "forecast humidity: " + String.valueOf(forecast.getHumidity()));
-                    Log.v("MainActivity", forecast.toString());
-                    Log.v("MainActivity", String.valueOf(forecast.getDate()));
-                    Log.v("MainActivity", "min: " + String.valueOf(forecast.getTemperature().getTempMin()));
-                    Log.v("MainActivity", "max: " + String.valueOf(forecast.getTemperature().getTempMax()));
-                    view.displayForecast(i, String.valueOf(forecast.getDate()),
+//                    Log.v("WeatherPresenter", forecast.toString());
+//                    Log.v("WeatherPresenter", String.valueOf(forecast.getDate()));
+//                    Log.v("WeatherPresenter", "min: " + String.valueOf(forecast.getTemperature().getTempMin()));
+//                    Log.v("WeatherPresenter", "max: " + String.valueOf(forecast.getTemperature().getTempMax()));
+                    view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
                             (int) forecast.getTemperature().getTempMin(),
                             (int) forecast.getTemperature().getTempMax());
                     i++;
@@ -53,7 +53,7 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<ForecastResponse> call, Throwable t) {
-                Log.e("Mainactivity", "error in ForecastResponse: " + t.getLocalizedMessage(), t);
+                Log.e("WeatherPresenter", "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
@@ -68,10 +68,14 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
-                Log.e("Mainactivity", "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
+                Log.e("WeatherPresenter", "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
     }
 
-
+    private String getDayOfTheWeek(long unixTime) {
+        Date date = new Date(unixTime * 1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE");
+        return formatter.format(date);
+    }
 }
