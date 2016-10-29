@@ -3,28 +3,28 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear_layout_forecast_5"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:id="@+id/linear_layout_forecast_5">
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/day_week_forecast_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Tue"
-        android:id="@+id/day_week_forecast_text_view" />
+        tools:text="Tue" />
 
     <ImageView
+        android:id="@+id/icon_forecast_image_view"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/cloud"
-        android:id="@+id/icon_forecast_image_view" />
+        android:src="@drawable/cloud" />
 
     <TextView
+        android:id="@+id/temp_forecast_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="2/8°C"
-        android:id="@+id/temp_forecast_text_view" />
+        tools:text="2/8°C" />
 
 </LinearLayout>

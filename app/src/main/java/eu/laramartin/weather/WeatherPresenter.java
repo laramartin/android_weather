@@ -45,10 +45,6 @@ public class WeatherPresenter {
                 }
                 int i = 0;
                 for (Forecast forecast : response.body().getForecasts()) {
-//                    Log.v("WeatherPresenter", forecast.toString());
-//                    Log.v("WeatherPresenter", String.valueOf(forecast.getDate()));
-//                    Log.v("WeatherPresenter", "min: " + String.valueOf(forecast.getTemperature().getTempMin()));
-//                    Log.v("WeatherPresenter", "max: " + String.valueOf(forecast.getTemperature().getTempMax()));
                     view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
                             (int) forecast.getTemperature().getTempMin(),
                             (int) forecast.getTemperature().getTempMax());

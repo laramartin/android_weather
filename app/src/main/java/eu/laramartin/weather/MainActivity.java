@@ -23,23 +23,32 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     private static final String LOG_TAG = MainActivity.class.getCanonicalName();
     WeatherPresenter presenter;
 
-    @BindView(R.id.city_TextView) TextView cityTextView;
-    @BindView(R.id.temperature_TextView) TextView temperatureTextView;
-    @BindView(R.id.description_TextView) TextView descriptionTextView;
-    @BindView(R.id.humidity_TextView) TextView humidityTextView;
-    @BindView(R.id.pressure_TextView) TextView pressureTextView;
-    @BindView(R.id.wind_TextView) TextView windTextView;
-    @BindViews({ R.id.forecast_1, R.id.forecast_2, R.id.forecast_3, R.id.forecast_4, R.id.forecast_5})
+    @BindView(R.id.city_TextView)
+    TextView cityTextView;
+    @BindView(R.id.temperature_TextView)
+    TextView temperatureTextView;
+    @BindView(R.id.description_TextView)
+    TextView descriptionTextView;
+    @BindView(R.id.humidity_TextView)
+    TextView humidityTextView;
+    @BindView(R.id.pressure_TextView)
+    TextView pressureTextView;
+    @BindView(R.id.wind_TextView)
+    TextView windTextView;
+    @BindViews({R.id.forecast_1, R.id.forecast_2, R.id.forecast_3, R.id.forecast_4, R.id.forecast_5})
     List<ForecastView> forecastViews;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
-    @BindView(R.id.current_date) TextView currentDateTextView;
-    @BindView(R.id.current_hour) TextView currentHourTextView;
+    @BindView(R.id.current_date)
+    TextView currentDateTextView;
+    @BindView(R.id.current_hour)
+    TextView currentHourTextView;
     @BindView(R.id.content_layout)
     RelativeLayout contentLayout;
     @BindView(R.id.loading_layout)
     LinearLayout loadingLayout;
-    @BindView(R.id.error_layout) LinearLayout errorLayout;
+    @BindView(R.id.error_layout)
+    LinearLayout errorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

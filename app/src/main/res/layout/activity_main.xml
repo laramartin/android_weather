@@ -9,7 +9,9 @@
     tools:context="eu.laramartin.weather.MainActivity">
 
     <include layout="@layout/layout_content" />
+
     <include layout="@layout/layout_loading" />
+
     <include layout="@layout/layout_error" />
 
 </FrameLayout>

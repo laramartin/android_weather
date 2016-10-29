@@ -10,5 +10,6 @@ import retrofit2.Call;
 
 public interface WeatherInteractor {
     Call<ForecastResponse> getForecasts(String location);
+
     Call<CurrentWeatherResponse> getWeather(String location);
 }
