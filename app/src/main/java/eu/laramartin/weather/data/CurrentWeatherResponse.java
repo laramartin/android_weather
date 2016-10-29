@@ -15,6 +15,8 @@ public class CurrentWeatherResponse {
     Wind wind;
     @SerializedName("name")
     String city;
+    @SerializedName("dt")
+    long date;
 
     public List<Weather> getWeather() {
         return weather;
@@ -46,5 +48,13 @@ public class CurrentWeatherResponse {
 
     public void setWind(Wind wind) {
         this.wind = wind;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
     }
 }

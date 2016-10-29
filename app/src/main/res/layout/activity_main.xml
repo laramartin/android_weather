@@ -24,6 +24,16 @@
             android:textStyle="bold"
             tools:text="Berlin" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/current_date"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/current_hour"/>
+
         <LinearLayout
             android:id="@+id/current_weather_linear_layout"
             android:layout_width="match_parent"

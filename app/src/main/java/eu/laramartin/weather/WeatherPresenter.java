@@ -60,6 +60,8 @@ public class WeatherPresenter {
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
+                view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
+                view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
                 view.displayTemp((int) response.body().getMain().getTemperature());
                 view.displayDescription(response.body().getWeather().get(0).getDescription());
                 view.displayHumidity((int) response.body().getMain().getHumidity());
@@ -78,6 +80,18 @@ public class WeatherPresenter {
     private String getDayOfTheWeek(long unixTime) {
         Date date = new Date(unixTime * 1000);
         SimpleDateFormat formatter = new SimpleDateFormat("EEE");
+        return formatter.format(date);
+    }
+
+    private String getWholeDateOfCurrentWeather(long unixTime) {
+        Date date = new Date(unixTime * 1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d");
+        return formatter.format(date);
+    }
+
+    private String getHourOfCurrentWeather(long unixTime) {
+        Date date = new Date(unixTime * 1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         return formatter.format(date);
     }
 }

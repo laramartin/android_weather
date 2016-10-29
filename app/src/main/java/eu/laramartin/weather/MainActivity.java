@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     List<ForecastView> forecastViews;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
+    @BindView(R.id.current_date) TextView currentDateTextView;
+    @BindView(R.id.current_hour) TextView currentHourTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,16 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @Override
     public void displayCity(String city) {
         cityTextView.setText(city);
+    }
+
+    @Override
+    public void displayCurrentDate(String wholeDateOfCurrentWeather) {
+        currentDateTextView.setText(wholeDateOfCurrentWeather);
+    }
+
+    @Override
+    public void displayCurrentHour(String hourOfCurrentWeather) {
+        currentHourTextView.setText(hourOfCurrentWeather);
     }
 
     @Override
