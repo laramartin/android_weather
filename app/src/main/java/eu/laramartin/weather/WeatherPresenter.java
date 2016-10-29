@@ -69,7 +69,9 @@ public class WeatherPresenter {
                 view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentTemp((int) response.body().getMain().getTemperature());
-                view.displayCurrentDescription(response.body().getWeather().get(0).getDescription());
+                view.displayCurrentDescription(
+                        setFirstCharInUppercase(
+                                response.body().getWeather().get(0).getDescription()));
                 view.displayCurrentHumidity((int) response.body().getMain().getHumidity());
                 view.displayCurrentPressure((int) response.body().getMain().getPressure());
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
@@ -99,5 +101,9 @@ public class WeatherPresenter {
         Date date = new Date(unixTime * 1000);
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         return formatter.format(date);
+    }
+
+    private String setFirstCharInUppercase(String string) {
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 }
