@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void displaycity(String city) {
+    public void displayCity(String city) {
         cityTextView.setText(city);
     }
 
