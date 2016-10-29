@@ -11,6 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        def apikey = project.hasProperty('apikey') ? apikey : (System.getenv('API_KEY') ?: '""')
+        buildConfigField "String", "API_KEY", apikey
     }
     buildTypes {
         release {
