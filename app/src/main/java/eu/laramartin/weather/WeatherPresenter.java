@@ -68,12 +68,12 @@ public class WeatherPresenter {
                 }
                 view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
-                view.displayTemp((int) response.body().getMain().getTemperature());
-                view.displayDescription(response.body().getWeather().get(0).getDescription());
-                view.displayHumidity((int) response.body().getMain().getHumidity());
-                view.displayPressure((int) response.body().getMain().getPressure());
-                view.displayWind(response.body().getWind().getWindSpeed());
-                view.displayCity(response.body().getCity());
+                view.displayCurrentTemp((int) response.body().getMain().getTemperature());
+                view.displayCurrentDescription(response.body().getWeather().get(0).getDescription());
+                view.displayCurrentHumidity((int) response.body().getMain().getHumidity());
+                view.displayCurrentPressure((int) response.body().getMain().getPressure());
+                view.displayCurrentWind(response.body().getWind().getWindSpeed());
+                view.displayCurrentCity(response.body().getCity());
             }
 
             @Override

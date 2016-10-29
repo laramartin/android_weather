@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void displayCity(String city) {
+    public void displayCurrentCity(String city) {
         cityTextView.setText(city);
     }
 
@@ -78,27 +78,27 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void displayTemp(int temp) {
+    public void displayCurrentTemp(int temp) {
         temperatureTextView.setText(String.valueOf(temp));
     }
 
     @Override
-    public void displayDescription(String description) {
+    public void displayCurrentDescription(String description) {
         descriptionTextView.setText(description);
     }
 
     @Override
-    public void displayHumidity(int humidity) {
+    public void displayCurrentHumidity(int humidity) {
         humidityTextView.setText(getString(R.string.humidity, humidity));
     }
 
     @Override
-    public void displayPressure(int pressure) {
+    public void displayCurrentPressure(int pressure) {
         pressureTextView.setText(getString(R.string.pressure, pressure));
     }
 
     @Override
-    public void displayWind(double windSpeed) {
+    public void displayCurrentWind(double windSpeed) {
         windTextView.setText(getString(R.string.wind, windSpeed));
     }
 
