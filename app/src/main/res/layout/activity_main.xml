@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/softGray"
+            android:textColor="@color/softGreyForReading"
             android:textSize="32sp"
             android:textStyle="bold"
             tools:text="Berlin" />
@@ -179,7 +179,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/almostWhiteGrey"
+        app:itemBackground="@color/softGrey"
         app:menu="@menu/bottom_navigation_main" />
 
 </RelativeLayout>
