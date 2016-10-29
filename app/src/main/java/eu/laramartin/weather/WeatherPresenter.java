@@ -39,6 +39,9 @@ public class WeatherPresenter {
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
+                if (response.body() == null) {
+                    return;
+                }
                 int i = 0;
                 for (Forecast forecast : response.body().getForecasts()) {
 //                    Log.v("WeatherPresenter", forecast.toString());
@@ -60,6 +63,9 @@ public class WeatherPresenter {
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
+                if (response.body() == null) {
+                    return;
+                }
                 view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
                 view.displayTemp((int) response.body().getMain().getTemperature());
