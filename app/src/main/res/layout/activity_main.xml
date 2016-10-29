@@ -25,16 +25,16 @@
             tools:text="Berlin" />
 
         <TextView
+            android:id="@+id/current_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/current_date"
-            tools:text="Sat, Oct 29"/>
+            tools:text="Sat, Oct 29" />
 
         <TextView
+            android:id="@+id/current_hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/current_hour"
-            tools:text="16:48"/>
+            tools:text="16:48" />
 
         <LinearLayout
             android:id="@+id/current_weather_linear_layout"
@@ -93,6 +93,7 @@
                     android:layout_marginStart="8dp"
                     android:gravity="center"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:text="Mostly cloudy" />
 
                 <TextView
