@@ -1,5 +1,7 @@
 package eu.laramartin.weather.data;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -11,7 +13,8 @@ public class CurrentWeatherResponse {
     List<Weather> weather;
     Main main;
     Wind wind;
-    String name;
+    @SerializedName("name")
+    String city;
 
     public List<Weather> getWeather() {
         return weather;
@@ -29,12 +32,12 @@ public class CurrentWeatherResponse {
         this.main = main;
     }
 
-    public String getName() {
-        return name;
+    public String getCity() {
+        return city;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public Wind getWind() {

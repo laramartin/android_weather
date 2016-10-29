@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     private static final String LOG_TAG = MainActivity.class.getCanonicalName();
     WeatherPresenter presenter;
 
-    @BindView(R.id.city_TextView) TextView city;
+    @BindView(R.id.city_TextView) TextView cityTextView;
     @BindView(R.id.temperature_TextView) TextView temperatureTextView;
     @BindView(R.id.description_TextView) TextView descriptionTextView;
     @BindView(R.id.humidity_TextView) TextView humidityTextView;
@@ -58,6 +58,11 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
                         return false;
                     }
                 });
+    }
+
+    @Override
+    public void displaycity(String city) {
+        cityTextView.setText(city);
     }
 
     @Override

@@ -10,4 +10,5 @@ public interface WeatherView {
     void displayPressure(int pressure);
     void displayWind(double windSpeed);
     void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp);
+    void displaycity(String city);
 }
