@@ -5,15 +5,18 @@
         android:id="@+id/action_favorite_city"
         android:enabled="true"
         android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="Favorite"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_select_cities"
         android:enabled="true"
         android:icon="@drawable/ic_public_black_24dp"
+        android:title="Cities"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
         android:enabled="true"
         android:icon="@drawable/gruppe_7"
+        android:title="Preferences"
         app:showAsAction="ifRoom" />
 </menu>
