@@ -9,4 +9,5 @@
     <string name="bottom_nav_favorite_city">Favorite</string>
     <string name="bottom_nav_cities">Cities</string>
     <string name="bottom_nav_preferences">Preferences</string>
+    <string name="loading">Loading</string>
 </resources>

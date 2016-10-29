@@ -66,6 +66,7 @@ public class WeatherPresenter {
                 if (response.body() == null) {
                     return;
                 }
+                view.setContentVisibility(true);
                 view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentTemp((int) response.body().getMain().getTemperature());

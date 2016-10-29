@@ -13,4 +13,5 @@ public interface WeatherView {
     void displayCurrentCity(String city);
     void displayCurrentDate(String wholeDateOfCurrentWeather);
     void displayCurrentHour(String hourOfCurrentWeather);
+    void setContentVisibility(boolean b);
 }

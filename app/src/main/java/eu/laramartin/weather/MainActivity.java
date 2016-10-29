@@ -6,6 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     BottomNavigationView bottomNavigationView;
     @BindView(R.id.current_date) TextView currentDateTextView;
     @BindView(R.id.current_hour) TextView currentHourTextView;
+    @BindView(R.id.content_layout)
+    RelativeLayout contentLayout;
+    @BindView(R.id.loading_layout)
+    LinearLayout loadingLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,12 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @Override
     public void displayCurrentHour(String hourOfCurrentWeather) {
         currentHourTextView.setText(hourOfCurrentWeather);
+    }
+
+    @Override
+    public void setContentVisibility(boolean b) {
+        contentLayout.setVisibility(b ? View.VISIBLE : View.INVISIBLE);
+        loadingLayout.setVisibility(b ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override
