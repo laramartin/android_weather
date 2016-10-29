@@ -94,6 +94,6 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp) {
         ForecastView currentForecastView = forecastViews.get(i);
         currentForecastView.dayWeekTextView.setText(dayOfWeek);
-        currentForecastView.tempTextView.setText(getString(R.string.min_max_temp, minTemp, maxTemp));
+        currentForecastView.tempTextView.setText(getString(R.string.max_min_temp, minTemp, maxTemp));
     }
 }

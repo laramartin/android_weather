@@ -5,7 +5,7 @@
     <string name="humidity">Humidity %d%%</string>
     <string name="pressure">Pressure %d hPa</string>
     <string name="wind">Wind %.1f m/s</string>
-    <string name="min_max_temp">%1$d/%2$d°C</string>
+    <string name="max_min_temp">%2$d/%1$d°C</string>
     <string name="bottom_nav_favorite_city">Favorite</string>
     <string name="bottom_nav_cities">Cities</string>
     <string name="bottom_nav_preferences">Preferences</string>
