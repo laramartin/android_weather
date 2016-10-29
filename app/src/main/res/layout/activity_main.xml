@@ -168,7 +168,6 @@
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         app:itemBackground="@color/almostWhiteGrey"
-        app:itemIconTint="@color/softGray"
         app:menu="@menu/bottom_navigation_main" />
 
 </RelativeLayout>
