@@ -40,6 +40,7 @@ public class WeatherPresenter {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 if (response.body() == null) {
+                    view.setErrorVisibility(true);
                     return;
                 }
                 int i = 0;
@@ -57,6 +58,7 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<ForecastResponse> call, Throwable t) {
+                view.setErrorVisibility(true);
                 Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
@@ -64,6 +66,7 @@ public class WeatherPresenter {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 if (response.body() == null) {
+                    view.setErrorVisibility(true);
                     return;
                 }
                 view.setContentVisibility(true);
@@ -81,6 +84,7 @@ public class WeatherPresenter {
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
+                view.setErrorVisibility(true);
                 Log.e(LOG_TAG, "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });

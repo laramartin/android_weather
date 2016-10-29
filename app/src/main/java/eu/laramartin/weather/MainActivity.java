@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     RelativeLayout contentLayout;
     @BindView(R.id.loading_layout)
     LinearLayout loadingLayout;
+    @BindView(R.id.error_layout) LinearLayout errorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,15 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
 
     @Override
     public void setContentVisibility(boolean b) {
+        errorLayout.setVisibility(b ? View.INVISIBLE : View.VISIBLE);
         contentLayout.setVisibility(b ? View.VISIBLE : View.INVISIBLE);
+        loadingLayout.setVisibility(b ? View.INVISIBLE : View.VISIBLE);
+    }
+
+    @Override
+    public void setErrorVisibility(boolean b) {
+        errorLayout.setVisibility(b ? View.VISIBLE : View.INVISIBLE);
+        contentLayout.setVisibility(b ? View.INVISIBLE : View.VISIBLE);
         loadingLayout.setVisibility(b ? View.INVISIBLE : View.VISIBLE);
     }
 
