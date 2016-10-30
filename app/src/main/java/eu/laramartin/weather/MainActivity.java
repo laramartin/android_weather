@@ -3,6 +3,7 @@ package eu.laramartin.weather;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements WeatherView {
+public class MainActivity extends AppCompatActivity implements WeatherView, SwipeRefreshLayout.OnRefreshListener {
 
 
     private static final String LOG_TAG = MainActivity.class.getCanonicalName();
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     ImageView currentIcon;
     @BindView(R.id.sunrise_sunset_text_view)
     TextView sunriseSunsetTextView;
+    @BindView(R.id.swipe_container)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         presenter.bind(this);
         ButterKnife.bind(this);
         presenter.performCall("berlin");
+
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -155,5 +161,11 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     public void displayCurrentSunriseSunsetTime(String sunriseTime, String sunsetTime) {
         sunriseSunsetTextView.setText(getString(R.string.sunrise_sunset_time,
                 sunriseTime, sunsetTime));
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.performCall("berlin");
+        swipeRefreshLayout.setRefreshing(false);
     }
 }

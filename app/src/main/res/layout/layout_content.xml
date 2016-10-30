@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/almostWhiteGrey"
-    android:visibility="invisible"
-    tools:context="eu.laramartin.weather.MainActivity"
-    tools:showIn="@layout/activity_main"
-    tools:visibility="visible">
+    android:id="@+id/swipe_container">
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/almostWhiteGrey"
+        android:visibility="invisible"
+        tools:context="eu.laramartin.weather.MainActivity"
+        tools:showIn="@layout/activity_main"
+        tools:visibility="visible">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -221,3 +227,5 @@
     </LinearLayout>
 
 </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
