@@ -25,4 +25,6 @@ public interface WeatherView {
     void setContentVisibility(boolean b);
 
     void setErrorVisibility(boolean b);
+
+    void displayCurrentIcon(String icon);
 }

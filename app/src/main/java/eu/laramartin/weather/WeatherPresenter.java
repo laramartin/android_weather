@@ -76,6 +76,7 @@ public class WeatherPresenter {
                 view.displayCurrentPressure((int) response.body().getMain().getPressure());
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
                 view.displayCurrentCity(response.body().getCity());
+                view.displayCurrentIcon(response.body().getWeather().get(0).getIcon());
             }
 
             @Override

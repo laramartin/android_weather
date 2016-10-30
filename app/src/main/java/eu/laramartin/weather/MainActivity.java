@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     LinearLayout loadingLayout;
     @BindView(R.id.error_layout)
     LinearLayout errorLayout;
+    @BindView(R.id.current_icon)
+    ImageView currentIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,5 +141,10 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         ForecastView currentForecastView = forecastViews.get(i);
         currentForecastView.dayWeekTextView.setText(dayOfWeek);
         currentForecastView.tempTextView.setText(getString(R.string.max_min_temp, minTemp, maxTemp));
+    }
+
+    @Override
+    public void displayCurrentIcon(String icon) {
+        currentIcon.setImageResource(WeatherIcons.getIcon(icon));
     }
 }
