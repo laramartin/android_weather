@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     private static final String LOG_TAG = MainActivity.class.getCanonicalName();
     WeatherPresenter presenter;
 
-    @BindView(R.id.city_TextView)
+    @BindView(R.id.city_text_view)
     TextView cityTextView;
     @BindView(R.id.temperature_TextView)
     TextView temperatureTextView;
