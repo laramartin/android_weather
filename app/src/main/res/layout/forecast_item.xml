@@ -13,13 +13,15 @@
         android:id="@+id/day_week_forecast_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Tue" />
+        tools:text="Tue"
+        android:layout_marginBottom="8dp"/>
 
     <ImageView
         android:id="@+id/icon_forecast_image_view"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/cloud" />
+        android:src="@drawable/cloud"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:id="@+id/temp_forecast_text_view"
