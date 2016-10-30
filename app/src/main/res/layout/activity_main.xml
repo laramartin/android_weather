@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/almostWhiteGrey"
     tools:context="eu.laramartin.weather.MainActivity">
 
-    <include layout="@layout/layout_content" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation" />
 
-    <include layout="@layout/layout_loading" />
-
-    <include layout="@layout/layout_error" />
-
-</FrameLayout>
+    <include layout="@layout/layout_bottom_navigation"
+        android:id="@+id/bottom_navigation" />
+</RelativeLayout>
