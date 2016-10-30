@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     LinearLayout errorLayout;
     @BindView(R.id.current_icon)
     ImageView currentIcon;
+    @BindView(R.id.sunrise_sunset_text_view)
+    TextView sunriseSunsetTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,5 +149,11 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     @Override
     public void displayCurrentIcon(String icon) {
         currentIcon.setImageResource(WeatherIcons.getIcon(icon));
+    }
+
+    @Override
+    public void displayCurrentSunriseSunsetTime(String sunriseTime, String sunsetTime) {
+        sunriseSunsetTextView.setText(getString(R.string.sunrise_sunset_time,
+                sunriseTime, sunsetTime));
     }
 }
