@@ -23,10 +23,10 @@ public class CustomPagerAdapter extends PagerAdapter {
                 view = new FavoriteCityLayout(context);
                 break;
             case 1:
-                view = new FavoriteCityLayout(context);
+                view = new CitiesListLayout(context);
                 break;
             case 2:
-                view = new FavoriteCityLayout(context);
+                view = new PreferencesLayout(context);
                 break;
         }
         collection.addView(view);
