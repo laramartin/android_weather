@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
         presenter = new WeatherPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY));
         presenter.bind(this);
         ButterKnife.bind(this);
-        presenter.performCall("berlin");
+        presenter.performCall("ripollet");
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
