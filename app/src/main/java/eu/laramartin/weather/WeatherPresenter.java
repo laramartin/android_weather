@@ -68,7 +68,7 @@ public class WeatherPresenter {
                 }
                 view.setContentVisibility(true);
                 view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
-                view.displayCurrentHour(getHourOfCurrentWeather(response.body().getDate()));
+                view.displayCurrentHour(getHourFromUnixTime(response.body().getDate()));
                 view.displayCurrentTemp((int) response.body().getMain().getTemperature());
                 view.displayCurrentDescription(
                         setFirstCharInUppercase(
@@ -100,7 +100,7 @@ public class WeatherPresenter {
         return formatter.format(date);
     }
 
-    private String getHourOfCurrentWeather(long unixTime) {
+    private String getHourFromUnixTime(long unixTime) {
         Date date = new Date(unixTime * 1000);
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         return formatter.format(date);
