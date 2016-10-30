@@ -27,4 +27,6 @@ public interface WeatherView {
     void setErrorVisibility(boolean b);
 
     void displayCurrentIcon(String icon);
+
+    void displayCurrentSunriseSunsetTime(String sunriseTime, String sunsetTime);
 }

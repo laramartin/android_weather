@@ -78,6 +78,9 @@ public class WeatherPresenter {
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
                 view.displayCurrentCity(response.body().getCity());
                 view.displayCurrentIcon(response.body().getWeather().get(0).getIcon());
+                view.displayCurrentSunriseSunsetTime(
+                        getHourFromUnixTime(response.body().getWeatherSys().getSunrise()),
+                        getHourFromUnixTime(response.body().getWeatherSys().getSunset()));
             }
 
             @Override

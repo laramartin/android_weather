@@ -17,6 +17,9 @@ public class CurrentWeatherResponse {
     String city;
     @SerializedName("dt")
     long date;
+    @SerializedName("sys")
+    WeatherSys weatherSys;
+
 
     public List<Weather> getWeather() {
         return weather;
@@ -56,5 +59,13 @@ public class CurrentWeatherResponse {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    public WeatherSys getWeatherSys() {
+        return weatherSys;
+    }
+
+    public void setWeatherSys(WeatherSys weatherSys) {
+        this.weatherSys = weatherSys;
     }
 }
