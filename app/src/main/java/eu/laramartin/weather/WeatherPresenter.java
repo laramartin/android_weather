@@ -47,7 +47,8 @@ public class WeatherPresenter {
                 for (Forecast forecast : response.body().getForecasts()) {
                     view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
                             (int) forecast.getTemperature().getTempMin(),
-                            (int) forecast.getTemperature().getTempMax());
+                            (int) forecast.getTemperature().getTempMax(),
+                            WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
                     i++;
                 }
             }
@@ -77,6 +78,8 @@ public class WeatherPresenter {
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
                 view.displayCurrentCity(response.body().getCity());
                 view.displayCurrentIcon(response.body().getWeather().get(0).getIcon());
+                Log.v(LOG_TAG, "current description: " + response.body().getWeather().get(0).getDescription());
+                Log.v(LOG_TAG, "current icon id: " + response.body().getWeather().get(0).getIcon());
             }
 
             @Override

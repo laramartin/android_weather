@@ -14,7 +14,7 @@ public interface WeatherView {
 
     void displayCurrentWind(double windSpeed);
 
-    void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp);
+    void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int icon);
 
     void displayCurrentCity(String city);
 

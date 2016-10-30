@@ -137,10 +137,11 @@ public class MainActivity extends AppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp) {
+    public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int iconId) {
         ForecastView currentForecastView = forecastViews.get(i);
         currentForecastView.dayWeekTextView.setText(dayOfWeek);
         currentForecastView.tempTextView.setText(getString(R.string.max_min_temp, minTemp, maxTemp));
+        currentForecastView.iconImageView.setImageResource(iconId);
     }
 
     @Override

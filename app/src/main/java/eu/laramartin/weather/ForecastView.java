@@ -3,6 +3,7 @@ package eu.laramartin.weather;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class ForecastView extends LinearLayout {
     TextView dayWeekTextView;
     @BindView(R.id.temp_forecast_text_view)
     TextView tempTextView;
+    @BindView(R.id.icon_forecast_image_view)
+    ImageView iconImageView;
 
     public ForecastView(Context context, AttributeSet attrs) {
         super(context, attrs);
