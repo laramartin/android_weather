@@ -1,6 +1,5 @@
 package eu.laramartin.weather;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -81,13 +80,9 @@ public class MainActivity extends AppCompatActivity implements WeatherView, Swip
                                 break;
                             case R.id.action_select_cities:
                                 Log.v(LOG_TAG, "select cities");
-                                startActivity(
-                                        new Intent(MainActivity.this, CitiesListActivity.class));
                                 break;
                             case R.id.action_settings:
                                 Log.v(LOG_TAG, "settings");
-                                startActivity(
-                                        new Intent(MainActivity.this, CitiesListActivity.class));
                                 break;
                         }
                         return false;
