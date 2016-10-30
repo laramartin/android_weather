@@ -51,9 +51,11 @@
                 android:id="@+id/current_icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="4"
-                tools:src="@drawable/cloud" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="16dp"
+                tools:src="@drawable/cloud"
+                android:adjustViewBounds="true" />
 
             <LinearLayout
                 android:layout_width="0dp"
