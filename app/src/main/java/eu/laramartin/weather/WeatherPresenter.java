@@ -8,6 +8,7 @@ import java.util.Date;
 import eu.laramartin.weather.data.CurrentWeatherResponse;
 import eu.laramartin.weather.data.Forecast;
 import eu.laramartin.weather.data.ForecastResponse;
+import eu.laramartin.weather.data.TextUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -71,12 +72,14 @@ public class WeatherPresenter {
                 view.displayCurrentHour(getHourFromUnixTime(response.body().getDate()));
                 view.displayCurrentTemp((int) response.body().getMain().getTemperature());
                 view.displayCurrentDescription(
-                        setFirstCharInUppercase(
+                        TextUtils.setFirstCharInUppercase(
                                 response.body().getWeather().get(0).getDescription()));
                 view.displayCurrentHumidity((int) response.body().getMain().getHumidity());
                 view.displayCurrentPressure((int) response.body().getMain().getPressure());
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
-                view.displayCurrentCity(response.body().getCity());
+                view.displayCurrentCity(
+                        TextUtils.setFirstCharInUppercase(
+                                response.body().getCity()));
                 view.displayCurrentIcon(response.body().getWeather().get(0).getIcon());
                 view.displayCurrentSunriseSunsetTime(
                         getHourFromUnixTime(response.body().getWeatherSys().getSunrise()),
@@ -107,9 +110,5 @@ public class WeatherPresenter {
         Date date = new Date(unixTime * 1000);
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         return formatter.format(date);
-    }
-
-    private String setFirstCharInUppercase(String string) {
-        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 }
