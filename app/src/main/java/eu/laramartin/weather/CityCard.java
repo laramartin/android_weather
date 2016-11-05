@@ -1,39 +1,42 @@
 package eu.laramartin.weather;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
 /**
  * Created by Lara on 05/11/2016.
  */
 
 public class CityCard {
 
-    public ImageView cityImageView;
-    public TextView cityNameTextView;
-    public TextView tempTextView;
+    public int cityImageResourceId;
+    public String cityName;
+    public double temperature;
 
-    public ImageView getCityImageView() {
-        return cityImageView;
+    public CityCard(int resourceId, String city, int temp) {
+        this.cityImageResourceId = resourceId;
+        this.cityName = city;
+        this.temperature = temp;
     }
 
-    public void setCityImageView(ImageView cityImageView) {
-        this.cityImageView = cityImageView;
+    public int getCityImageResourceId() {
+        return cityImageResourceId;
     }
 
-    public TextView getCityNameTextView() {
-        return cityNameTextView;
+    public void setCityImageResourceId(int cityImageResourceId) {
+        this.cityImageResourceId = cityImageResourceId;
     }
 
-    public void setCityNameTextView(TextView cityNameTextView) {
-        this.cityNameTextView = cityNameTextView;
+    public String getCityName() {
+        return cityName;
     }
 
-    public TextView getTempTextView() {
-        return tempTextView;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
-    public void setTempTextView(TextView tempTextView) {
-        this.tempTextView = tempTextView;
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 }

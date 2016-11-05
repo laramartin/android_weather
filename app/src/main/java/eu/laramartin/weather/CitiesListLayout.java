@@ -41,14 +41,27 @@ public class CitiesListLayout extends FrameLayout {
 
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
-        testData.add(new CityCard());
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
+        testData.add(new CityCard(R.drawable.sample,
+                "Berlin",
+                5));
         adapter = new CitiesListAdapter(context, testData);
         recyclerView.setAdapter(adapter);
     }

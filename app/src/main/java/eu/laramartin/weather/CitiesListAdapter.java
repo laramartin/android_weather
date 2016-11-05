@@ -65,9 +65,9 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
 
         public void bind(CityCard cityCard) {
-            cityImageView.setImageResource(R.drawable.sample);
-            cityNameTextView.setText("Berlin");
-            tempTextView.setText("5°C");
+            cityImageView.setImageResource(cityCard.getCityImageResourceId());
+            cityNameTextView.setText(cityCard.getCityName());
+            tempTextView.setText(String.valueOf(cityCard.getTemperature()));
         }
     }
 }
