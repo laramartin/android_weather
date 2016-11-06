@@ -1,7 +1,9 @@
 package eu.laramartin.weather;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -69,6 +71,11 @@ public class FavoriteCityLayout extends FrameLayout implements WeatherView, Swip
 
         CitiesDbHelper dbHelper = new CitiesDbHelper(context);
         dbHelper.insertCity();
+        Cursor cursor = dbHelper.readStock();
+        while (cursor.moveToNext()) {
+            Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1) +
+                    " temp: " + cursor.getInt(2));
+        }
     }
 
     @Override

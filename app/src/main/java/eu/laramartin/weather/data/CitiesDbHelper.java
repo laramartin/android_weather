@@ -2,6 +2,7 @@ package eu.laramartin.weather.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -39,4 +40,22 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
     }
 
+    public Cursor readStock() {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] projection = {
+                CitiesContract.CitiesEntry._ID,
+                CitiesContract.CitiesEntry.COLUMN_NAME,
+                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP
+        };
+        Cursor cursor = db.query(
+                CitiesContract.CitiesEntry.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        return cursor;
+    }
 }
