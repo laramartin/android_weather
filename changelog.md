@@ -7,6 +7,11 @@
 <img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/fourth_week02.png" width="250"/>
 <img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/fourth_week03.png" width="250"/>
 
+### Desing at week 4: 
+
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/design/week_four_design.gif" width="300"/>
+
+
 # 3rd week, 24-30th Oct 2016
 - Call for only 5 days forecast
 - Bottom navigation view from android support library v25
