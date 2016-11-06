@@ -68,6 +68,7 @@ public class FavoriteCityLayout extends FrameLayout implements WeatherView, Swip
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
         CitiesDbHelper dbHelper = new CitiesDbHelper(context);
+        dbHelper.insertCity();
     }
 
     @Override

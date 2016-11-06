@@ -1,8 +1,10 @@
 package eu.laramartin.weather.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Lara on 06/11/2016.
@@ -28,5 +30,13 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
 
     }
 
+    public void insertCity() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(CitiesContract.CitiesEntry.COLUMN_NAME, "London");
+        values.put(CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP, 14);
+        long id = db.insert(CitiesContract.CitiesEntry.TABLE_NAME, null, values);
+        Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
+    }
 
 }
