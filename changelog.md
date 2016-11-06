@@ -1,6 +1,7 @@
 # 4th week, 31-6 Nov 2016
 - Extended app design with Adobe XD
-- Implemented RecyclerView for list of cities
+- Implemented RecyclerView for the list of cities
+- Created a local database with SQLiteOpenHelper
 
 # 3rd week, 24-30th Oct 2016
 - Call for only 5 days forecast
