@@ -14,6 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
+import eu.laramartin.weather.data.CitiesDbHelper;
 
 public class FavoriteCityLayout extends FrameLayout implements WeatherView, SwipeRefreshLayout.OnRefreshListener {
 
@@ -65,6 +66,8 @@ public class FavoriteCityLayout extends FrameLayout implements WeatherView, Swip
 
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
+
+        CitiesDbHelper dbHelper = new CitiesDbHelper(context);
     }
 
     @Override
