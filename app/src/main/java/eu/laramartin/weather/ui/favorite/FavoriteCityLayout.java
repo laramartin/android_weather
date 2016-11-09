@@ -1,4 +1,4 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.favorite;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -16,7 +16,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
-import eu.laramartin.weather.data.CitiesDbHelper;
+import eu.laramartin.weather.BuildConfig;
+import eu.laramartin.weather.ui.common.ForecastView;
+import eu.laramartin.weather.R;
+import eu.laramartin.weather.ui.common.WeatherIcons;
+import eu.laramartin.weather.business.WeatherInteractorImpl;
+import eu.laramartin.weather.business.db.CitiesDbHelper;
 
 public class FavoriteCityLayout extends FrameLayout implements WeatherView, SwipeRefreshLayout.OnRefreshListener {
 

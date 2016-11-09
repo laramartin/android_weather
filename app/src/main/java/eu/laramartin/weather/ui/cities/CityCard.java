@@ -1,4 +1,4 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.cities;
 
 /**
  * Created by Lara on 05/11/2016.

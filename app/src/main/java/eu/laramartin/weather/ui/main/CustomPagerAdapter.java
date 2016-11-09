@@ -1,9 +1,13 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.main;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+
+import eu.laramartin.weather.ui.cities.CitiesListLayout;
+import eu.laramartin.weather.ui.favorite.FavoriteCityLayout;
+import eu.laramartin.weather.ui.preferences.PreferencesLayout;
 
 /**
  * Created by Lara on 30/10/2016.

@@ -1,4 +1,4 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.favorite;
 
 /**
  * Created by Lara on 21/10/2016.

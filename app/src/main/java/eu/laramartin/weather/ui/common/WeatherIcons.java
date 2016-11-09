@@ -1,6 +1,8 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.common;
 
 import android.support.annotation.DrawableRes;
+
+import eu.laramartin.weather.R;
 
 /**
  * Created by Lara on 30/10/2016.

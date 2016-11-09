@@ -1,4 +1,4 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +12,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import eu.laramartin.weather.R;
 
 /**
  * Created by Lara on 05/11/2016.

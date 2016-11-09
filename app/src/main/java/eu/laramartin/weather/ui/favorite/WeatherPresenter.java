@@ -1,14 +1,16 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.favorite;
 
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import eu.laramartin.weather.data.CurrentWeatherResponse;
-import eu.laramartin.weather.data.Forecast;
-import eu.laramartin.weather.data.ForecastResponse;
-import eu.laramartin.weather.data.TextUtils;
+import eu.laramartin.weather.ui.common.WeatherIcons;
+import eu.laramartin.weather.business.WeatherInteractor;
+import eu.laramartin.weather.api.model.CurrentWeatherResponse;
+import eu.laramartin.weather.api.model.Forecast;
+import eu.laramartin.weather.api.model.ForecastResponse;
+import eu.laramartin.weather.ui.common.TextUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

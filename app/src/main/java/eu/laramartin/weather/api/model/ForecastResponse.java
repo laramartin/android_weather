@@ -1,4 +1,4 @@
-package eu.laramartin.weather.data;
+package eu.laramartin.weather.api.model;
 
 import com.google.gson.annotations.SerializedName;
 

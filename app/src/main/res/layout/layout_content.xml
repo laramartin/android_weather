@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/almostWhiteGrey"
         android:visibility="invisible"
-        tools:context="eu.laramartin.weather.FavoriteCityLayout"
+        tools:context=".ui.favorite.FavoriteCityLayout"
         tools:showIn="@layout/layout_favorite"
         tools:visibility="visible">
 
@@ -28,31 +28,31 @@
             android:layout_marginRight="16dp"
             android:orientation="horizontal">
 
-            <eu.laramartin.weather.ForecastView
+            <eu.laramartin.weather.ui.common.ForecastView
                 android:id="@+id/forecast_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <eu.laramartin.weather.ForecastView
+            <eu.laramartin.weather.ui.common.ForecastView
                 android:id="@+id/forecast_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <eu.laramartin.weather.ForecastView
+            <eu.laramartin.weather.ui.common.ForecastView
                 android:id="@+id/forecast_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <eu.laramartin.weather.ForecastView
+            <eu.laramartin.weather.ui.common.ForecastView
                 android:id="@+id/forecast_4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <eu.laramartin.weather.ForecastView
+            <eu.laramartin.weather.ui.common.ForecastView
                 android:id="@+id/forecast_5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

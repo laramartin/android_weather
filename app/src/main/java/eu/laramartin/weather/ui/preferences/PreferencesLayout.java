@@ -1,10 +1,11 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.preferences;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import butterknife.ButterKnife;
+import eu.laramartin.weather.R;
 
 /**
  * Created by Lara on 30/10/2016.

@@ -1,4 +1,4 @@
-package eu.laramartin.weather.data;
+package eu.laramartin.weather.api.model;
 
 /**
  * Created by Lara on 19/10/2016.

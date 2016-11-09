@@ -1,4 +1,4 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.ui.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.view.View;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import eu.laramartin.weather.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package eu.laramartin.weather.data;
+package eu.laramartin.weather.business.db;
 
 import android.provider.BaseColumns;
 

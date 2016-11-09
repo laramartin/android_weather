@@ -1,7 +1,7 @@
-package eu.laramartin.weather;
+package eu.laramartin.weather.business;
 
-import eu.laramartin.weather.data.CurrentWeatherResponse;
-import eu.laramartin.weather.data.ForecastResponse;
+import eu.laramartin.weather.api.model.CurrentWeatherResponse;
+import eu.laramartin.weather.api.model.ForecastResponse;
 import retrofit2.Call;
 
 /**
