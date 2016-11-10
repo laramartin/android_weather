@@ -1,5 +1,13 @@
 # Android Weather
 
+Personal project started after graduating from the Android Basics Nanodegree at Udacity.com. 
+This is a project I use to practice my android development skills with the aim to try new libraries, architechture patterns and design ideas. 
+
+To see the evolution of the app, take a look to the [CHANGELOG.md](https://github.com/laramartin/android_weather/blob/master/CHANGELOG.md). 
+
+
+## To use it
+
 - Retrieving data from OpenWeatherMap API. 
 
 - To use it is necessary to store locally an environment variable with valid API key. Set a new environment variable in your computer with variable name `API_KEY` and value `"your_api_key"`.
