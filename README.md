@@ -3,7 +3,7 @@
 Personal project started after graduating from the Android Basics Nanodegree at Udacity.com. 
 This is a project I use to practice my android development skills with the aim to try new libraries, architechture patterns and design ideas. 
 
-To see the evolution of the app, take a look to the [CHANGELOG.md](https://github.com/laramartin/android_weather/blob/master/CHANGELOG.md). 
+To see the evolution of the app, take a look to the <a href="https://github.com/laramartin/android_weather/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md</a>
 
 
 ## To use it
@@ -14,6 +14,6 @@ To see the evolution of the app, take a look to the [CHANGELOG.md](https://githu
 
 #### Thanks
 
-- Cloud image in launcher icon by <a href="http://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+- Cloud image in launcher icon by <a href="http://www.flaticon.com/authors/roundicons" target="_blank" title="Roundicons">Roundicons</a> from <a href="http://www.flaticon.com" target="_blank" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
 
-- Weather icons by <a href="http://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+- Weather icons by <a href="http://www.flaticon.com/authors/darius-dan" target="_blank" title="Darius Dan">Darius Dan</a> from <a href="http://www.flaticon.com" target="_blank" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
