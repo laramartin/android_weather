@@ -6,26 +6,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
+import eu.laramartin.weather.business.WeatherInteractorImpl;
 
 /**
  * Created by Lara on 30/10/2016.
  */
 
-public class CitiesListLayout extends FrameLayout {
+public class CitiesListLayout extends FrameLayout implements CitiesListView {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private CitiesListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    CityCardPresenter presenter;
 
     private static final String LOG_TAG = CitiesListLayout.class.getCanonicalName();
-    private List<CityCard> testData = new ArrayList<>();
 
     public CitiesListLayout(Context context) {
         super(context);
@@ -42,28 +41,15 @@ public class CitiesListLayout extends FrameLayout {
 
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        testData.add(new CityCard(R.drawable.sample,
-                "Berlin",
-                5));
-        adapter = new CitiesListAdapter(context, testData);
+        adapter = new CitiesListAdapter(context);
         recyclerView.setAdapter(adapter);
+        presenter = new CityCardPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY));
+        presenter.bind(this);
+        presenter.loadData();
+    }
+
+    @Override
+    public void addCityCard(CityCard cityCard) {
+        adapter.add(cityCard);
     }
 }

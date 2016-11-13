@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,14 +24,13 @@ import eu.laramartin.weather.ui.common.ForecastView;
 
 public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.ViewHolder> {
 
-    private List<CityCard> cityCards;
+    private List<CityCard> cityCards = new ArrayList<>();
 
 
     private Context context;
 
 
-    public CitiesListAdapter(Context context, List<CityCard> cityCards) {
-        this.cityCards = cityCards;
+    public CitiesListAdapter(Context context) {
         this.context = context;
     }
 
@@ -54,6 +54,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     @Override
     public int getItemCount() {
         return cityCards.size();
+    }
+
+    public void add(CityCard cityCard) {
+        cityCards.add(cityCard);
+        notifyItemInserted(cityCards.size() - 1);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -83,6 +88,9 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 currentForecastView.setEnabled(false);
             }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
+
+
+
         }
 
         public void bind(CityCard cityCard) {
