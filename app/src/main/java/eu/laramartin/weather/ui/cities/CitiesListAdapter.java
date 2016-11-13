@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ import eu.laramartin.weather.ui.common.ForecastView;
 public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.ViewHolder> {
 
     private List<CityCard> cityCards;
+
+
     private Context context;
 
 
@@ -69,65 +72,72 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         @BindView(R.id.arrow_up_cities_row)
         ImageView arrowUpImageView;
 
-        private boolean isViewExpanded = false;
+        @Nullable
+        private CityCard cityCard;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
-            if (!isViewExpanded) {
-                for (int i = 0; i < forecastViews.size(); i++) {
-                    ForecastView currentForecastView = forecastViews.get(i);
-                    currentForecastView.setVisibility(View.GONE);
-                    currentForecastView.setEnabled(false);
-                }
-                arrowUpImageView.setVisibility(View.GONE);
-                arrowUpImageView.setEnabled(false);
-                arrowDownImageView.setVisibility(View.VISIBLE);
-                arrowDownImageView.setEnabled(true);
-                isViewExpanded = true;
-                ViewGroup.LayoutParams params = itemView.getLayoutParams();
-                params.height = 300;
-                itemView.setLayoutParams(params);
+            for (int i = 0; i < forecastViews.size(); i++) {
+                ForecastView currentForecastView = forecastViews.get(i);
+                currentForecastView.setVisibility(View.GONE);
+                currentForecastView.setEnabled(false);
             }
+            arrowUpImageView.setVisibility(View.GONE);
+            arrowUpImageView.setEnabled(false);
+            arrowDownImageView.setVisibility(View.VISIBLE);
+            arrowDownImageView.setEnabled(true);
         }
 
         public void bind(CityCard cityCard) {
+            this.cityCard = cityCard;
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
+            showOrHideForecast();
+        }
+
+        private void showOrHideForecast() {
+            if (cityCard != null) {
+                if (cityCard.getIsExpanded()) {
+                    showForecast();
+                } else {
+                    hideForecast();
+                }
+            }
         }
 
         @Override
         public void onClick(final View view) {
-            if (!isViewExpanded) {
-                for (int i = 0; i < forecastViews.size(); i++) {
-                    ForecastView currentForecastView = forecastViews.get(i);
-                    currentForecastView.setVisibility(View.GONE);
-                    currentForecastView.setEnabled(false);
-                }
-                arrowUpImageView.setVisibility(View.GONE);
-                arrowUpImageView.setEnabled(false);
-                arrowDownImageView.setVisibility(View.VISIBLE);
-                arrowDownImageView.setEnabled(true);
-                isViewExpanded = true;ViewGroup.LayoutParams params = view.getLayoutParams();
-                params.height = 300;
-                view.setLayoutParams(params);
-            } else {
-                ViewGroup.LayoutParams params = view.getLayoutParams();
-                params.height = 850;
-                view.setLayoutParams(params);
-                for (int i = 0; i < forecastViews.size(); i++) {
-                    ForecastView currentForecastView = forecastViews.get(i);
-                    currentForecastView.setVisibility(View.VISIBLE);
-                    currentForecastView.setEnabled(true);
-                }
-                arrowUpImageView.setVisibility(View.VISIBLE);
-                arrowUpImageView.setEnabled(true);
-                arrowDownImageView.setVisibility(View.GONE);
-                arrowDownImageView.setEnabled(false);
-                isViewExpanded = false;
+            if (cityCard != null) {
+                cityCard.setExpanded(!cityCard.getIsExpanded());
+                showOrHideForecast();
             }
+        }
+
+        private void showForecast() {
+            for (int i = 0; i < forecastViews.size(); i++) {
+                ForecastView currentForecastView = forecastViews.get(i);
+                currentForecastView.setVisibility(View.VISIBLE);
+                currentForecastView.setEnabled(true);
+            }
+            arrowUpImageView.setVisibility(View.VISIBLE);
+            arrowUpImageView.setEnabled(true);
+            arrowDownImageView.setVisibility(View.GONE);
+            arrowDownImageView.setEnabled(false);
+        }
+
+        private void hideForecast() {
+            for (int i = 0; i < forecastViews.size(); i++) {
+                ForecastView currentForecastView = forecastViews.get(i);
+                currentForecastView.setVisibility(View.GONE);
+                currentForecastView.setEnabled(false);
+            }
+            arrowUpImageView.setVisibility(View.GONE);
+            arrowUpImageView.setEnabled(false);
+            arrowDownImageView.setVisibility(View.VISIBLE);
+            arrowDownImageView.setEnabled(true);
         }
     }
 }

@@ -9,6 +9,7 @@ public class CityCard {
     public int cityImageResourceId;
     public String cityName;
     public double temperature;
+    private boolean isExpanded;
 
 
     public CityCard(int resourceId, String city, int temp) {
@@ -39,5 +40,17 @@ public class CityCard {
 
     public void setTemperature(double temperature) {
         this.temperature = temperature;
+    }
+
+    public boolean getIsExpanded() {
+        return isExpanded;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean isExpanded) {
+        this.isExpanded = isExpanded;
     }
 }
