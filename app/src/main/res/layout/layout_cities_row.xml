@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="250dp"
     android:layout_gravity="center"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
@@ -11,40 +11,105 @@
     android:layout_marginBottom="4dp"
     card_view:cardCornerRadius="4dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp">
-
-        <ImageView
-            android:id="@+id/image_card_view"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/sample" />
-
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:orientation="vertical">
+            android:layout_height="100dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:id="@+id/image_city_temp_cities_row">
 
-            <TextView
-                android:id="@+id/city_name_card_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Berlin"
-                android:textSize="24sp" />
+            <ImageView
+                android:id="@+id/image_cities_row"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/sample" />
 
-            <TextView
-                android:id="@+id/temperature_card_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="12°C" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/city_name_cities_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Berlin"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/temperature_cities_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="12°C" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:id="@+id/arrow_down_cities_row"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_expand_less_black_24dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/arrow_up_cities_row"/>
+
+        <LinearLayout
+            android:id="@+id/forecast_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/image_city_temp_cities_row"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <eu.laramartin.weather.ui.common.ForecastView
+                android:id="@+id/forecast_1_cities_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <eu.laramartin.weather.ui.common.ForecastView
+                android:id="@+id/forecast_2_cities_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <eu.laramartin.weather.ui.common.ForecastView
+                android:id="@+id/forecast_3_cities_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <eu.laramartin.weather.ui.common.ForecastView
+                android:id="@+id/forecast_4_cities_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <eu.laramartin.weather.ui.common.ForecastView
+                android:id="@+id/forecast_5_cities_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

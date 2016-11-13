@@ -10,6 +10,7 @@ public class CityCard {
     public String cityName;
     public double temperature;
 
+
     public CityCard(int resourceId, String city, int temp) {
         this.cityImageResourceId = resourceId;
         this.cityName = city;
