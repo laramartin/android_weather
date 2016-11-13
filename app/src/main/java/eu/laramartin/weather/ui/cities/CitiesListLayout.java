@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,6 +21,8 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
     private CitiesListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     CityCardPresenter presenter;
@@ -34,6 +37,13 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     private void init(Context context) {
         View view = inflate(context, R.layout.layout_cities_list, this);
         ButterKnife.bind(this, view);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
