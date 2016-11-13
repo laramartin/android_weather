@@ -1,11 +1,9 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -44,13 +42,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CitiesDbHelper dbHelper = new CitiesDbHelper(getContext());
-                dbHelper.insertCity();
-                Cursor cursor = dbHelper.readCities();
-                while (cursor.moveToNext()) {
-                    Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1) +
-                            " temp: " + cursor.getInt(2));
-                }
+                presenter.addCity();
             }
         });
 
@@ -63,7 +55,8 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new CitiesListAdapter(context);
         recyclerView.setAdapter(adapter);
-        presenter = new CityCardPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY));
+        presenter = new CityCardPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY),
+                new CitiesDbHelper(context));
         presenter.bind(this);
         presenter.loadData();
     }

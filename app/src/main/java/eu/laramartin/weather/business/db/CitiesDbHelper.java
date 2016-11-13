@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import eu.laramartin.weather.ui.cities.CityCard;
+
 /**
  * Created by Lara on 06/11/2016.
  */
@@ -31,10 +33,10 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         // TODO define onUpgrade method of DbHelper
     }
 
-    public void insertCity() {
+    public void insertCity(CityCard cityCard) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(CitiesContract.CitiesEntry.COLUMN_NAME, "London");
+        values.put(CitiesContract.CitiesEntry.COLUMN_NAME, cityCard.getCityName());
         long id = db.insert(CitiesContract.CitiesEntry.TABLE_NAME, null, values);
         Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
     }
@@ -50,6 +52,27 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
                 projection,
                 null,
                 null,
+                null,
+                null,
+                null
+        );
+        return cursor;
+    }
+
+    public Cursor readCity(long itemId) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] projection = {
+                CitiesContract.CitiesEntry._ID,
+                CitiesContract.CitiesEntry.COLUMN_NAME
+        };
+        String selection = CitiesContract.CitiesEntry._ID + "=?";
+        String[] selectionArgs = new String[] { String.valueOf(itemId) };
+
+        Cursor cursor = db.query(
+                CitiesContract.CitiesEntry.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
                 null,
                 null,
                 null

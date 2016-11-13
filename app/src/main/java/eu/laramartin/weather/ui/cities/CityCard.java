@@ -8,14 +8,13 @@ public class CityCard {
 
     public int cityImageResourceId;
     public String cityName;
-    public int temperature;
+//    public int temperature;
     private boolean isExpanded;
 
 
-    public CityCard(int resourceId, String city, int temp) {
+    public CityCard(int resourceId, String city) {
         this.cityImageResourceId = resourceId;
         this.cityName = city;
-        this.temperature = temp;
     }
 
     public int getCityImageResourceId() {
@@ -34,13 +33,13 @@ public class CityCard {
         this.cityName = cityName;
     }
 
-    public int getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
-    }
+//    public int getTemperature() {
+//        return temperature;
+//    }
+//
+//    public void setTemperature(int temperature) {
+//        this.temperature = temperature;
+//    }
 
     public boolean getIsExpanded() {
         return isExpanded;

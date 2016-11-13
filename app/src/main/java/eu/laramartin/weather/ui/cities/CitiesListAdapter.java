@@ -97,7 +97,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             this.cityCard = cityCard;
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
-            tempTextView.setText(String.valueOf(cityCard.getTemperature()));
+//            tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             showOrHideForecast();
         }
 
