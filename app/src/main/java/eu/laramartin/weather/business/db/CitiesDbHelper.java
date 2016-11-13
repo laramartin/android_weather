@@ -35,7 +35,6 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(CitiesContract.CitiesEntry.COLUMN_NAME, "London");
-        values.put(CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP, 14);
         long id = db.insert(CitiesContract.CitiesEntry.TABLE_NAME, null, values);
         Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
     }
@@ -44,8 +43,7 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {
                 CitiesContract.CitiesEntry._ID,
-                CitiesContract.CitiesEntry.COLUMN_NAME,
-                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP
+                CitiesContract.CitiesEntry.COLUMN_NAME
         };
         Cursor cursor = db.query(
                 CitiesContract.CitiesEntry.TABLE_NAME,

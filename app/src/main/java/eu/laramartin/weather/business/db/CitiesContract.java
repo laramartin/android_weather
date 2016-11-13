@@ -17,12 +17,13 @@ public class CitiesContract {
 
         public static final String _ID = BaseColumns._ID;
         public static final String COLUMN_NAME = "name";
-        public static final String COLUMN_CURRENT_TEMP = "current_temp";
+//        public static final String COLUMN_CURRENT_TEMP = "current_temp";
 
         public static final String CREATE_TABLE_STOCK = "CREATE TABLE " +
                 CitiesContract.CitiesEntry.TABLE_NAME + "(" +
                 CitiesContract.CitiesEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                CitiesContract.CitiesEntry.COLUMN_NAME + " TEXT NOT NULL," +
-                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP + " INTEGER NOT NULL" + ");";
+                CitiesContract.CitiesEntry.COLUMN_NAME + " TEXT NOT NULL" +
+//                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP + " INTEGER NOT NULL"
+                ");";
     }
 }
