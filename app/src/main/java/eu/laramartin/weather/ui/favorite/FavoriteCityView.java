@@ -3,7 +3,7 @@ package eu.laramartin.weather.ui.favorite;
 /**
  * Created by Lara on 21/10/2016.
  */
-public interface WeatherView {
+public interface FavoriteCityView {
     void displayCurrentTemp(int temperature);
 
     void displayCurrentDescription(String description);

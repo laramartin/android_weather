@@ -23,10 +23,10 @@ import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
 
-public class FavoriteCityLayout extends FrameLayout implements WeatherView, SwipeRefreshLayout.OnRefreshListener {
+public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String LOG_TAG = FavoriteCityLayout.class.getCanonicalName();
-    WeatherPresenter presenter;
+    FavoriteCityPresenter presenter;
 
     @BindView(R.id.city_text_view)
     TextView cityTextView;
@@ -67,7 +67,7 @@ public class FavoriteCityLayout extends FrameLayout implements WeatherView, Swip
     private void init(Context context) {
         View view = inflate(context, R.layout.layout_favorite, this);
         ButterKnife.bind(this, view);
-        presenter = new WeatherPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY));
+        presenter = new FavoriteCityPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY));
         presenter.bind(this);
         presenter.performCall("berlin");
 

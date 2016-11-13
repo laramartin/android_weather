@@ -19,17 +19,17 @@ import retrofit2.Response;
  * Created by Lara on 21/10/2016.
  */
 
-public class WeatherPresenter {
+public class FavoriteCityPresenter {
 
-    private final static String LOG_TAG = WeatherPresenter.class.getCanonicalName();
+    private final static String LOG_TAG = FavoriteCityPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
-    WeatherView view;
+    FavoriteCityView view;
 
-    public WeatherPresenter(WeatherInteractor interactor) {
+    public FavoriteCityPresenter(WeatherInteractor interactor) {
         this.interactor = interactor;
     }
 
-    public void bind(WeatherView view) {
+    public void bind(FavoriteCityView view) {
         this.view = view;
     }
 
