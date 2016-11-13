@@ -64,5 +64,6 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     @Override
     public void addCityCard(CityCard cityCard) {
         adapter.add(cityCard);
+        layoutManager.scrollToPosition(adapter.getItemCount() - 1);
     }
 }
