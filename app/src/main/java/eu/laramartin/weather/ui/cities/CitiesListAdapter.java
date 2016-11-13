@@ -86,6 +86,9 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 arrowDownImageView.setVisibility(View.VISIBLE);
                 arrowDownImageView.setEnabled(true);
                 isViewExpanded = true;
+                ViewGroup.LayoutParams params = itemView.getLayoutParams();
+                params.height = 300;
+                itemView.setLayoutParams(params);
             }
         }
 
@@ -107,8 +110,13 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 arrowUpImageView.setEnabled(false);
                 arrowDownImageView.setVisibility(View.VISIBLE);
                 arrowDownImageView.setEnabled(true);
-                isViewExpanded = true;
+                isViewExpanded = true;ViewGroup.LayoutParams params = view.getLayoutParams();
+                params.height = 300;
+                view.setLayoutParams(params);
             } else {
+                ViewGroup.LayoutParams params = view.getLayoutParams();
+                params.height = 850;
+                view.setLayoutParams(params);
                 for (int i = 0; i < forecastViews.size(); i++) {
                     ForecastView currentForecastView = forecastViews.get(i);
                     currentForecastView.setVisibility(View.VISIBLE);
