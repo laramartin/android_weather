@@ -1,9 +1,7 @@
 package eu.laramartin.weather.ui.favorite;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -17,11 +15,10 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import eu.laramartin.weather.BuildConfig;
-import eu.laramartin.weather.ui.common.ForecastView;
 import eu.laramartin.weather.R;
-import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
-import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.common.ForecastView;
+import eu.laramartin.weather.ui.common.WeatherIcons;
 
 public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView, SwipeRefreshLayout.OnRefreshListener {
 
@@ -73,14 +70,6 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
 
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
-
-        CitiesDbHelper dbHelper = new CitiesDbHelper(context);
-        dbHelper.insertCity();
-        Cursor cursor = dbHelper.readStock();
-        while (cursor.moveToNext()) {
-            Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1) +
-                    " temp: " + cursor.getInt(2));
-        }
     }
 
     @Override

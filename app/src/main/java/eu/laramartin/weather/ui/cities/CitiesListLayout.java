@@ -1,9 +1,11 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -12,6 +14,7 @@ import butterknife.ButterKnife;
 import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
+import eu.laramartin.weather.business.db.CitiesDbHelper;
 
 /**
  * Created by Lara on 30/10/2016.
@@ -41,9 +44,16 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                CitiesDbHelper dbHelper = new CitiesDbHelper(getContext());
+                dbHelper.insertCity();
+                Cursor cursor = dbHelper.readCities();
+                while (cursor.moveToNext()) {
+                    Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1) +
+                            " temp: " + cursor.getInt(2));
+                }
             }
         });
+
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
