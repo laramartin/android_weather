@@ -40,7 +40,7 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
     }
 
-    public Cursor readStock() {
+    public Cursor readCities() {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {
                 CitiesContract.CitiesEntry._ID,
