@@ -67,10 +67,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         @BindViews({R.id.forecast_1_cities_row, R.id.forecast_2_cities_row,
                 R.id.forecast_3_cities_row, R.id.forecast_4_cities_row, R.id.forecast_5_cities_row})
         List<ForecastView> forecastViews;
-        @BindView(R.id.arrow_down_cities_row)
-        ImageView arrowDownImageView;
-        @BindView(R.id.arrow_up_cities_row)
-        ImageView arrowUpImageView;
+        @BindView(R.id.arrow_expand_collapse_cities_row)
+        ImageView arrowExpandCollapseImageView;
 
         @Nullable
         private CityCard cityCard;
@@ -84,10 +82,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 currentForecastView.setVisibility(View.GONE);
                 currentForecastView.setEnabled(false);
             }
-            arrowUpImageView.setVisibility(View.GONE);
-            arrowUpImageView.setEnabled(false);
-            arrowDownImageView.setVisibility(View.VISIBLE);
-            arrowDownImageView.setEnabled(true);
+            arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
 
         public void bind(CityCard cityCard) {
@@ -122,10 +117,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 currentForecastView.setVisibility(View.VISIBLE);
                 currentForecastView.setEnabled(true);
             }
-            arrowUpImageView.setVisibility(View.VISIBLE);
-            arrowUpImageView.setEnabled(true);
-            arrowDownImageView.setVisibility(View.GONE);
-            arrowDownImageView.setEnabled(false);
+            arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_less_black_24dp);
         }
 
         private void hideForecast() {
@@ -134,10 +126,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 currentForecastView.setVisibility(View.GONE);
                 currentForecastView.setEnabled(false);
             }
-            arrowUpImageView.setVisibility(View.GONE);
-            arrowUpImageView.setEnabled(false);
-            arrowDownImageView.setVisibility(View.VISIBLE);
-            arrowDownImageView.setEnabled(true);
+            arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
     }
 }
