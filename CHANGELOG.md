@@ -1,3 +1,12 @@
+# 5th week, 7-13th Nov 2016
+- Reorganized code in packages
+- Made cities list items expandable/collapsable 
+- Added floating action button in cities list that adds a new city card to the list for testing purposes
+
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_5_01.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_5_02.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_5_03.png" width="250"/>
+
 # 4th week, 31-6 Nov 2016
 - Extended app design with Adobe XD
 - Implemented RecyclerView for the list of cities
