@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +28,10 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     private CitiesListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     CityCardPresenter presenter;
+    @BindView(R.id.city_name_cities_row)
+    TextView cityNameTextView;
+    @BindView(R.id.temperature_cities_row)
+    TextView tempTextView;
 
     private static final String LOG_TAG = CitiesListLayout.class.getCanonicalName();
 
@@ -65,5 +70,14 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     public void addCityCard(CityCard cityCard) {
         adapter.add(cityCard);
         layoutManager.scrollToPosition(adapter.getItemCount() - 1);
+    }
+
+    @Override
+    public void displayCurrentTemp(int temperature) {
+        tempTextView.setText(String.valueOf(temperature));
+    }
+
+    public void displayCurrentCityName(String city) {
+        cityNameTextView.setText(city);
     }
 }
