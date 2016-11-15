@@ -46,8 +46,7 @@
                     android:id="@+id/temperature_cities_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="12°C" />
+                    android:layout_marginTop="8dp" />
 
             </LinearLayout>
 
