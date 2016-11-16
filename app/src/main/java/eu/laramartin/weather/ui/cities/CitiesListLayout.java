@@ -27,7 +27,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     FloatingActionButton fab;
     private CitiesListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    CityCardPresenter presenter;
+    CitiesListPresenter presenter;
     @BindView(R.id.city_name_cities_row)
     TextView cityNameTextView;
     @BindView(R.id.temperature_cities_row)
@@ -60,7 +60,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new CitiesListAdapter(context);
         recyclerView.setAdapter(adapter);
-        presenter = new CityCardPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY),
+        presenter = new CitiesListPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY),
                 new CitiesDbHelper(context));
         presenter.bind(this);
         presenter.loadData();

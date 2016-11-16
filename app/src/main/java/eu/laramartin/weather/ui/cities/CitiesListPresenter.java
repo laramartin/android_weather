@@ -18,15 +18,15 @@ import retrofit2.Response;
  * Created by Lara on 13/11/2016.
  */
 
-public class CityCardPresenter {
+public class CitiesListPresenter {
 
-    private final static String LOG_TAG = CityCardPresenter.class.getCanonicalName();
+    private final static String LOG_TAG = CitiesListPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
     @Nullable
     CitiesListView view;
     private CitiesDbHelper dbHelper;
 
-    public CityCardPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper) {
+    public CitiesListPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper) {
         this.interactor = interactor;
         this.dbHelper = dbHelper;
     }
