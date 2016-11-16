@@ -52,6 +52,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     }
 
     @Override
+    public long getItemId(int position) {
+        return cityCards.get(position).getId();
+    }
+
+    @Override
     public int getItemCount() {
         return cityCards.size();
     }
@@ -59,6 +64,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     public void add(CityCard cityCard) {
         cityCards.add(cityCard);
         notifyItemInserted(cityCards.size() - 1);
+    }
+
+    public void replace(CityCard cityCard) {
+        // TODO
+        // notifyItemChanged(position);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

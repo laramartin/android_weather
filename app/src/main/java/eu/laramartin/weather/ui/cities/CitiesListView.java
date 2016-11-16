@@ -8,4 +8,5 @@ public interface CitiesListView {
 
     void addCityCard(CityCard cityCard);
 
+    void updateItem(CityCard cityCard);
 }

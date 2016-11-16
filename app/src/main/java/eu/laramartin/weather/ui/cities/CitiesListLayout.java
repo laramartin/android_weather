@@ -67,6 +67,11 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         layoutManager.scrollToPosition(adapter.getItemCount() - 1);
     }
 
+    @Override
+    public void updateItem(CityCard cityCard) {
+        adapter.replace(cityCard);
+    }
+
 
 //    tempTextView.setText(String.valueOf(temperature));
 //    cityNameTextView.setText(city);

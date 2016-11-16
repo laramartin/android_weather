@@ -7,15 +7,21 @@ package eu.laramartin.weather.ui.cities;
 public class CityCard {
 
     public int cityImageResourceId;
+    private int id;
     public String cityName;
     public int temperature;
     private boolean isExpanded;
 
 
-    public CityCard(int resourceId, String city, int temperature) {
+    public CityCard(int resourceId, int id, String city, int temperature) {
         this.cityImageResourceId = resourceId;
+        this.id = id;
         this.cityName = city;
         this.temperature = temperature;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getCityImageResourceId() {

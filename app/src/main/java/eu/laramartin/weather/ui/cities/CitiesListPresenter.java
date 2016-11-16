@@ -40,14 +40,20 @@ public class CitiesListPresenter {
             while (cursor.moveToNext()) {
                 Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1));
                 view.addCityCard(new CityCard(R.drawable.sample,
+                        cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
                         0));
+
+                view.updateItem(new CityCard(R.drawable.sample,
+                        cursor.getInt(0),
+                        cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
+                        1));
             }
         }
     }
 
     public void addCity() {
-        CityCard newCityCard = new CityCard(R.drawable.sample, "london", 0);
+        CityCard newCityCard = new CityCard(R.drawable.sample, 0, "london", 0);
         dbHelper.insertCity(newCityCard);
         view.addCityCard(newCityCard);
         Cursor cursor = dbHelper.readCities();
