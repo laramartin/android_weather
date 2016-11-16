@@ -8,7 +8,4 @@ public interface CitiesListView {
 
     void addCityCard(CityCard cityCard);
 
-    void displayCurrentTemp(int temperature);
-
-    void displayCurrentCityName(String city);
 }

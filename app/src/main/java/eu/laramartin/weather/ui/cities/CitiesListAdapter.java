@@ -75,6 +75,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         @BindView(R.id.arrow_expand_collapse_cities_row)
         ImageView arrowExpandCollapseImageView;
 
+
         @Nullable
         private CityCard cityCard;
 
