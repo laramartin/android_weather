@@ -43,7 +43,7 @@ public class CitiesListPresenter {
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
                         0));
-
+                
                 view.updateItem(new CityCard(R.drawable.sample,
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),

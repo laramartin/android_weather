@@ -68,7 +68,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
 
     public void replace(CityCard cityCard) {
         // TODO
-        // notifyItemChanged(position);
+        for (int i = 0; i < cityCards.size(); i++) {
+            if (cityCard.getId() == cityCards.get(i).getId()) {
+                cityCards.get(i).temperature = cityCard.temperature;
+                notifyItemChanged(i);
+            }
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -108,7 +113,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             this.cityCard = cityCard;
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
-//            tempTextView.setText(String.valueOf(cityCard.getTemperature()));
+            tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             showOrHideForecast();
         }
 
