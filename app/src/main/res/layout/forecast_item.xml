@@ -19,7 +19,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/cloud" />
+        tools:src="@drawable/cloud" />
 
     <TextView
         android:id="@+id/temp_forecast_text_view"
