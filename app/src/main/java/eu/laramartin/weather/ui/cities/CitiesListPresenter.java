@@ -5,9 +5,13 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import eu.laramartin.weather.R;
+import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.business.db.CitiesContract;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Lara on 13/11/2016.
@@ -43,13 +47,44 @@ public class CitiesListPresenter {
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
                         0));
-                
+
                 view.updateItem(new CityCard(R.drawable.sample,
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
                         1));
+
+                int id = cursor.getInt(0);
+                String location = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
+                performCall(view, id, location);
             }
         }
+    }
+
+    public void performCall(final CitiesListView view, final int id, final String location) {
+        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(location);
+        callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
+
+            @Override
+            public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
+                if (response.body() == null) {
+                    Log.e(LOG_TAG, "error in ForecastResponse: body is null");
+                    return;
+                }
+                int temperature = (int) response.body().getMain().getTemperature();
+
+                view.updateItem(new CityCard(
+                        R.drawable.sample,
+                        id,
+                        location,
+                        temperature
+                ));
+            }
+
+            @Override
+            public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
+                Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
+            }
+        });
     }
 
     public void addCity() {
