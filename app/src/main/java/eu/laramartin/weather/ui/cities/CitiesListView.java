@@ -9,4 +9,6 @@ public interface CitiesListView {
     void addCityCard(CityCard cityCard);
 
     void updateItem(CityCard cityCard);
+
+    void displayForecast(int id, String dayOfTheWeek, int tempMin, int tempMax, int icon);
 }

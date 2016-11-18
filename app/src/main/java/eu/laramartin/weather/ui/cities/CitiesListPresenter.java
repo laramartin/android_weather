@@ -6,12 +6,17 @@ import android.util.Log;
 
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
+import eu.laramartin.weather.api.model.Forecast;
+import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.business.db.CitiesContract;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.common.WeatherIcons;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static eu.laramartin.weather.ui.common.DateUtils.getDayOfTheWeek;
 
 /**
  * Created by Lara on 13/11/2016.
@@ -58,7 +63,6 @@ public class CitiesListPresenter {
     public void performCall(final CitiesListView view, final int id, final String location) {
         Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(location);
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
-
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 if (response.body() == null) {
@@ -77,6 +81,29 @@ public class CitiesListPresenter {
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
+                Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
+            }
+        });
+
+        Call<ForecastResponse> callForecast = interactor.getForecasts(location);
+        callForecast.enqueue(new Callback<ForecastResponse>() {
+            @Override
+            public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
+                if (response.body() == null) {
+                    return;
+                }
+                int i = 0;
+                for (Forecast forecast : response.body().getForecasts()) {
+                    view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
+                            (int) forecast.getTemperature().getTempMin(),
+                            (int) forecast.getTemperature().getTempMax(),
+                            WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+                    i++;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ForecastResponse> call, Throwable t) {
                 Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });

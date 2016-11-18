@@ -72,6 +72,11 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         adapter.replace(cityCard);
     }
 
+    @Override
+    public void displayForecast(int id, String dayOfTheWeek, int tempMin, int tempMax, int icon) {
+        // TODO
+    }
+
 
 //    tempTextView.setText(String.valueOf(temperature));
 //    cityNameTextView.setText(city);
