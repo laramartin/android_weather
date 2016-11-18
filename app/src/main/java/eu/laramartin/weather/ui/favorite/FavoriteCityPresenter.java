@@ -2,18 +2,18 @@ package eu.laramartin.weather.ui.favorite;
 
 import android.util.Log;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import eu.laramartin.weather.ui.common.WeatherIcons;
-import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
 import eu.laramartin.weather.api.model.ForecastResponse;
+import eu.laramartin.weather.business.WeatherInteractor;
+import eu.laramartin.weather.ui.common.DateUtils;
 import eu.laramartin.weather.ui.common.TextUtils;
+import eu.laramartin.weather.ui.common.WeatherIcons;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static eu.laramartin.weather.ui.common.DateUtils.getHourFromUnixTime;
 
 /**
  * Created by Lara on 21/10/2016.
@@ -48,7 +48,7 @@ public class FavoriteCityPresenter {
                 }
                 int i = 0;
                 for (Forecast forecast : response.body().getForecasts()) {
-                    view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
+                    view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
                             (int) forecast.getTemperature().getTempMin(),
                             (int) forecast.getTemperature().getTempMax(),
                             WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
@@ -70,7 +70,7 @@ public class FavoriteCityPresenter {
                     return;
                 }
                 view.setContentVisibility(true);
-                view.displayCurrentDate(getWholeDateOfCurrentWeather(response.body().getDate()));
+                view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.body().getDate()));
                 view.displayCurrentHour(getHourFromUnixTime(response.body().getDate()));
                 view.displayCurrentTemp((int) response.body().getMain().getTemperature());
                 view.displayCurrentDescription(
@@ -96,21 +96,21 @@ public class FavoriteCityPresenter {
         });
     }
 
-    private String getDayOfTheWeek(long unixTime) {
-        Date date = new Date(unixTime * 1000);
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE");
-        return formatter.format(date);
-    }
+//    private String getDayOfTheWeek(long unixTime) {
+//        Date date = new Date(unixTime * 1000);
+//        SimpleDateFormat formatter = new SimpleDateFormat("EEE");
+//        return formatter.format(date);
+//    }
 
-    private String getWholeDateOfCurrentWeather(long unixTime) {
-        Date date = new Date(unixTime * 1000);
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d");
-        return formatter.format(date);
-    }
+//    private String getWholeDateOfCurrentWeather(long unixTime) {
+//        Date date = new Date(unixTime * 1000);
+//        SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d");
+//        return formatter.format(date);
+//    }
 
-    private String getHourFromUnixTime(long unixTime) {
-        Date date = new Date(unixTime * 1000);
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-        return formatter.format(date);
-    }
+//    private String getHourFromUnixTime(long unixTime) {
+//        Date date = new Date(unixTime * 1000);
+//        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+//        return formatter.format(date);
+//    }
 }
