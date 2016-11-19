@@ -42,8 +42,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.addCity();
-                presenter.showInputCityDialog(context);
+                AddCityDialog.showInputCityDialog(context, presenter);
             }
         });
 
