@@ -1,3 +1,8 @@
+# 6th week, 14-20th Nov 2016
+- Display current temperature in cities list items
+- Display forecast in cities list items
+- Implement dialog to input a desired city
+
 # 5th week, 7-13th Nov 2016
 - Reorganized code in packages
 - Made cities list items expandable/collapsable 
