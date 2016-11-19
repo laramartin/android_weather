@@ -1,8 +1,12 @@
 package eu.laramartin.weather.ui.cities;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,6 +132,22 @@ public class CitiesListPresenter {
         while (cursor.moveToNext()) {
             Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1));
         }
+    }
 
+    public void showInputCityDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        builder.setView(inflater.inflate(R.layout.layout_dialog_add_city, null));
+//        builder.setPositiveButton(R.string.cancel, discardButtonClickListener);
+        builder.setNegativeButton(R.string.accept, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // TODO
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

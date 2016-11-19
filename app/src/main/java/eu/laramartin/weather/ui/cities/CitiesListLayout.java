@@ -35,7 +35,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         init(context);
     }
 
-    private void init(Context context) {
+    private void init(final Context context) {
         View view = inflate(context, R.layout.layout_cities_list, this);
         ButterKnife.bind(this, view);
 
@@ -43,6 +43,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
             @Override
             public void onClick(View view) {
                 presenter.addCity();
+                presenter.showInputCityDialog(context);
             }
         });
 
