@@ -7,10 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
@@ -36,6 +38,8 @@ public class CitiesListPresenter {
     @Nullable
     CitiesListView view;
     private CitiesDbHelper dbHelper;
+    @BindView(R.id.input_edit_text_add_city)
+    EditText inputEditText;
 
     public CitiesListPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper) {
         this.interactor = interactor;
@@ -110,8 +114,6 @@ public class CitiesListPresenter {
                     forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
                     forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
                     list.add(forecastCardItem);
-
-                    Log.v("citiesListPresenter", list.toString());
                 }
                 forecastCard.setList(list);
                 view.displayForecast(id, forecastCard);
@@ -138,10 +140,11 @@ public class CitiesListPresenter {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         builder.setView(inflater.inflate(R.layout.layout_dialog_add_city, null));
-//        builder.setPositiveButton(R.string.cancel, discardButtonClickListener);
-        builder.setNegativeButton(R.string.accept, new DialogInterface.OnClickListener() {
+        // TODO add cancel action
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // TODO
+                // TODO add accept action
                 if (dialog != null) {
                     dialog.dismiss();
                 }
