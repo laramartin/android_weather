@@ -140,14 +140,19 @@ public class CitiesListPresenter {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         builder.setView(inflater.inflate(R.layout.layout_dialog_add_city, null));
-        // TODO add cancel action
-        builder.setNegativeButton(R.string.cancel, null);
-        builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // TODO add accept action
                 if (dialog != null) {
                     dialog.dismiss();
                 }
+            }
+        });
+        builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // TODO add accept action
+//                if (dialog != null) {
+//                    dialog.dismiss();
+//                }
             }
         });
         AlertDialog alertDialog = builder.create();
