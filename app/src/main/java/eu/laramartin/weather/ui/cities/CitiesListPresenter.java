@@ -7,12 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
+import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
@@ -38,8 +39,6 @@ public class CitiesListPresenter {
     @Nullable
     CitiesListView view;
     private CitiesDbHelper dbHelper;
-    @BindView(R.id.input_edit_text_add_city)
-    EditText inputEditText;
 
     public CitiesListPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper) {
         this.interactor = interactor;
@@ -136,10 +135,12 @@ public class CitiesListPresenter {
         }
     }
 
-    public void showInputCityDialog(Context context) {
+    public void showInputCityDialog(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
-        builder.setView(inflater.inflate(R.layout.layout_dialog_add_city, null));
+        View view = inflater.inflate(R.layout.layout_dialog_add_city, null);
+        final EditText editText = ButterKnife.findById(view, R.id.input_edit_text_add_city);
+        builder.setView(view);
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 if (dialog != null) {
@@ -150,9 +151,13 @@ public class CitiesListPresenter {
         builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // TODO add accept action
-//                if (dialog != null) {
+
+//                if (inputEditText.getText() == null) {
+//                    Log.v("CitiesListPresenter", "you accepted without writing input");
 //                    dialog.dismiss();
 //                }
+                String inputCity = editText.getText().toString().trim();
+                Log.v("CitiesListPresenter", "inputCity: " + inputCity);
             }
         });
         AlertDialog alertDialog = builder.create();
