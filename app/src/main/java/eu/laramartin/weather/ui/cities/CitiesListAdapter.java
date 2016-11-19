@@ -98,6 +98,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         List<ForecastView> forecastViews;
         @BindView(R.id.arrow_expand_collapse_cities_row)
         ImageView arrowExpandCollapseImageView;
+        // TODO hide or show forecast layout instead of forecast views
+//        @BindView(R.id.forecast_layout)
 
 
         @Nullable
@@ -125,7 +127,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             if (cityCard.getForecastCard() != null) {
                 List<ForecastCard.ForecastCardItem> forecastCardList = cityCard.getForecastCard().getList();
                 for (int i = 0; i < forecastCardList.size(); i++) {
-                    // TODO
                     forecastViews.get(i).dayWeekTextView.setText(forecastCardList.get(i).getDayOfTheWeek());
                     forecastViews.get(i).tempTextView.setText(context.getString(R.string.max_min_temp,
                             forecastCardList.get(i).getTempMin(), forecastCardList.get(i).getTempMax()));
