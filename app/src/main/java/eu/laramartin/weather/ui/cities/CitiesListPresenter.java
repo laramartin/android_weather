@@ -4,6 +4,9 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
@@ -92,14 +95,22 @@ public class CitiesListPresenter {
                 if (response.body() == null) {
                     return;
                 }
-                int i = 0;
+//                int forecastIndex = 0;
+                ForecastCard forecastCard = new ForecastCard();
+                List<ForecastCard.ForecastCardItem> list = new ArrayList<ForecastCard.ForecastCardItem>();
                 for (Forecast forecast : response.body().getForecasts()) {
-                    view.displayForecast(i, getDayOfTheWeek(forecast.getDate()),
-                            (int) forecast.getTemperature().getTempMin(),
-                            (int) forecast.getTemperature().getTempMax(),
-                            WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
-                    i++;
+                    ForecastCard.ForecastCardItem forecastCardItem = new ForecastCard.ForecastCardItem();
+
+                    forecastCardItem.setDayOfTheWeek(getDayOfTheWeek(forecast.getDate()));
+                    forecastCardItem.setTempMin((int) forecast.getTemperature().getTempMin());
+                    forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
+                    forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+                    list.add(forecastCardItem);
+
+                    Log.v("citiesListPresenter", list.toString());
                 }
+                forecastCard.setList(list);
+                view.displayForecast(id, forecastCard);
             }
 
             @Override

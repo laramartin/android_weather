@@ -73,8 +73,9 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
     }
 
     @Override
-    public void displayForecast(int id, String dayOfTheWeek, int tempMin, int tempMax, int icon) {
+    public void displayForecast(int id, ForecastCard forecastCard) {
         // TODO
+        adapter.addForecast(id, forecastCard);
     }
 
 

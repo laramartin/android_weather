@@ -67,7 +67,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     }
 
     public void replace(CityCard cityCard) {
-        // TODO
         for (int i = 0; i < cityCards.size(); i++) {
             if (cityCard.getId() == cityCards.get(i).getId()) {
                 cityCards.get(i).temperature = cityCard.temperature;
@@ -76,7 +75,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public void addForecast(int id, ForecastCard forecastCard) {
+        for (int i = 0; i < cityCards.size(); i++) {
+            if (cityCards.get(i).getId() == id) {
+                CityCard currentCityCard = cityCards.get(i);
+                currentCityCard.setForecastCard(forecastCard);
+                notifyItemChanged(i);
+            }
+        }
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.image_cities_row)
         ImageView cityImageView;
@@ -104,9 +113,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 currentForecastView.setEnabled(false);
             }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
-
-
-
         }
 
         public void bind(CityCard cityCard) {
@@ -115,6 +121,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             showOrHideForecast();
+
+            if (cityCard.getForecastCard() != null) {
+                List<ForecastCard.ForecastCardItem> forecastCardList = cityCard.getForecastCard().getList();
+                for (int i = 0; i < forecastCardList.size(); i++) {
+                    // TODO
+                    forecastViews.get(i).dayWeekTextView.setText(forecastCardList.get(i).getDayOfTheWeek());
+                    forecastViews.get(i).tempTextView.setText(context.getString(R.string.max_min_temp,
+                            forecastCardList.get(i).getTempMin(), forecastCardList.get(i).getTempMax()));
+                    forecastViews.get(i).iconImageView.setImageResource(forecastCardList.get(i).getIcon());
+                }
+            }
         }
 
         private void showOrHideForecast() {

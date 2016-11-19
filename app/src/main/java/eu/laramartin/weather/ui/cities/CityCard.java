@@ -11,6 +11,7 @@ public class CityCard {
     public String cityName;
     public int temperature;
     private boolean isExpanded;
+    private ForecastCard forecastCard;
 
 
     public CityCard(int resourceId, int id, String city, int temperature) {
@@ -58,5 +59,13 @@ public class CityCard {
 
     public void setExpanded(boolean isExpanded) {
         this.isExpanded = isExpanded;
+    }
+
+    public ForecastCard getForecastCard() {
+        return forecastCard;
+    }
+
+    public void setForecastCard(ForecastCard forecastCard) {
+        this.forecastCard = forecastCard;
     }
 }

@@ -10,5 +10,5 @@ public interface CitiesListView {
 
     void updateItem(CityCard cityCard);
 
-    void displayForecast(int id, String dayOfTheWeek, int tempMin, int tempMax, int icon);
+    void displayForecast(int id, ForecastCard forecastCard);
 }
