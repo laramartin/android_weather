@@ -77,11 +77,4 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         // TODO
         adapter.addForecast(id, forecastCard);
     }
-
-
-//    tempTextView.setText(String.valueOf(temperature));
-//    cityNameTextView.setText(city);
-
-
-
 }

@@ -55,7 +55,6 @@ public class CitiesListPresenter {
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
                         0));
-
                 int id = cursor.getInt(0);
                 String location = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
                 performCall(view, id, location);
@@ -95,9 +94,8 @@ public class CitiesListPresenter {
                 if (response.body() == null) {
                     return;
                 }
-//                int forecastIndex = 0;
                 ForecastCard forecastCard = new ForecastCard();
-                List<ForecastCard.ForecastCardItem> list = new ArrayList<ForecastCard.ForecastCardItem>();
+                List<ForecastCard.ForecastCardItem> list = new ArrayList<>();
                 for (Forecast forecast : response.body().getForecasts()) {
                     ForecastCard.ForecastCardItem forecastCardItem = new ForecastCard.ForecastCardItem();
 
