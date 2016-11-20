@@ -43,4 +43,30 @@ public class AddCityDialog {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    public static void showCityNotFoundDialog(Context context, final CitiesListPresenter presenter,
+                                              String inputCity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.layout_dialog_add_city, null);
+        builder.setMessage(context.getString(R.string.city_not_found_message, inputCity));
+        final EditText editText = ButterKnife.findById(view, R.id.input_edit_text_add_city);
+        builder.setView(view);
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                String inputCity = editText.getText().toString().trim();
+                Log.v("CitiesListPresenter", "inputCity: " + inputCity);
+                presenter.addCityIfExists(inputCity);
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

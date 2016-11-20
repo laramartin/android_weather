@@ -80,7 +80,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
 
     @Override
     public void displayCityNotFound(String inputCity) {
-
+        AddCityDialog.showCityNotFoundDialog(getContext(), presenter, inputCity);
     }
 
     @Override
