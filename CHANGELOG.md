@@ -1,7 +1,13 @@
 # 6th week, 14-20th Nov 2016
-- Display current temperature in cities list items
-- Display forecast in cities list items
 - Implement dialog to input a desired city
+- Add city to cities list
+- Display current temperature in cities list items from server
+- Display forecast in cities list items from server
+- Implement dialogs for errors from server, connection or invalid input
+
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_6_01.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_6_02.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_6_03.png" width="250"/>
 
 # 5th week, 7-13th Nov 2016
 - Reorganized code in packages
