@@ -77,4 +77,19 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
         // TODO
         adapter.addForecast(id, forecastCard);
     }
+
+    @Override
+    public void displayCityNotFound(String inputCity) {
+
+    }
+
+    @Override
+    public void displayErrorServer() {
+
+    }
+
+    @Override
+    public void clear() {
+
+    }
 }
