@@ -116,14 +116,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
-
             forecastLayout.setVisibility(View.GONE);
             forecastLayout.setEnabled(false);
-//            for (int i = 0; i < forecastViews.size(); i++) {
-//                ForecastView currentForecastView = forecastViews.get(i);
-//                currentForecastView.setVisibility(View.GONE);
-//                currentForecastView.setEnabled(false);
-//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
 
@@ -166,24 +160,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         private void showForecast() {
             forecastLayout.setVisibility(View.VISIBLE);
             forecastLayout.setEnabled(true);
-//
-//            for (int i = 0; i < forecastViews.size(); i++) {
-//                ForecastView currentForecastView = forecastViews.get(i);
-//                currentForecastView.setVisibility(View.VISIBLE);
-//                currentForecastView.setEnabled(true);
-//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_less_black_24dp);
         }
 
         private void hideForecast() {
             forecastLayout.setVisibility(View.GONE);
             forecastLayout.setEnabled(false);
-
-//            for (int i = 0; i < forecastViews.size(); i++) {
-//                ForecastView currentForecastView = forecastViews.get(i);
-//                currentForecastView.setVisibility(View.GONE);
-//                currentForecastView.setEnabled(false);
-//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
     }
