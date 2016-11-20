@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -104,7 +105,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         @BindView(R.id.arrow_expand_collapse_cities_row)
         ImageView arrowExpandCollapseImageView;
         // TODO hide or show forecast layout instead of forecast views
-//        @BindView(R.id.forecast_layout)
+        @BindView(R.id.forecast_layout)
+        LinearLayout forecastLayout;
 
 
         @Nullable
@@ -114,11 +116,14 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
-            for (int i = 0; i < forecastViews.size(); i++) {
-                ForecastView currentForecastView = forecastViews.get(i);
-                currentForecastView.setVisibility(View.GONE);
-                currentForecastView.setEnabled(false);
-            }
+
+            forecastLayout.setVisibility(View.GONE);
+            forecastLayout.setEnabled(false);
+//            for (int i = 0; i < forecastViews.size(); i++) {
+//                ForecastView currentForecastView = forecastViews.get(i);
+//                currentForecastView.setVisibility(View.GONE);
+//                currentForecastView.setEnabled(false);
+//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
 
@@ -159,20 +164,26 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
 
         private void showForecast() {
-            for (int i = 0; i < forecastViews.size(); i++) {
-                ForecastView currentForecastView = forecastViews.get(i);
-                currentForecastView.setVisibility(View.VISIBLE);
-                currentForecastView.setEnabled(true);
-            }
+            forecastLayout.setVisibility(View.VISIBLE);
+            forecastLayout.setEnabled(true);
+//
+//            for (int i = 0; i < forecastViews.size(); i++) {
+//                ForecastView currentForecastView = forecastViews.get(i);
+//                currentForecastView.setVisibility(View.VISIBLE);
+//                currentForecastView.setEnabled(true);
+//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_less_black_24dp);
         }
 
         private void hideForecast() {
-            for (int i = 0; i < forecastViews.size(); i++) {
-                ForecastView currentForecastView = forecastViews.get(i);
-                currentForecastView.setVisibility(View.GONE);
-                currentForecastView.setEnabled(false);
-            }
+            forecastLayout.setVisibility(View.GONE);
+            forecastLayout.setEnabled(false);
+
+//            for (int i = 0; i < forecastViews.size(); i++) {
+//                ForecastView currentForecastView = forecastViews.get(i);
+//                currentForecastView.setVisibility(View.GONE);
+//                currentForecastView.setEnabled(false);
+//            }
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
     }
