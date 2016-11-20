@@ -85,7 +85,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
 
     @Override
     public void displayErrorServer() {
-
+        AddCityDialog.showErrorServerDialog(getContext());
     }
 
     @Override

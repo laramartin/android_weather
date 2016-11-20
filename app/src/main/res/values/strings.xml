@@ -15,4 +15,6 @@
     <string name="cancel">Cancel</string>
     <string name="accept">Accept</string>
     <string name="city_not_found_message">The city %1$s couldn\'t be found! </string>
+    <string name="ok">Ok</string>
+    <string name="error_server_message">There was an error in your connection or from server. Try again later :(</string>
 </resources>
