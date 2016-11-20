@@ -93,8 +93,10 @@ public class CitiesListPresenter {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 if (response.body() == null) {
-                    int errorCode = response.code();
-                    Log.v(LOG_TAG, "error code: " + errorCode);
+                    Log.v(LOG_TAG, "error code: " + response.code());
+                    if (response.code() == 502) {
+                        // TODO show message in dialog with invalid input
+                    }
                     return;
                 }
                 ForecastCard forecastCard = new ForecastCard();
@@ -122,14 +124,37 @@ public class CitiesListPresenter {
         });
     }
 
-    public void addCity(String inputCity) {
-        // TODO look in DB if inputCity exists
-        CityCard newCityCard = new CityCard(R.drawable.sample, 0, inputCity, 0);
-        dbHelper.insertCity(newCityCard);
-        view.addCityCard(newCityCard);
-        Cursor cursor = dbHelper.readCities();
-        while (cursor.moveToNext()) {
-            Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1));
+    public void addCityIfExists(final String inputCity) {
+        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(inputCity);
+        callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
+            @Override
+            public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
+                if (response.body() == null) {
+                    Log.v(LOG_TAG, "error code: " + response.code());
+                    if (response.code() == 502) {
+                        if (view != null) {
+                            view.displayCityNotFound(inputCity);
+                        }
+                    }
+                    return;
+                }
+                storeCity(inputCity);
+            }
+
+            @Override
+            public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
+                if (view != null) {
+                    view.displayErrorServer();
+                }
+            }
+        });
+    }
+
+    private void storeCity(String inputCity) {
+        dbHelper.insertCity(inputCity);
+        if (view != null) {
+            view.clear();
         }
+        loadData();
     }
 }

@@ -11,4 +11,10 @@ public interface CitiesListView {
     void updateItem(CityCard cityCard);
 
     void displayForecast(int id, ForecastCard forecastCard);
+
+    void displayCityNotFound(String inputCity);
+
+    void displayErrorServer();
+
+    void clear();
 }

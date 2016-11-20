@@ -36,7 +36,8 @@ public class AddCityDialog {
                 String inputCity = editText.getText().toString().trim();
                 Log.v("CitiesListPresenter", "inputCity: " + inputCity);
 
-                presenter.addCity(inputCity);
+
+                presenter.addCityIfExists(inputCity);
             }
         });
         AlertDialog alertDialog = builder.create();
