@@ -85,6 +85,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
     }
 
+    public void clear() {
+        cityCards.clear();
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.image_cities_row)

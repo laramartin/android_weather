@@ -90,6 +90,8 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView {
 
     @Override
     public void clear() {
-
+//        recyclerView.removeAllViews();
+//        adapter.notifyDataSetChanged();
+        adapter.clear();
     }
 }
