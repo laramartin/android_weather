@@ -53,7 +53,7 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     ImageView currentIcon;
     @BindView(R.id.sunrise_sunset_text_view)
     TextView sunriseSunsetTextView;
-    @BindView(R.id.swipe_container)
+    @BindView(R.id.swipe_container_favourite)
     SwipeRefreshLayout swipeRefreshLayout;
 
     public FavoriteCityLayout(Context context) {
