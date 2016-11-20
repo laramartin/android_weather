@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
@@ -70,7 +71,7 @@ public class CitiesListPresenter {
                     Log.e(LOG_TAG, "error in ForecastResponse: body is null");
                     return;
                 }
-                String temperature = String.valueOf(response.body().getMain().getTemperature());
+                String temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
                 view.updateItem(new CityCard(
                         R.drawable.sample,
                         id,

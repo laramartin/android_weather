@@ -9,7 +9,7 @@ public class CityCard {
     private int cityImageResourceId;
     private int id;
     private String cityName;
-    private String temperature;
+    private String temperature = "";
     private boolean isExpanded;
     private ForecastCard forecastCard;
 
