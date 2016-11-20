@@ -79,11 +79,12 @@ public class CitiesListPresenter {
                         location,
                         temperature
                 ));
+                Log.v(LOG_TAG, "current weather city: " + response.body().getCity());
             }
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
-                Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
+                Log.e(LOG_TAG, "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
 
@@ -92,6 +93,8 @@ public class CitiesListPresenter {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 if (response.body() == null) {
+                    int errorCode = response.code();
+                    Log.v(LOG_TAG, "error code: " + errorCode);
                     return;
                 }
                 ForecastCard forecastCard = new ForecastCard();
@@ -104,6 +107,9 @@ public class CitiesListPresenter {
                     forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
                     forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
                     list.add(forecastCardItem);
+                    Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
+                    Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
+                    Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
                 }
                 forecastCard.setList(list);
                 view.displayForecast(id, forecastCard);
