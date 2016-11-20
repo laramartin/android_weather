@@ -25,7 +25,7 @@ import eu.laramartin.weather.ui.common.ForecastView;
 
 public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.ViewHolder> {
 
-    private List<CityCard> cityCards = new ArrayList<>();
+    private ArrayList<CityCard> cityCards = new ArrayList<>();
 
 
     private Context context;
@@ -70,7 +70,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     public void replace(CityCard cityCard) {
         for (int i = 0; i < cityCards.size(); i++) {
             if (cityCard.getId() == cityCards.get(i).getId()) {
-                cityCards.get(i).temperature = cityCard.temperature;
+                cityCards.set(i, cityCard);
                 notifyItemChanged(i);
             }
         }

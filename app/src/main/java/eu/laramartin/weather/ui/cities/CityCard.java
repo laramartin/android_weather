@@ -6,19 +6,25 @@ package eu.laramartin.weather.ui.cities;
 
 public class CityCard {
 
-    public int cityImageResourceId;
+    private int cityImageResourceId;
     private int id;
-    public String cityName;
-    public int temperature;
+    private String cityName;
+    private String temperature;
     private boolean isExpanded;
     private ForecastCard forecastCard;
 
 
-    public CityCard(int resourceId, int id, String city, int temperature) {
+    public CityCard(int resourceId, int id, String city, String temperature) {
         this.cityImageResourceId = resourceId;
         this.id = id;
         this.cityName = city;
         this.temperature = temperature;
+    }
+
+    public CityCard(int cityImageResourceId, int id, String cityName) {
+        this.cityImageResourceId = cityImageResourceId;
+        this.id = id;
+        this.cityName = cityName;
     }
 
     public int getId() {
@@ -41,11 +47,11 @@ public class CityCard {
         this.cityName = cityName;
     }
 
-    public int getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
 

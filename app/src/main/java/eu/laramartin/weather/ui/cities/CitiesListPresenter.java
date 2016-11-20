@@ -53,8 +53,7 @@ public class CitiesListPresenter {
                 Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1));
                 view.addCityCard(new CityCard(R.drawable.sample,
                         cursor.getInt(0),
-                        cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME)),
-                        0));
+                        cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME))));
                 int id = cursor.getInt(0);
                 String location = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
                 performCall(view, id, location);
@@ -71,8 +70,7 @@ public class CitiesListPresenter {
                     Log.e(LOG_TAG, "error in ForecastResponse: body is null");
                     return;
                 }
-                int temperature = (int) response.body().getMain().getTemperature();
-
+                String temperature = String.valueOf(response.body().getMain().getTemperature());
                 view.updateItem(new CityCard(
                         R.drawable.sample,
                         id,
@@ -131,14 +129,18 @@ public class CitiesListPresenter {
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 if (response.body() == null) {
                     Log.v(LOG_TAG, "error code: " + response.code());
-                    if (response.code() == 502) {
-                        if (view != null) {
-                            view.displayCityNotFound(inputCity);
-                        }
+                    if (view != null) {
+                        view.displayCityNotFound(inputCity);
                     }
                     return;
                 }
-                storeCity(inputCity);
+                if (response.body().getCity().equalsIgnoreCase(inputCity)) {
+                    storeCity(inputCity);
+                } else {
+                    if (view != null) {
+                        view.displayCityNotFound(inputCity);
+                    }
+                }
             }
 
             @Override
