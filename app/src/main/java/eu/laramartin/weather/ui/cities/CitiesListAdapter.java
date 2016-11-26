@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.ui.common.ForecastView;
+
+import static android.content.Context.VIBRATOR_SERVICE;
 
 /**
  * Created by Lara on 05/11/2016.
@@ -173,6 +176,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         @Override
         public boolean onLongClick(View view) {
             Dialogs.showDeleteCityConfirmationDialog(context);
+            ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
             return true;
         }
     }
