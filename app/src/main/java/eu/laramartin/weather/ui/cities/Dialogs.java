@@ -15,7 +15,7 @@ import eu.laramartin.weather.R;
  * Created by Lara on 19/11/2016.
  */
 
-public class AddCityDialog {
+public class Dialogs {
 
     public static void showInputCityDialog(Context context, final CitiesListPresenter presenter) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -71,6 +71,25 @@ public class AddCityDialog {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(R.string.error_server_message);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (dialog != null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public static void showDeleteCityConfirmationDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(R.string.delete_city_message);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // TODO
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 if (dialog != null) {
                     dialog.dismiss();

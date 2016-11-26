@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -173,7 +172,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
 
         @Override
         public boolean onLongClick(View view) {
-            Toast.makeText(context, "long press", Toast.LENGTH_SHORT).show();
+            Dialogs.showDeleteCityConfirmationDialog(context);
             return true;
         }
     }

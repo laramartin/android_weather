@@ -45,7 +45,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddCityDialog.showInputCityDialog(context, presenter);
+                Dialogs.showInputCityDialog(context, presenter);
             }
         });
 
@@ -86,12 +86,12 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
 
     @Override
     public void displayCityNotFound(String inputCity) {
-        AddCityDialog.showCityNotFoundDialog(getContext(), presenter, inputCity);
+        Dialogs.showCityNotFoundDialog(getContext(), presenter, inputCity);
     }
 
     @Override
     public void displayErrorServer() {
-        AddCityDialog.showErrorServerDialog(getContext());
+        Dialogs.showErrorServerDialog(getContext());
     }
 
     @Override
