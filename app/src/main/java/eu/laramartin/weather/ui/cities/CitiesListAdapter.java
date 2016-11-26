@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +92,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         @BindView(R.id.image_cities_row)
         ImageView cityImageView;
@@ -116,6 +117,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             forecastLayout.setVisibility(View.GONE);
             forecastLayout.setEnabled(false);
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
@@ -167,6 +169,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             forecastLayout.setVisibility(View.GONE);
             forecastLayout.setEnabled(false);
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            Toast.makeText(context, "long press", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
 }
