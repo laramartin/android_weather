@@ -162,7 +162,14 @@ public class CitiesListPresenter {
     }
 
     public void deleteItem(int itemId) {
-        // TODO: 26/11/2016
-        Log.v(LOG_TAG, "delete");
+        if (dbHelper.delete(itemId) == 1) {
+            Log.v(LOG_TAG, "deleted");
+        } else {
+            Log.e(LOG_TAG, "Error deleting");
+        }
+        if (view != null) {
+            view.clear();
+        }
+        loadData();
     }
 }

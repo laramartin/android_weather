@@ -80,4 +80,12 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         );
         return cursor;
     }
+
+    public int delete(int itemId) {
+        SQLiteDatabase database = getWritableDatabase();
+        String selection = CitiesContract.CitiesEntry._ID + "=?";
+        String[] selectionArgs = { String.valueOf(itemId) };
+        return database.delete(
+                CitiesContract.CitiesEntry.TABLE_NAME, selection, selectionArgs);
+    }
 }
