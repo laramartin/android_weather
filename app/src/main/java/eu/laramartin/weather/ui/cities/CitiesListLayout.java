@@ -56,10 +56,10 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
 
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new CitiesListAdapter(context);
-        recyclerView.setAdapter(adapter);
         presenter = new CitiesListPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY),
                 new CitiesDbHelper(context));
+        adapter = new CitiesListAdapter(context, presenter);
+        recyclerView.setAdapter(adapter);
         presenter.bind(this);
         presenter.loadData();
 

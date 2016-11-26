@@ -160,4 +160,9 @@ public class CitiesListPresenter {
         }
         loadData();
     }
+
+    public void deleteItem(int itemId) {
+        // TODO: 26/11/2016
+        Log.v(LOG_TAG, "delete");
+    }
 }

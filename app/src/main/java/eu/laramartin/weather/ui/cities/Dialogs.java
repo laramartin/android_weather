@@ -81,12 +81,12 @@ public class Dialogs {
         alertDialog.show();
     }
 
-    public static void showDeleteCityConfirmationDialog(Context context) {
+    public static void showDeleteCityConfirmationDialog(Context context, final int itemId, final CitiesListPresenter presenter) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(R.string.delete_city_message);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // TODO
+                presenter.deleteItem(itemId);
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {

@@ -32,10 +32,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
 
 
     private Context context;
+    private CitiesListPresenter presenter;
 
 
-    public CitiesListAdapter(Context context) {
+    public CitiesListAdapter(Context context, CitiesListPresenter presenter) {
         this.context = context;
+        this.presenter = presenter;
     }
 
     private Context getContext() {
@@ -175,9 +177,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
 
         @Override
         public boolean onLongClick(View view) {
-            Dialogs.showDeleteCityConfirmationDialog(context);
-            ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
-            return true;
+            if (cityCard != null) {
+                Dialogs.showDeleteCityConfirmationDialog(context, cityCard.getId(), presenter);
+                ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
+                return true;
+            }
+            return false;
         }
     }
 }
