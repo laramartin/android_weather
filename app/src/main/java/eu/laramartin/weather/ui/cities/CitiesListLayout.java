@@ -5,8 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import com.eyeem.recyclerviewtools.adapter.WrapAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,6 +63,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
                 new CitiesDbHelper(context));
         adapter = new CitiesListAdapter(context, presenter);
         recyclerView.setAdapter(adapter);
+        createFooter(adapter);
         presenter.bind(this);
         presenter.loadData();
 
@@ -104,5 +108,12 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
         adapter.clear();
         presenter.loadData();
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    public void createFooter(CitiesListAdapter adapter) {
+        WrapAdapter wrapAdapter = new WrapAdapter(adapter);
+        recyclerView.setAdapter(wrapAdapter);
+        wrapAdapter.addFooter(LayoutInflater.from(getContext()).inflate(
+                R.layout.footer, recyclerView, false));
     }
 }
