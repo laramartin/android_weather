@@ -1,3 +1,6 @@
+# 7th week, 21-27th Nov 2016
+- Remove a city from the list
+
 # 6th week, 14-20th Nov 2016
 - Implement dialog to input a desired city
 - Add city to cities list
