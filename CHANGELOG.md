@@ -3,6 +3,10 @@
 - Long press a list item triggers vibration and allows to remove city
 - Footer in cities list
 
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_7_01.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_7_02.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_7_03.png" width="250"/>
+
 # 6th week, 14-20th Nov 2016
 - Implement dialog to input a desired city
 - Add city to cities list
