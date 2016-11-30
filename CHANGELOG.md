@@ -1,5 +1,7 @@
 # 7th week, 21-27th Nov 2016
 - Remove a city from the list
+- Long press a list item triggers vibration and allows to remove city
+- Footer in cities list
 
 # 6th week, 14-20th Nov 2016
 - Implement dialog to input a desired city
