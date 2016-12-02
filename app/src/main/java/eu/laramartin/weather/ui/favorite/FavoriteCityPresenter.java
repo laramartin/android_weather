@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.favorite;
 
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
@@ -55,27 +56,8 @@ public class FavoriteCityPresenter {
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
-                if (response.body() == null) {
-                    view.setErrorVisibility(true);
-                    return;
-                }
-                view.setContentVisibility(true);
-                view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.body().getDate()));
-                view.displayCurrentHour(getHourFromUnixTime(response.body().getDate()));
-                view.displayCurrentTemp((int) response.body().getMain().getTemperature());
-                view.displayCurrentDescription(
-                        TextUtils.setFirstCharInUppercase(
-                                response.body().getWeather().get(0).getDescription()));
-                view.displayCurrentHumidity((int) response.body().getMain().getHumidity());
-                view.displayCurrentPressure((int) response.body().getMain().getPressure());
                 view.displayCurrentWind(response.body().getWind().getWindSpeed());
-                view.displayCurrentCity(
-                        TextUtils.setFirstCharInUppercase(
-                                response.body().getCity()));
-                view.displayCurrentIcon(response.body().getWeather().get(0).getIcon());
-                view.displayCurrentSunriseSunsetTime(
-                        getHourFromUnixTime(response.body().getWeatherSys().getSunrise()),
-                        getHourFromUnixTime(response.body().getWeatherSys().getSunset()));
+                displayCurrentWeather(response.body());
             }
 
             @Override
@@ -86,6 +68,32 @@ public class FavoriteCityPresenter {
         });
     }
 
+    @VisibleForTesting
+    void displayCurrentWeather(CurrentWeatherResponse response) {
+        if (response == null) {
+            view.setErrorVisibility(true);
+            return;
+        }
+        view.setContentVisibility(true);
+        view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.getDate()));
+        view.displayCurrentHour(getHourFromUnixTime(response.getDate()));
+        view.displayCurrentTemp((int) response.getMain().getTemperature());
+        view.displayCurrentDescription(
+                TextUtils.setFirstCharInUppercase(
+                        response.getWeather().get(0).getDescription()));
+        view.displayCurrentHumidity((int) response.getMain().getHumidity());
+        view.displayCurrentPressure((int) response.getMain().getPressure());
+        view.displayCurrentWind(response.getWind().getWindSpeed());
+        view.displayCurrentCity(
+                TextUtils.setFirstCharInUppercase(
+                        response.getCity()));
+        view.displayCurrentIcon(response.getWeather().get(0).getIcon());
+        view.displayCurrentSunriseSunsetTime(
+                getHourFromUnixTime(response.getWeatherSys().getSunrise()),
+                getHourFromUnixTime(response.getWeatherSys().getSunset()));
+    }
+
+    @VisibleForTesting
     void displayForecast(@Nullable ForecastResponse response) {
         if (response == null) {
             view.setErrorVisibility(true);
