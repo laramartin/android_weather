@@ -95,22 +95,4 @@ public class FavoriteCityPresenter {
             }
         });
     }
-
-//    private String getDayOfTheWeek(long unixTime) {
-//        Date date = new Date(unixTime * 1000);
-//        SimpleDateFormat formatter = new SimpleDateFormat("EEE");
-//        return formatter.format(date);
-//    }
-
-//    private String getWholeDateOfCurrentWeather(long unixTime) {
-//        Date date = new Date(unixTime * 1000);
-//        SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d");
-//        return formatter.format(date);
-//    }
-
-//    private String getHourFromUnixTime(long unixTime) {
-//        Date date = new Date(unixTime * 1000);
-//        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
-//        return formatter.format(date);
-//    }
 }
