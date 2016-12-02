@@ -56,7 +56,6 @@ public class FavoriteCityPresenter {
         interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
-                view.displayCurrentWind(response.body().getWind().getWindSpeed());
                 displayCurrentWeather(response.body());
             }
 
