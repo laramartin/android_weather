@@ -1,5 +1,6 @@
 package eu.laramartin.weather.ui.favorite;
 
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
@@ -42,18 +43,7 @@ public class FavoriteCityPresenter {
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
-                if (response.body() == null) {
-                    view.setErrorVisibility(true);
-                    return;
-                }
-                int i = 0;
-                for (Forecast forecast : response.body().getForecasts()) {
-                    view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
-                            (int) forecast.getTemperature().getTempMin(),
-                            (int) forecast.getTemperature().getTempMax(),
-                            WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
-                    i++;
-                }
+                displayForecast(response.body());
             }
 
             @Override
@@ -94,5 +84,20 @@ public class FavoriteCityPresenter {
                 Log.e(LOG_TAG, "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
+    }
+
+    void displayForecast(@Nullable ForecastResponse response) {
+        if (response == null) {
+            view.setErrorVisibility(true);
+            return;
+        }
+        int i = 0;
+        for (Forecast forecast : response.getForecasts()) {
+            view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
+                    (int) forecast.getTemperature().getTempMin(),
+                    (int) forecast.getTemperature().getTempMax(),
+                    WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+            i++;
+        }
     }
 }
