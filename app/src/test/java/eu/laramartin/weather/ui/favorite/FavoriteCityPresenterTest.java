@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
 
 import static org.mockito.Mockito.verify;
@@ -32,9 +31,8 @@ public class FavoriteCityPresenterTest {
     }
 
     @Test
-    public void displayForecastNull() throws Exception {
-        ForecastResponse response = null;
-        presenter.displayForecast(response);
+    public void showErrorWhenForecastResponseFailed() throws Exception {
+        presenter.displayForecast(null);
         verify(view).setErrorVisibility(true);
     }
 
