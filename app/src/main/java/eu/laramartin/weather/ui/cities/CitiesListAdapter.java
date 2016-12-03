@@ -185,6 +185,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         private boolean isFavoriteCity(int cityCardId) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
+            Log.v("fav city stored", String.valueOf(favoriteCityId));
             return favoriteCityId == cityCardId;
         }
 
