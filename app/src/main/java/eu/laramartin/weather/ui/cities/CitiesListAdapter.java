@@ -144,7 +144,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 @Override
                 public void onClick(View view) {
                     if (!isFavoriteCity(cityCard.getId())){
-                        // TODO resetFavoriteCityIcon();
+                        resetFavoriteCityIcon();
                         setAsFavoriteCity(cityCard.getId());
                         return;
                     }
@@ -162,6 +162,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 }
             }
         }
+
+//        private void resetFavoriteCityIcon() {
+//            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//            int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
+//            // TODO
+//        }
 
         private void setAsFavoriteCity(int cityCardId) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -222,5 +228,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             }
             return false;
         }
+    }
+
+    private void resetFavoriteCityIcon() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
+        // TODO
     }
 }
