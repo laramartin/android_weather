@@ -1,9 +1,12 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,10 +137,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
+            if (isFavoriteCity(cityCard.getId())) {
+                setFavoriteCityIcon();
+            }
             favoriteCityImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+                    if (!isFavoriteCity(cityCard.getId())){
+                        // TODO resetFavoriteCityIcon();
+                        setAsFavoriteCity(cityCard.getId());
+                        return;
+                    }
                 }
             });
             showOrHideForecast();
@@ -153,13 +163,25 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             }
         }
 
-//        private boolean isFavorite(int id) {
-//            Drawable drawable = favoriteCityImageView.getDrawable();
-//            favoriteCityImageView.set
-//            Log.v("adapter drawable", drawable.toString());
-//            return false;
-//
-//        }
+        private void setAsFavoriteCity(int cityCardId) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt(context.getString(R.string.favoriteCityId), cityCardId);
+            editor.commit();
+            Log.v("set fav city", String.valueOf(preferences.getInt(context.getString(R.string.favoriteCityId), 0)));
+            setFavoriteCityIcon();
+        }
+
+        private void setFavoriteCityIcon() {
+            favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+        }
+
+        private boolean isFavoriteCity(int cityCardId) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
+            Log.v("which is fav city", String.valueOf(favoriteCityId));
+            return favoriteCityId == cityCardId;
+        }
 
         private void showOrHideForecast() {
             if (cityCard != null) {

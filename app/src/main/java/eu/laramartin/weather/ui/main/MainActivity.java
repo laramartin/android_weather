@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.main;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        // TODO create sharedpreferences file
+        PreferenceManager.getDefaultSharedPreferences(this);
         viewPager.setAdapter(new CustomPagerAdapter(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {

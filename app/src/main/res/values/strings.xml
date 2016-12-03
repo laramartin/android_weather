@@ -18,4 +18,6 @@
     <string name="ok">Ok</string>
     <string name="error_server_message">There was an error in your connection or from server. Try again later :(</string>
     <string name="delete_city_message">Are you sure you want to delete the city from your list?</string>
+    <string name="preference_file_key">weather_preferences</string>
+    <string name="favoriteCityId">favoriteCityId</string>
 </resources>
