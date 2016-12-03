@@ -7,6 +7,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import eu.laramartin.weather.business.WeatherInteractor;
+import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.preferences.Settings;
 
 import static org.mockito.Mockito.verify;
 
@@ -22,11 +24,16 @@ public class FavoriteCityPresenterTest {
     private WeatherInteractor interactor;
     @Mock
     private FavoriteCityView view;
+    @Mock
+    private CitiesDbHelper dbHelper;
+    @Mock
+    private Settings settings;
+
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        presenter = new FavoriteCityPresenter(interactor);
+        presenter = new FavoriteCityPresenter(interactor, dbHelper, settings);
         presenter.bind(view);
     }
 
