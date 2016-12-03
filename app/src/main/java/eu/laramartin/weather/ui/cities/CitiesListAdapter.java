@@ -112,6 +112,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         // TODO hide or show forecast layout instead of forecast views
         @BindView(R.id.forecast_layout)
         LinearLayout forecastLayout;
+        @BindView(R.id.favorite_city_image_view)
+        ImageView favoriteCityImageView;
 
 
         @Nullable
@@ -127,11 +129,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             arrowExpandCollapseImageView.setImageResource(R.drawable.ic_expand_more_black_24dp);
         }
 
-        public void bind(CityCard cityCard) {
+        public void bind(final CityCard cityCard) {
             this.cityCard = cityCard;
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
+            favoriteCityImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+                }
+            });
             showOrHideForecast();
 
             if (cityCard.getForecastCard() != null) {
@@ -144,6 +152,14 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 }
             }
         }
+
+//        private boolean isFavorite(int id) {
+//            Drawable drawable = favoriteCityImageView.getDrawable();
+//            favoriteCityImageView.set
+//            Log.v("adapter drawable", drawable.toString());
+//            return false;
+//
+//        }
 
         private void showOrHideForecast() {
             if (cityCard != null) {
