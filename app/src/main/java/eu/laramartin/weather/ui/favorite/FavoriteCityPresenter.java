@@ -8,9 +8,11 @@ import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
 import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
+import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.DateUtils;
 import eu.laramartin.weather.ui.common.TextUtils;
 import eu.laramartin.weather.ui.common.WeatherIcons;
+import eu.laramartin.weather.ui.preferences.Settings;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,9 +28,13 @@ public class FavoriteCityPresenter {
     private final static String LOG_TAG = FavoriteCityPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
     FavoriteCityView view;
+    CitiesDbHelper dbHelper;
+    private Settings settings;
 
-    public FavoriteCityPresenter(WeatherInteractor interactor) {
+    public FavoriteCityPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper, Settings settings) {
         this.interactor = interactor;
+        this.dbHelper = dbHelper;
+        this.settings = settings;
     }
 
     public void bind(FavoriteCityView view) {
@@ -106,5 +112,23 @@ public class FavoriteCityPresenter {
                     WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
             i++;
         }
+    }
+
+//    int getFavoriteCityIdFromPreferences(Context context) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//        int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
+//        Log.v("presenter favCity saved", String.valueOf(favoriteCityId));
+//        return favoriteCityId;
+//    }
+//
+//    String getFavoriteCityName(int id) {
+//        Cursor cursor = dbHelper.readCity(id);
+//        String name = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
+//        Log.v(LOG_TAG, name);
+//        return name;
+//    }
+
+    public void performCall() {
+        performCall(settings.getFavName());
     }
 }

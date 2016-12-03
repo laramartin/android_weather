@@ -20,4 +20,5 @@
     <string name="delete_city_message">Are you sure you want to delete the city from your list?</string>
     <string name="preference_file_key">weather_preferences</string>
     <string name="favoriteCityId">favoriteCityId</string>
+    <string name="favoriteCityName">favoriteCityName</string>
 </resources>
