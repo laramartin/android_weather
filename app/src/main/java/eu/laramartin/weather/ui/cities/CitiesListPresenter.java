@@ -70,18 +70,7 @@ public class CitiesListPresenter {
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
-                if (response.body() == null) {
-                    Log.e(LOG_TAG, "error in ForecastResponse: body is null");
-                    return;
-                }
-                String temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
-                view.updateItem(new CityCard(
-                        R.drawable.sample,
-                        id,
-                        location,
-                        temperature
-                ));
-                Log.v(LOG_TAG, "current weather city: " + response.body().getCity());
+                displayForecast(response, view, id, location);
             }
 
             @Override
@@ -94,29 +83,7 @@ public class CitiesListPresenter {
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
-                if (response.body() == null) {
-                    Log.v(LOG_TAG, "error code: " + response.code());
-                    if (response.code() == 502) {
-                        // TODO show message in dialog with invalid input
-                    }
-                    return;
-                }
-                ForecastCard forecastCard = new ForecastCard();
-                List<ForecastCard.ForecastCardItem> list = new ArrayList<>();
-                for (Forecast forecast : response.body().getForecasts()) {
-                    ForecastCard.ForecastCardItem forecastCardItem = new ForecastCard.ForecastCardItem();
-
-                    forecastCardItem.setDayOfTheWeek(getDayOfTheWeek(forecast.getDate()));
-                    forecastCardItem.setTempMin((int) forecast.getTemperature().getTempMin());
-                    forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
-                    forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
-                    list.add(forecastCardItem);
-                    Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
-                    Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
-                    Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
-                }
-                forecastCard.setList(list);
-                view.displayForecast(id, forecastCard);
+                displayCurrentWeather(response, view, id);
             }
 
             @Override
@@ -124,6 +91,47 @@ public class CitiesListPresenter {
                 Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
+    }
+
+    private void displayCurrentWeather(Response<ForecastResponse> response, CitiesListView view, int id) {
+        if (response.body() == null) {
+            Log.v(LOG_TAG, "error code: " + response.code());
+            if (response.code() == 502) {
+                // TODO show message in dialog with invalid input
+            }
+            return;
+        }
+        ForecastCard forecastCard = new ForecastCard();
+        List<ForecastCard.ForecastCardItem> list = new ArrayList<>();
+        for (Forecast forecast : response.body().getForecasts()) {
+            ForecastCard.ForecastCardItem forecastCardItem = new ForecastCard.ForecastCardItem();
+
+            forecastCardItem.setDayOfTheWeek(getDayOfTheWeek(forecast.getDate()));
+            forecastCardItem.setTempMin((int) forecast.getTemperature().getTempMin());
+            forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
+            forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+            list.add(forecastCardItem);
+            Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
+            Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
+            Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
+        }
+        forecastCard.setList(list);
+        view.displayForecast(id, forecastCard);
+    }
+
+    private void displayForecast(Response<CurrentWeatherResponse> response, CitiesListView view, int id, String location) {
+        if (response.body() == null) {
+            Log.e(LOG_TAG, "error in ForecastResponse: body is null");
+            return;
+        }
+        String temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
+        view.updateItem(new CityCard(
+                R.drawable.sample,
+                id,
+                location,
+                temperature
+        ));
+        Log.v(LOG_TAG, "current weather city: " + response.body().getCity());
     }
 
     public void addCityIfExists(final String inputCity) {
