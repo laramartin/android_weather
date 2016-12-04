@@ -187,6 +187,7 @@ public class CitiesListPresenter {
 
     public void setAsFavoriteCity(CityCard cityCard) {
         settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
+        Log.v(LOG_TAG, "new fav city is " + settings.getFavName());
         setFavoriteCityIcon(cityCard);
     }
 
