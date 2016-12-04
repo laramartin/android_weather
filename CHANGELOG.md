@@ -1,3 +1,12 @@
+# 8th week, 28-4th Dec 2016
+- Created first unit test
+- Implemented SharedPreferences 
+- Implemented set favorite city in cities list
+
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_8_01.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_8_02.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_8_03.png" width="250"/>
+
 # 7th week, 21-27th Nov 2016
 - Remove a city from the list
 - Long press a list item triggers vibration and allows to remove city
