@@ -187,10 +187,52 @@ public class CitiesListPresenter {
 
     public void setAsFavoriteCity(CityCard cityCard) {
         settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
+        setFavoriteCityIcon(cityCard);
     }
 
     public boolean isFavoriteCity(CityCard cityCard) {
         Log.v(LOG_TAG, "fav city is " + settings.getFavName());
         return cityCard.getId() == settings.getFavId();
+    }
+
+    public int getIdPreviousFavoriteCity() {
+        return settings.getFavId();
+    }
+
+    public void clickedFavorite(CityCard cityCard) {
+        if (!isFavoriteCity(cityCard)){
+//            resetPreviousFavoriteCity();
+            setAsFavoriteCity(cityCard);
+//            notifyItemChanged(cityCard.getId() - 1);
+            return;
+        }
+    }
+
+    private void setFavoriteCityIcon(CityCard cityCard) {
+        cityCard.setFavorite(true);
+        getFavoriteIcon(cityCard);
+    }
+
+    public void resetFavoriteCityIcon(CityCard cityCard) {
+        // TODO
+        cityCard.setFavorite(false);
+    }
+
+//    private void resetPreviousFavoriteCity() {
+//        int cityCardId = getIdPreviousFavoriteCity();
+//        Log.v("adapter", "previous fav city id: " + String.valueOf(cityCardId));
+//        cityCards.get(cityCardId).setFavorite(false);
+//
+//
+//        replace(cityCards.get(cityCardId));
+////        favoriteCityImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+//    }
+
+    public int getFavoriteIcon(CityCard cityCard) {
+        if (cityCard.isFavorite()) {
+            return R.drawable.ic_favorite_black_24dp;
+        } else {
+            return R.drawable.ic_favorite_border_black_24dp;
+        }
     }
 }

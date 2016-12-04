@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -135,27 +134,28 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             cityImageView.setImageResource(cityCard.getCityImageResourceId());
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
-            if (isFavoriteCity(cityCard)) {
-                Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
-                setFavoriteCityIcon(cityCard);
-            } else {
-                Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
-                resetFavoriteCityIcon(cityCard);
-            }
-            if (cityCard.isFavorite()) {
-                favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
-            } else {
-                favoriteCityImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-            }
+//            if (cityCard.isFavorite()) {
+//                Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
+////                setFavoriteCityIcon(cityCard);
+////                presenter.setAsFavoriteCity(cityCard);
+//                favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
+//            } else {
+//                Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
+//                presenter.resetFavoriteCityIcon(cityCard);
+//            }
+//            changeFavoriteIcon(cityCard);
+            favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
             favoriteCityImageView.setAdjustViewBounds(true);
             favoriteCityImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!isFavoriteCity(cityCard)){
-                        setAsFavoriteCity(cityCard);
-                        notifyItemChanged(cityCard.getId() - 1);
-                        return;
-                    }
+                    presenter.clickedFavorite(cityCard);
+//                    if (!isFavoriteCity(cityCard)){
+//                        resetPreviousFavoriteCity();
+//                        setAsFavoriteCity(cityCard);
+//                        notifyItemChanged(cityCard.getId() - 1);
+//                        return;
+//                    }
                 }
             });
             showOrHideForecast();
@@ -171,24 +171,26 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             }
         }
 
-        private void resetFavoriteCityIcon(CityCard cityCard) {
-            // TODO
-            cityCard.setFavorite(false);
-        }
 
-        private void setAsFavoriteCity(CityCard cityCard) {
-            presenter.setAsFavoriteCity(cityCard);
-            setFavoriteCityIcon(cityCard);
-        }
 
-        private void setFavoriteCityIcon(CityCard cityCard) {
-            cityCard.setFavorite(true);
-        }
+//        private void resetFavoriteCityIcon(CityCard cityCard) {
+//            // TODO
+//            cityCard.setFavorite(false);
+//        }
+//
+//        private void setAsFavoriteCity(CityCard cityCard) {
+//            presenter.setAsFavoriteCity(cityCard);
+//            setFavoriteCityIcon(cityCard);
+//        }
+//
+//        private void setFavoriteCityIcon(CityCard cityCard) {
+//            cityCard.setFavorite(true);
+//        }
 
-        private boolean isFavoriteCity(CityCard cityCard) {
-            Log.v("list adap", "is fav? " + String.valueOf(presenter.isFavoriteCity(cityCard)));
-            return presenter.isFavoriteCity(cityCard);
-        }
+//        private boolean isFavoriteCity(CityCard cityCard) {
+//            Log.v("list adap", "is fav? " + String.valueOf(presenter.isFavoriteCity(cityCard)));
+//            return presenter.isFavoriteCity(cityCard);
+//        }
 
         private void showOrHideForecast() {
             if (cityCard != null) {
@@ -231,9 +233,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
     }
 
-//    private void resetFavoriteCityIcon() {
-//        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//        //int favoriteCityId = preferences.getInt(context.getString(favoriteCityId), 0);
-//        // TODO
-//    }
+
+
 }
