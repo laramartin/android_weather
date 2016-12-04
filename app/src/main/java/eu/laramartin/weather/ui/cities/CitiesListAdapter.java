@@ -97,6 +97,15 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         notifyDataSetChanged();
     }
 
+    public void setFavIcon(int cityId, boolean isFavorite) {
+        for (int i = 0; i < cityCards.size(); i++) {
+            if (cityId == cityCards.get(i).getId()) {
+                cityCards.get(i).setFavorite(isFavorite);
+                notifyItemChanged(i);
+            }
+        }
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         @BindView(R.id.image_cities_row)
@@ -151,7 +160,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 @Override
                 public void onClick(View view) {
                     presenter.clickedFavorite(cityCard);
-                    favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
+//                    favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
                 }
             });
             showOrHideForecast();

@@ -17,4 +17,6 @@ public interface CitiesListView {
     void displayErrorServer();
 
     void clear();
+
+    void setFavIcon(int cityId, boolean isFavorite);
 }

@@ -105,6 +105,11 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     }
 
     @Override
+    public void setFavIcon(int cityId, boolean isFavorite) {
+        adapter.setFavIcon(cityId, isFavorite);
+    }
+
+    @Override
     public void onRefresh() {
         adapter.clear();
         presenter.loadData();

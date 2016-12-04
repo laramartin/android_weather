@@ -202,8 +202,11 @@ public class CitiesListPresenter {
     public void clickedFavorite(CityCard cityCard) {
         if (!cityCard.isFavorite()){
 //            resetPreviousFavoriteCity();
+            if (view != null) {
+                view.setFavIcon(getIdPreviousFavoriteCity(), false);
+                view.setFavIcon(cityCard.getId(), true);
+            }
             setAsFavoriteCityInCityCard(cityCard);
-            return;
         }
     }
 
