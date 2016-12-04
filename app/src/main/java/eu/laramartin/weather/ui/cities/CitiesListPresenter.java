@@ -183,4 +183,13 @@ public class CitiesListPresenter {
         }
         loadData();
     }
+
+
+    public void setAsFavoriteCity(CityCard cityCard) {
+        settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
+    }
+
+    public boolean isFavoriteCity(CityCard cityCard) {
+        return cityCard.getId() == settings.getFavId();
+    }
 }
