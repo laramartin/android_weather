@@ -136,14 +136,24 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             if (isFavoriteCity(cityCard)) {
-                setFavoriteCityIcon();
+                Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
+                setFavoriteCityIcon(cityCard);
+            } else {
+                Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
+                resetFavoriteCityIcon(cityCard);
             }
+            if (cityCard.isFavorite()) {
+                favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+            } else {
+                favoriteCityImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+            }
+            favoriteCityImageView.setAdjustViewBounds(true);
             favoriteCityImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (!isFavoriteCity(cityCard)){
-                        resetFavoriteCityIcon();
                         setAsFavoriteCity(cityCard);
+                        notifyItemChanged(cityCard.getId() - 1);
                         return;
                     }
                 }
@@ -161,24 +171,22 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             }
         }
 
-//        private void resetFavoriteCityIcon() {
-//            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//            int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
-//            // TODO
-//        }
+        private void resetFavoriteCityIcon(CityCard cityCard) {
+            // TODO
+            cityCard.setFavorite(false);
+        }
 
         private void setAsFavoriteCity(CityCard cityCard) {
             presenter.setAsFavoriteCity(cityCard);
-            setFavoriteCityIcon();
+            setFavoriteCityIcon(cityCard);
         }
 
-        private void setFavoriteCityIcon() {
-            favoriteCityImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+        private void setFavoriteCityIcon(CityCard cityCard) {
+            cityCard.setFavorite(true);
         }
 
         private boolean isFavoriteCity(CityCard cityCard) {
-            presenter.isFavoriteCity(cityCard);
-            Log.v("list adap", String.valueOf(presenter.isFavoriteCity(cityCard)));
+            Log.v("list adap", "is fav? " + String.valueOf(presenter.isFavoriteCity(cityCard)));
             return presenter.isFavoriteCity(cityCard);
         }
 
@@ -223,9 +231,9 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         }
     }
 
-    private void resetFavoriteCityIcon() {
-        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        //int favoriteCityId = preferences.getInt(context.getString(favoriteCityId), 0);
-        // TODO
-    }
+//    private void resetFavoriteCityIcon() {
+//        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//        //int favoriteCityId = preferences.getInt(context.getString(favoriteCityId), 0);
+//        // TODO
+//    }
 }

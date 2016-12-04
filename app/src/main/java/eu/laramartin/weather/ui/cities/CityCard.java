@@ -12,6 +12,7 @@ public class CityCard {
     private String temperature = "";
     private boolean isExpanded;
     private ForecastCard forecastCard;
+    private boolean favorite;
 
 
     public CityCard(int resourceId, int id, String city, String temperature) {
@@ -73,5 +74,13 @@ public class CityCard {
 
     public void setForecastCard(ForecastCard forecastCard) {
         this.forecastCard = forecastCard;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }

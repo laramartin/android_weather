@@ -190,6 +190,7 @@ public class CitiesListPresenter {
     }
 
     public boolean isFavoriteCity(CityCard cityCard) {
+        Log.v(LOG_TAG, "fav city is " + settings.getFavName());
         return cityCard.getId() == settings.getFavId();
     }
 }
