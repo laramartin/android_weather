@@ -111,9 +111,9 @@ public class CitiesListPresenter {
             forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
             forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
             list.add(forecastCardItem);
-            Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
-            Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
-            Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
+//            Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
+//            Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
+//            Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
         }
         forecastCard.setList(list);
         view.displayForecast(id, forecastCard);
@@ -184,7 +184,6 @@ public class CitiesListPresenter {
         loadData();
     }
 
-
     public void setAsFavoriteCityInCityCard(CityCard cityCard) {
         settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
         Log.v(LOG_TAG, "new fav city is " + settings.getFavName());
@@ -201,32 +200,30 @@ public class CitiesListPresenter {
     }
 
     public void clickedFavorite(CityCard cityCard) {
-        if (!isFavoriteCity(cityCard)){
+        if (!cityCard.isFavorite()){
 //            resetPreviousFavoriteCity();
             setAsFavoriteCityInCityCard(cityCard);
-//            notifyItemChanged(cityCard.getId() - 1);
             return;
         }
     }
 
     private void setFavoriteCity(CityCard cityCard) {
         cityCard.setFavorite(true);
-//        getFavoriteIcon(cityCard);
     }
 
     public void setAsNotFavoriteCity(CityCard cityCard) {
         // TODO
         cityCard.setFavorite(false);
-//        getFavoriteIcon(cityCard);
     }
 
 //    private void resetPreviousFavoriteCity() {
-//        int cityCardId = getIdPreviousFavoriteCity();
-//        Log.v("adapter", "previous fav city id: " + String.valueOf(cityCardId));
-//        cityCards.get(cityCardId).setFavorite(false);
 //
-//
-//        replace(cityCards.get(cityCardId));
+////        int cityCardId = getIdPreviousFavoriteCity();
+////        Log.v("adapter", "previous fav city id: " + String.valueOf(cityCardId));
+////        cityCards.get(cityCardId).setFavorite(false);
+////
+////
+////        replace(cityCards.get(cityCardId));
 ////        favoriteCityImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
 //    }
 
