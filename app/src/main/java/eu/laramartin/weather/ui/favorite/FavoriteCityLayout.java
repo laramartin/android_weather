@@ -148,7 +148,7 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
 
     @Override
     public void onRefresh() {
-        presenter.performCall("berlin");
+        presenter.performCall();
         swipeRefreshLayout.setRefreshing(false);
     }
 }
