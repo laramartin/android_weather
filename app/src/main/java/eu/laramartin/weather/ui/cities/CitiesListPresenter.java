@@ -185,10 +185,10 @@ public class CitiesListPresenter {
     }
 
 
-    public void setAsFavoriteCity(CityCard cityCard) {
+    public void setAsFavoriteCityInCityCard(CityCard cityCard) {
         settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
         Log.v(LOG_TAG, "new fav city is " + settings.getFavName());
-        setFavoriteCityIcon(cityCard);
+        setFavoriteCity(cityCard);
     }
 
     public boolean isFavoriteCity(CityCard cityCard) {
@@ -203,20 +203,21 @@ public class CitiesListPresenter {
     public void clickedFavorite(CityCard cityCard) {
         if (!isFavoriteCity(cityCard)){
 //            resetPreviousFavoriteCity();
-            setAsFavoriteCity(cityCard);
+            setAsFavoriteCityInCityCard(cityCard);
 //            notifyItemChanged(cityCard.getId() - 1);
             return;
         }
     }
 
-    private void setFavoriteCityIcon(CityCard cityCard) {
+    private void setFavoriteCity(CityCard cityCard) {
         cityCard.setFavorite(true);
-        getFavoriteIcon(cityCard);
+//        getFavoriteIcon(cityCard);
     }
 
-    public void resetFavoriteCityIcon(CityCard cityCard) {
+    public void setAsNotFavoriteCity(CityCard cityCard) {
         // TODO
         cityCard.setFavorite(false);
+//        getFavoriteIcon(cityCard);
     }
 
 //    private void resetPreviousFavoriteCity() {

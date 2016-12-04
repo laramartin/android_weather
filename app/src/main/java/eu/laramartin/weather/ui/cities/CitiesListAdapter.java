@@ -138,11 +138,11 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             if (presenter.isFavoriteCity(cityCard)) {
                 Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
 //                setFavoriteCityIcon(cityCard);
-                presenter.setAsFavoriteCity(cityCard);
+                presenter.setAsFavoriteCityInCityCard(cityCard);
 //                favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
             } else {
                 Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
-                presenter.resetFavoriteCityIcon(cityCard);
+                presenter.setAsNotFavoriteCity(cityCard);
             }
 //            changeFavoriteIcon(cityCard);
             favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
@@ -151,9 +151,10 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 @Override
                 public void onClick(View view) {
                     presenter.clickedFavorite(cityCard);
+                    favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
 //                    if (!isFavoriteCity(cityCard)){
 //                        resetPreviousFavoriteCity();
-//                        setAsFavoriteCity(cityCard);
+//                        setAsFavoriteCityInCityCard(cityCard);
 //                        notifyItemChanged(cityCard.getId() - 1);
 //                        return;
 //                    }
@@ -174,13 +175,13 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
 
 
 
-//        private void resetFavoriteCityIcon(CityCard cityCard) {
+//        private void setAsNotFavoriteCity(CityCard cityCard) {
 //            // TODO
 //            cityCard.setFavorite(false);
 //        }
 //
-//        private void setAsFavoriteCity(CityCard cityCard) {
-//            presenter.setAsFavoriteCity(cityCard);
+//        private void setAsFavoriteCityInCityCard(CityCard cityCard) {
+//            presenter.setAsFavoriteCityInCityCard(cityCard);
 //            setFavoriteCityIcon(cityCard);
 //        }
 //
