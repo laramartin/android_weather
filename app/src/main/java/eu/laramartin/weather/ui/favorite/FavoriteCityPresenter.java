@@ -8,7 +8,6 @@ import eu.laramartin.weather.api.model.CurrentWeatherResponse;
 import eu.laramartin.weather.api.model.Forecast;
 import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
-import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.DateUtils;
 import eu.laramartin.weather.ui.common.TextUtils;
 import eu.laramartin.weather.ui.common.WeatherIcons;
@@ -28,12 +27,10 @@ public class FavoriteCityPresenter {
     private final static String LOG_TAG = FavoriteCityPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
     FavoriteCityView view;
-    CitiesDbHelper dbHelper;
     private Settings settings;
 
-    public FavoriteCityPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper, Settings settings) {
+    public FavoriteCityPresenter(WeatherInteractor interactor, Settings settings) {
         this.interactor = interactor;
-        this.dbHelper = dbHelper;
         this.settings = settings;
     }
 

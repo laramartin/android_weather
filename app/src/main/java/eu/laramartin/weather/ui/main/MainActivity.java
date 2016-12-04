@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        // TODO create sharedpreferences file
-        PreferenceManager.getDefaultSharedPreferences(this);
+//        // TODO create sharedpreferences file
+//        PreferenceManager.getDefaultSharedPreferences(this);
         viewPager.setAdapter(new CustomPagerAdapter(this));
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {

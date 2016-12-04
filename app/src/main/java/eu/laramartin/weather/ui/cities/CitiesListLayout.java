@@ -17,6 +17,7 @@ import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.preferences.Settings;
 
 /**
  * Created by Lara on 30/10/2016.
@@ -60,7 +61,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         presenter = new CitiesListPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY),
-                new CitiesDbHelper(context));
+                new CitiesDbHelper(context), new Settings(context));
         adapter = new CitiesListAdapter(context, presenter);
         recyclerView.setAdapter(adapter);
         createFooter(adapter);

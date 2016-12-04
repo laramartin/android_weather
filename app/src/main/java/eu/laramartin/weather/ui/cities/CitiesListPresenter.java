@@ -16,6 +16,7 @@ import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.business.db.CitiesContract;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.WeatherIcons;
+import eu.laramartin.weather.ui.preferences.Settings;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,10 +34,12 @@ public class CitiesListPresenter {
     @Nullable
     CitiesListView view;
     private CitiesDbHelper dbHelper;
+    private Settings settings;
 
-    public CitiesListPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper) {
+    public CitiesListPresenter(WeatherInteractor interactor, CitiesDbHelper dbHelper, Settings settings) {
         this.interactor = interactor;
         this.dbHelper = dbHelper;
+        this.settings = settings;
     }
 
     public void bind(CitiesListView view) {

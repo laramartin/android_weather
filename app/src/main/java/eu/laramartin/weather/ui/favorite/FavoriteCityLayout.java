@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
-import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.ForecastView;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.preferences.Settings;
@@ -26,7 +25,6 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
 
     private static final String LOG_TAG = FavoriteCityLayout.class.getCanonicalName();
     FavoriteCityPresenter presenter;
-    CitiesDbHelper dbHelper;
 
     @BindView(R.id.city_text_view)
     TextView cityTextView;
@@ -67,7 +65,7 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     private void init(Context context) {
         View view = inflate(context, R.layout.layout_favorite, this);
         ButterKnife.bind(this, view);
-        presenter = new FavoriteCityPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY), dbHelper, new Settings(context));
+        presenter = new FavoriteCityPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY), new Settings(context));
         presenter.bind(this);
 //        presenter.performCall("berlin");
         presenter.performCall();
