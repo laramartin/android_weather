@@ -124,8 +124,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         LinearLayout forecastLayout;
         @BindView(R.id.favorite_city_image_view)
         ImageView favoriteCityImageView;
-
-
         @Nullable
         private CityCard cityCard;
 
@@ -146,21 +144,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             if (presenter.isFavoriteCity(cityCard)) {
                 Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
-//                setFavoriteCityIcon(cityCard);
                 presenter.setAsFavoriteCityInCityCard(cityCard);
-//                favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
             } else {
                 Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
                 presenter.setAsNotFavoriteCity(cityCard);
             }
-//            changeFavoriteIcon(cityCard);
             favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
             favoriteCityImageView.setAdjustViewBounds(true);
             favoriteCityImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     presenter.clickedFavorite(cityCard);
-//                    favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
                 }
             });
             showOrHideForecast();

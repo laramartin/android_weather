@@ -111,20 +111,6 @@ public class FavoriteCityPresenter {
         }
     }
 
-//    int getFavoriteCityIdFromPreferences(Context context) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-//        int favoriteCityId = preferences.getInt(context.getString(R.string.favoriteCityId), 0);
-//        Log.v("presenter favCity saved", String.valueOf(favoriteCityId));
-//        return favoriteCityId;
-//    }
-//
-//    String getFavoriteCityName(int id) {
-//        Cursor cursor = dbHelper.readCity(id);
-//        String name = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
-//        Log.v(LOG_TAG, name);
-//        return name;
-//    }
-
     public void performCall() {
         performCall(settings.getFavName());
     }
