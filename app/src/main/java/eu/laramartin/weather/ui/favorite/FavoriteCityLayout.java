@@ -9,6 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -20,6 +24,7 @@ import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.ui.common.ForecastView;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.preferences.Settings;
+import eu.laramartin.weather.ui.preferences.SettingsChangedEvent;
 
 public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView, SwipeRefreshLayout.OnRefreshListener {
 
@@ -71,6 +76,24 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
         presenter.performCall();
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        EventBus.getDefault().register(this);
+
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSettingsChangedEventReceived(SettingsChangedEvent settingsChangedEvent) {
+        presenter.performCall();
     }
 
     @Override

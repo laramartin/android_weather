@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -17,6 +19,7 @@ import eu.laramartin.weather.business.db.CitiesContract;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.preferences.Settings;
+import eu.laramartin.weather.ui.preferences.SettingsChangedEvent;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -204,6 +207,7 @@ public class CitiesListPresenter {
                 view.setFavIcon(cityCard.getId(), true);
             }
             setAsFavoriteCityInCityCard(cityCard);
+            EventBus.getDefault().post(new SettingsChangedEvent());
         }
     }
 
