@@ -23,5 +23,10 @@ public class PreferencesLayout extends FrameLayout {
     private void init(Context context) {
         View view = inflate(context, R.layout.layout_preferences, this);
         ButterKnife.bind(this, view);
+//        FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        PreferencesFragment fragment = new PreferencesFragment();
+//        fragmentTransaction.add(R.)
+
     }
 }
