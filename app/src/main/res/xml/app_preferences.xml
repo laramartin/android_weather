@@ -6,32 +6,29 @@
     <android.support.v7.preference.PreferenceCategory
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:title="Category">
+        android:title="@string/units">
 
         <android.support.v7.preference.SwitchPreferenceCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:defaultValue="true"
-            android:key="key1"
-            android:summary="Switch Summary"
-            android:title="Switch" />
+            android:key="tempPrefsUnitsKey"
+            android:title="@string/temperature_prefs_title" />
 
-        <android.support.v7.preference.EditTextPreference
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:defaultValue="Default value"
-            android:dialogMessage="Dialog Message"
-            android:key="key2"
-            android:summary="EditText Summary"
-            android:title="EditText" />
-
-        <android.support.v7.preference.CheckBoxPreference
+        <android.support.v7.preference.SwitchPreferenceCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:defaultValue="true"
-            android:key="key3"
-            android:summary="CheckBox Summary"
-            android:title="CheckBox" />
+            android:key="windSpeedPrefsUnitsKey"
+            android:title="@string/wind_speed_prefs_title" />
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:defaultValue="true"
+            android:key="pressurePrefsUnitsKey"
+            android:title="@string/pressure_prefs_title" />
+
     </android.support.v7.preference.PreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>
