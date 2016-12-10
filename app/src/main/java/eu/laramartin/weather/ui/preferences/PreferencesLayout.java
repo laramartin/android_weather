@@ -14,6 +14,7 @@ import eu.laramartin.weather.R;
 public class PreferencesLayout extends FrameLayout {
 
     private static final String LOG_TAG = PreferencesLayout.class.getCanonicalName();
+    private Context context;
 
     public PreferencesLayout(Context context) {
         super(context);
@@ -21,12 +22,19 @@ public class PreferencesLayout extends FrameLayout {
     }
 
     private void init(Context context) {
+        this.context = context;
         View view = inflate(context, R.layout.layout_preferences, this);
         ButterKnife.bind(this, view);
-//        FragmentManager fragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        PreferencesFragment fragment = new PreferencesFragment();
-//        fragmentTransaction.add(R.)
 
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 }
