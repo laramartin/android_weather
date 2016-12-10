@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="eu.laramartin.weather.ui.preferences.PreferencesFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/units_title_text_view"
+            style="@style/title_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/units_prefs_title"
+            android:textAllCaps="true"
+            tools:text="Units" />
+
+        <View
+            style="@style/separator_title_settings"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/temp_subtitle_settings_text_view"
+            style="@style/subtitle_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature_prefs_subtitle"
+            tools:text="Temperature" />
+
+        <View
+            style="@style/separator_subtitle_settings"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/wind_subtitle_settings_text_view"
+            style="@style/subtitle_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wind_speed_prefs_subtitle"
+            tools:text="Wind speed" />
+
+        <View
+            style="@style/separator_subtitle_settings"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/pressure_subtitle_settings_text_view"
+            style="@style/subtitle_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure_prefs_subtitle"
+            tools:text="Pressure" />
+
+    </LinearLayout>
+
+
+</ScrollView>
