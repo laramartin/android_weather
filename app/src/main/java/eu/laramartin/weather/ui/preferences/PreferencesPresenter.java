@@ -27,5 +27,16 @@ public class PreferencesPresenter {
 
     public void selectedTemperature(int i) {
         // TODO
+        settings.setAsTemperatureUnit(getTemperatureUnit(i));
+    }
+
+    private String getTemperatureUnit(int i) {
+        switch(i) {
+            default:
+            case 0:
+                return "celsius";
+            case 1:
+                return "fahrenheit";
+        }
     }
 }
