@@ -63,13 +63,13 @@ public class CitiesListPresenter {
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME))));
                 int id = cursor.getInt(0);
                 String location = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
-                performCall(view, id, location);
+                performCall(view, id, location, settings.getTempUnit());
             }
         }
     }
 
-    public void performCall(final CitiesListView view, final int id, final String location) {
-        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(location);
+    public void performCall(final CitiesListView view, final int id, final String location, String tempUnits) {
+        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(location, tempUnits);
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
@@ -82,7 +82,7 @@ public class CitiesListPresenter {
             }
         });
 
-        Call<ForecastResponse> callForecast = interactor.getForecasts(location);
+        Call<ForecastResponse> callForecast = interactor.getForecasts(location, tempUnits);
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
@@ -138,7 +138,7 @@ public class CitiesListPresenter {
     }
 
     public void addCityIfExists(final String inputCity) {
-        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(inputCity);
+        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(inputCity, settings.getTempUnit());
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {

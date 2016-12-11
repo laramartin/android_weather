@@ -82,7 +82,6 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         EventBus.getDefault().register(this);
-
     }
 
     @Override

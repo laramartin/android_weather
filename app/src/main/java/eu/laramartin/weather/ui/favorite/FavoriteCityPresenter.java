@@ -42,8 +42,8 @@ public class FavoriteCityPresenter {
         view = null;
     }
 
-    public void performCall(String location) {
-        Call<ForecastResponse> callForecast = interactor.getForecasts(location);
+    public void performCall(String location, String tempUnits) {
+        Call<ForecastResponse> callForecast = interactor.getForecasts(location, tempUnits);
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
@@ -56,7 +56,7 @@ public class FavoriteCityPresenter {
                 Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
-        interactor.getWeather(location).enqueue(new Callback<CurrentWeatherResponse>() {
+        interactor.getWeather(location, tempUnits).enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
                 displayCurrentWeather(response.body());
@@ -112,6 +112,7 @@ public class FavoriteCityPresenter {
     }
 
     public void performCall() {
-        performCall(settings.getFavName());
+        Log.v(LOG_TAG, "temp units: " + settings.getTempUnit());
+        performCall(settings.getFavName(), settings.getTempUnit());
     }
 }

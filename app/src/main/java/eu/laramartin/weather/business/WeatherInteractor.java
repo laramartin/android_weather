@@ -9,7 +9,7 @@ import retrofit2.Call;
  */
 
 public interface WeatherInteractor {
-    Call<ForecastResponse> getForecasts(String location);
+    Call<ForecastResponse> getForecasts(String location, String tempUnits);
 
-    Call<CurrentWeatherResponse> getWeather(String location);
+    Call<CurrentWeatherResponse> getWeather(String location, String tempUnits);
 }
