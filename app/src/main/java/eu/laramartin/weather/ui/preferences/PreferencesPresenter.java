@@ -29,13 +29,13 @@ public class PreferencesPresenter {
         view = null;
     }
 
-    public void selectedTemperature(int i) {
+    public void selectedUnitsSystem(int i) {
         // TODO
-        settings.setAsTemperatureUnit(getTemperatureUnit(i));
+        settings.setAsUnitsSystem(getUnitsSystem(i));
         EventBus.getDefault().post(new SettingsChangedEvent());
     }
 
-    private String getTemperatureUnit(int i) {
+    private String getUnitsSystem(int i) {
         switch(i) {
             default:
             case 0:

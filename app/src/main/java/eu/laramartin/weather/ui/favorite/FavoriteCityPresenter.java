@@ -114,14 +114,14 @@ public class FavoriteCityPresenter {
     }
 
     private TempFormat getTempFormat() {
-        if (settings.getTempUnit().equalsIgnoreCase("metric")) {
+        if (settings.getUnitsSystem().equalsIgnoreCase("metric")) {
             return TempFormat.CELSIUS;
         }
         return TempFormat.FAHRENHEIT;
     }
 
     public void performCall() {
-        Log.v(LOG_TAG, "temp units: " + settings.getTempUnit());
-        performCall(settings.getFavName(), settings.getTempUnit());
+        Log.v(LOG_TAG, "temp units: " + settings.getUnitsSystem());
+        performCall(settings.getFavName(), settings.getUnitsSystem());
     }
 }

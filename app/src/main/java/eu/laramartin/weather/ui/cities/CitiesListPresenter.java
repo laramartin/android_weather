@@ -63,7 +63,7 @@ public class CitiesListPresenter {
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME))));
                 int id = cursor.getInt(0);
                 String location = cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME));
-                performCall(view, id, location, settings.getTempUnit());
+                performCall(view, id, location, settings.getUnitsSystem());
             }
         }
     }
@@ -142,7 +142,7 @@ public class CitiesListPresenter {
     }
 
     public void addCityIfExists(final String inputCity) {
-        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(inputCity, settings.getTempUnit());
+        Call<CurrentWeatherResponse> callCurrentWeather = interactor.getWeather(inputCity, settings.getUnitsSystem());
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
@@ -232,7 +232,7 @@ public class CitiesListPresenter {
     }
 
     private TempFormat getTempFormat() {
-        if (settings.getTempUnit().equalsIgnoreCase("metric")) {
+        if (settings.getUnitsSystem().equalsIgnoreCase("metric")) {
             return TempFormat.CELSIUS;
         }
         return TempFormat.FAHRENHEIT;

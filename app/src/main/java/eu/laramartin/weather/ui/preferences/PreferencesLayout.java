@@ -40,7 +40,7 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
                 Dialogs.showPreferencesItemListDialog(context, R.string.temperature_prefs_subtitle, R.array.temp_units, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        presenter.selectedTemperature(i);
+                        presenter.selectedUnitsSystem(i);
                     }
                 });
             }
