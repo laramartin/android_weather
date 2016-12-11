@@ -11,6 +11,7 @@
     </style>
 
     <style name="title_settings" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="subtitle_settings">
@@ -22,15 +23,22 @@
     </style>
 
     <style name="separator_title_settings">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/softGrey</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="separator_subtitle_settings">
-        <item name="android:background">@color/softGreyForReading</item>
+        <item name="android:background">@color/softGrey</item>
         <item name="android:layout_margin">8dp</item>
-        <item name="android:textColor">@color/softGrey</item>
+    </style>
+
+    <style name="units_option_settings">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginRight">32dp</item>
+        <item name="android:textColor">@color/softGreyForReading</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>
