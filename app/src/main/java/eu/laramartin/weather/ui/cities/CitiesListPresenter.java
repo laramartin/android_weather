@@ -58,7 +58,6 @@ public class CitiesListPresenter {
         if (view != null) {
             final Cursor cursor = dbHelper.readCities();
             while (cursor.moveToNext()) {
-                Log.v(LOG_TAG, "id: " + cursor.getInt(0) + " city: " + cursor.getString(1));
                 view.addCityCard(new CityCard(R.drawable.sample,
                         cursor.getInt(0),
                         cursor.getString(cursor.getColumnIndex(CitiesContract.CitiesEntry.COLUMN_NAME))));
@@ -116,9 +115,6 @@ public class CitiesListPresenter {
             forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
             forecastCardItem.setTempFormat(getTempFormat());
             list.add(forecastCardItem);
-//            Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
-//            Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));
-//            Log.v(LOG_TAG, "max temp: " + (int) forecast.getTemperature().getTempMax());
         }
         forecastCard.setList(list);
         view.displayForecast(id, forecastCard);
@@ -143,7 +139,6 @@ public class CitiesListPresenter {
                 location,
                 temperature
         ));
-        Log.v(LOG_TAG, "current weather city: " + response.body().getCity());
     }
 
     public void addCityIfExists(final String inputCity) {

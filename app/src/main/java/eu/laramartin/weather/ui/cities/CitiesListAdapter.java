@@ -146,10 +146,8 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
             cityNameTextView.setText(cityCard.getCityName());
             tempTextView.setText(String.valueOf(cityCard.getTemperature()));
             if (presenter.isFavoriteCity(cityCard)) {
-                Log.v("adapter", "need to use filled heart icon for " + cityCard.getCityName());
                 presenter.setAsFavoriteCityInCityCard(cityCard);
             } else {
-                Log.v("adapter", "need to use empty heart icon for " + cityCard.getCityName());
                 presenter.setAsNotFavoriteCity(cityCard);
             }
             favoriteCityImageView.setImageResource(presenter.getFavoriteIcon(cityCard));
@@ -167,7 +165,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 for (int i = 0; i < forecastCardList.size(); i++) {
                     forecastViews.get(i).dayWeekTextView.setText(forecastCardList.get(i).getDayOfTheWeek());
                     int resString = R.string.max_min_temp_celsius;
-                    Log.v("adapter", "temp format: " + forecastCardList.get(i).getTempFormat());
                     switch (forecastCardList.get(i).getTempFormat()) {
                         case CELSIUS:
                             resString = R.string.max_min_temp_celsius;
