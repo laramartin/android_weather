@@ -1,3 +1,12 @@
+# 9th week, 5-11th Dec 2016
+- Try implement PreferenceFragment in custom View - fail
+- Design custom preferences layout
+- Implemented set preferred unit system for temperature
+
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_9_01.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_9_02.png" width="250"/>
+<img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/week_9_03.png" width="250"/>
+
 # 8th week, 28-4th Dec 2016
 - Created first unit test
 - Implemented SharedPreferences 
