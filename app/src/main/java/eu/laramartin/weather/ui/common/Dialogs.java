@@ -1,4 +1,4 @@
-package eu.laramartin.weather.ui.cities;
+package eu.laramartin.weather.ui.common;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
+import eu.laramartin.weather.ui.cities.CitiesListPresenter;
 
 /**
  * Created by Lara on 19/11/2016.

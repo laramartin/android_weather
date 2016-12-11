@@ -17,6 +17,7 @@ import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.common.Dialogs;
 import eu.laramartin.weather.ui.preferences.Settings;
 
 /**

@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
+import eu.laramartin.weather.ui.common.Dialogs;
 import eu.laramartin.weather.ui.common.ForecastView;
 
 import static android.content.Context.VIBRATOR_SERVICE;
