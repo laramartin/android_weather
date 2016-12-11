@@ -114,6 +114,7 @@ public class CitiesListPresenter {
             forecastCardItem.setTempMin((int) forecast.getTemperature().getTempMin());
             forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());
             forecastCardItem.setIcon(WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+            forecastCardItem.setTempFormat(getTempFormat());
             list.add(forecastCardItem);
 //            Log.v(LOG_TAG, "city forecast: " + response.body().getCity());
 //            Log.v(LOG_TAG, "day: " + getDayOfTheWeek(forecast.getDate()));

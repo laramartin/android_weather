@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.ui.common.Dialogs;
 import eu.laramartin.weather.ui.common.ForecastView;
+import eu.laramartin.weather.ui.common.TempFormat;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -127,6 +128,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         ImageView favoriteCityImageView;
         @Nullable
         private CityCard cityCard;
+        TempFormat tempFormat;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -164,7 +166,17 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 List<ForecastCard.ForecastCardItem> forecastCardList = cityCard.getForecastCard().getList();
                 for (int i = 0; i < forecastCardList.size(); i++) {
                     forecastViews.get(i).dayWeekTextView.setText(forecastCardList.get(i).getDayOfTheWeek());
-                    forecastViews.get(i).tempTextView.setText(context.getString(R.string.max_min_temp_celsius,
+                    int resString = R.string.max_min_temp_celsius;
+                    Log.v("adapter", "temp format: " + forecastCardList.get(i).getTempFormat());
+                    switch (forecastCardList.get(i).getTempFormat()) {
+                        case CELSIUS:
+                            resString = R.string.max_min_temp_celsius;
+                            break;
+                        case FAHRENHEIT:
+                            resString = R.string.max_min_temp_fahrenheit;
+                            break;
+                    }
+                    forecastViews.get(i).tempTextView.setText(context.getString(resString,
                             forecastCardList.get(i).getTempMin(), forecastCardList.get(i).getTempMax()));
                     forecastViews.get(i).iconImageView.setImageResource(forecastCardList.get(i).getIcon());
                 }

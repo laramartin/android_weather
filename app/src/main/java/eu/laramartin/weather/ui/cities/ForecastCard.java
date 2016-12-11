@@ -2,6 +2,8 @@ package eu.laramartin.weather.ui.cities;
 
 import java.util.List;
 
+import eu.laramartin.weather.ui.common.TempFormat;
+
 /**
  * Created by Lara on 19/11/2016.
  */
@@ -11,6 +13,7 @@ public class ForecastCard {
         private int tempMin;
         private int tempMax;
         private int icon;
+        private TempFormat tempFormat;
 
         public String getDayOfTheWeek() {
             return dayOfTheWeek;
@@ -44,6 +47,14 @@ public class ForecastCard {
             this.icon = icon;
         }
 
+        public TempFormat getTempFormat() {
+            return tempFormat;
+        }
+
+        public void setTempFormat(TempFormat tempFormat) {
+            this.tempFormat = tempFormat;
+        }
+
         @Override
         public String toString() {
             return "ForecastCardItem{" +
@@ -51,6 +62,7 @@ public class ForecastCard {
                     ", tempMin=" + tempMin +
                     ", tempMax=" + tempMax +
                     ", icon=" + icon +
+                    ", tempFormat=" + tempFormat +
                     '}';
         }
     }
@@ -64,6 +76,7 @@ public class ForecastCard {
     public void setList(List<ForecastCardItem> list) {
         this.list = list;
     }
+
 
 
 }
