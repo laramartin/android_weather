@@ -24,5 +24,4 @@ public class PreferencesPresenter {
     public void unbind() {
         view = null;
     }
-
 }
