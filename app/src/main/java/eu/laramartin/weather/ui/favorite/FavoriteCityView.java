@@ -1,10 +1,12 @@
 package eu.laramartin.weather.ui.favorite;
 
+import eu.laramartin.weather.ui.common.TempFormat;
+
 /**
  * Created by Lara on 21/10/2016.
  */
 public interface FavoriteCityView {
-    void displayCurrentTemp(int temperature);
+    void displayCurrentTemp(int temperature, TempFormat tempFormat);
 
     void displayCurrentDescription(String description);
 
@@ -14,7 +16,7 @@ public interface FavoriteCityView {
 
     void displayCurrentWind(double windSpeed);
 
-    void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int icon);
+    void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int icon, TempFormat tempFormat);
 
     void displayCurrentCity(String city);
 

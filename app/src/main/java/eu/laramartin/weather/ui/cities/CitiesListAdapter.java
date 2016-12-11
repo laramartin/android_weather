@@ -164,7 +164,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 List<ForecastCard.ForecastCardItem> forecastCardList = cityCard.getForecastCard().getList();
                 for (int i = 0; i < forecastCardList.size(); i++) {
                     forecastViews.get(i).dayWeekTextView.setText(forecastCardList.get(i).getDayOfTheWeek());
-                    forecastViews.get(i).tempTextView.setText(context.getString(R.string.max_min_temp,
+                    forecastViews.get(i).tempTextView.setText(context.getString(R.string.max_min_temp_celsius,
                             forecastCardList.get(i).getTempMin(), forecastCardList.get(i).getTempMax()));
                     forecastViews.get(i).iconImageView.setImageResource(forecastCardList.get(i).getIcon());
                 }

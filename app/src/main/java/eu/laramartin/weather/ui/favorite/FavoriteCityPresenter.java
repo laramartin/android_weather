@@ -9,6 +9,7 @@ import eu.laramartin.weather.api.model.Forecast;
 import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.ui.common.DateUtils;
+import eu.laramartin.weather.ui.common.TempFormat;
 import eu.laramartin.weather.ui.common.TextUtils;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.preferences.Settings;
@@ -79,7 +80,7 @@ public class FavoriteCityPresenter {
         view.setContentVisibility(true);
         view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.getDate()));
         view.displayCurrentHour(getHourFromUnixTime(response.getDate()));
-        view.displayCurrentTemp((int) response.getMain().getTemperature());
+        view.displayCurrentTemp((int) response.getMain().getTemperature(), getTempFormat());
         view.displayCurrentDescription(
                 TextUtils.setFirstCharInUppercase(
                         response.getWeather().get(0).getDescription()));
@@ -106,9 +107,17 @@ public class FavoriteCityPresenter {
             view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
                     (int) forecast.getTemperature().getTempMin(),
                     (int) forecast.getTemperature().getTempMax(),
-                    WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()));
+                    WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()),
+                    getTempFormat());
             i++;
         }
+    }
+
+    private TempFormat getTempFormat() {
+        if (settings.getTempUnit().equalsIgnoreCase("metric")) {
+            return TempFormat.CELSIUS;
+        }
+        return TempFormat.FAHRENHEIT;
     }
 
     public void performCall() {

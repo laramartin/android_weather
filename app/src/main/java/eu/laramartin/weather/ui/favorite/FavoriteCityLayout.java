@@ -22,6 +22,7 @@ import eu.laramartin.weather.BuildConfig;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.ui.common.ForecastView;
+import eu.laramartin.weather.ui.common.TempFormat;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.events.FavCityChangedEvent;
 import eu.laramartin.weather.ui.preferences.Settings;
@@ -62,6 +63,9 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     TextView sunriseSunsetTextView;
     @BindView(R.id.swipe_container_favourite)
     SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.temp_unit_fav_city_text_view)
+    TextView tempUnitFavCityTextView;
+
 
     public FavoriteCityLayout(Context context) {
         super(context);
@@ -131,8 +135,18 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     }
 
     @Override
-    public void displayCurrentTemp(int temp) {
+    public void displayCurrentTemp(int temp, TempFormat tempFormat) {
         temperatureTextView.setText(String.valueOf(temp));
+        int resString = R.string.unit_degree_celsius;
+        switch (tempFormat) {
+            case CELSIUS:
+                resString = R.string.unit_degree_celsius;
+                break;
+            case FAHRENHEIT:
+                resString = R.string.unit_degree_fahrenheit;
+                break;
+        }
+        tempUnitFavCityTextView.setText(resString);
     }
 
     @Override
@@ -156,10 +170,19 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     }
 
     @Override
-    public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int iconId) {
+    public void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int iconId, TempFormat tempFormat) {
         ForecastView currentForecastView = forecastViews.get(i);
         currentForecastView.dayWeekTextView.setText(dayOfWeek);
-        currentForecastView.tempTextView.setText(getContext().getString(R.string.max_min_temp, minTemp, maxTemp));
+        int resString = R.string.max_min_temp_celsius;
+        switch (tempFormat) {
+            case CELSIUS:
+                resString = R.string.max_min_temp_celsius;
+                break;
+            case FAHRENHEIT:
+                resString = R.string.max_min_temp_fahrenheit;
+                break;
+        }
+        currentForecastView.tempTextView.setText(getContext().getString(resString, minTemp, maxTemp));
         currentForecastView.iconImageView.setImageResource(iconId);
     }
 
