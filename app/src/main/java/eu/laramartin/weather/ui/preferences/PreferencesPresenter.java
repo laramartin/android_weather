@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 
 import org.greenrobot.eventbus.EventBus;
 
+import eu.laramartin.weather.ui.events.SettingsChangedEvent;
+
 /**
  * Created by Lara on 11/12/2016.
  */

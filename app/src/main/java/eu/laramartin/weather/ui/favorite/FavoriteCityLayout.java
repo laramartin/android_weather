@@ -23,8 +23,9 @@ import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.ui.common.ForecastView;
 import eu.laramartin.weather.ui.common.WeatherIcons;
+import eu.laramartin.weather.ui.events.FavCityChangedEvent;
 import eu.laramartin.weather.ui.preferences.Settings;
-import eu.laramartin.weather.ui.preferences.SettingsChangedEvent;
+import eu.laramartin.weather.ui.events.SettingsChangedEvent;
 
 public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView, SwipeRefreshLayout.OnRefreshListener {
 
@@ -92,6 +93,11 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSettingsChangedEventReceived(SettingsChangedEvent settingsChangedEvent) {
+        presenter.performCall();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onFavCityChangedEventReceived(FavCityChangedEvent favCityChangedEvent) {
         presenter.performCall();
     }
 
