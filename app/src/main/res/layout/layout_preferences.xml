@@ -28,7 +28,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/temp_settings_view">
+            android:id="@+id/temp_settings_view"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/temp_subtitle_settings_text_view"
@@ -58,7 +60,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/wind_settings_view">
+            android:id="@+id/wind_settings_view"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/wind_subtitle_settings_text_view"
@@ -88,7 +92,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pressure_settings_view">
+            android:id="@+id/pressure_settings_view"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/pressure_subtitle_settings_text_view"
