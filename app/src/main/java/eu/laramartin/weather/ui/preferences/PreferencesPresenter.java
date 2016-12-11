@@ -24,4 +24,8 @@ public class PreferencesPresenter {
     public void unbind() {
         view = null;
     }
+
+    public void selectedTemperature(int i) {
+        // TODO
+    }
 }

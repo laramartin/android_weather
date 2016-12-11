@@ -2,6 +2,8 @@ package eu.laramartin.weather.ui.common;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.annotation.ArrayRes;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -98,6 +100,17 @@ public class Dialogs {
             }
         });
         AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public static void showPreferencesItemListDialog(Context context,
+                                                     @StringRes int title,
+                                                     @ArrayRes int unitsStringArray,
+                                                     DialogInterface.OnClickListener onClickListener) {
+        AlertDialog alertDialog = new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setItems(unitsStringArray, onClickListener)
+                .create();
         alertDialog.show();
     }
 }
