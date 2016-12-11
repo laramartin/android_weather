@@ -17,6 +17,7 @@ import eu.laramartin.weather.api.model.ForecastResponse;
 import eu.laramartin.weather.business.WeatherInteractor;
 import eu.laramartin.weather.business.db.CitiesContract;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
+import eu.laramartin.weather.ui.common.TempFormat;
 import eu.laramartin.weather.ui.common.WeatherIcons;
 import eu.laramartin.weather.ui.events.FavCityChangedEvent;
 import eu.laramartin.weather.ui.preferences.Settings;
@@ -127,7 +128,14 @@ public class CitiesListPresenter {
             Log.e(LOG_TAG, "error in ForecastResponse: body is null");
             return;
         }
-        String temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
+
+        // TODO extract hardcoded string
+        String temperature;
+        if (getTempFormat() == TempFormat.CELSIUS) {
+            temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
+        } else {
+            temperature = String.format(Locale.US, "%.0f °F", response.body().getMain().getTemperature());
+        }
         view.updateItem(new CityCard(
                 R.drawable.sample,
                 id,
@@ -225,5 +233,12 @@ public class CitiesListPresenter {
         } else {
             return R.drawable.ic_favorite_border_black_24dp;
         }
+    }
+
+    private TempFormat getTempFormat() {
+        if (settings.getTempUnit().equalsIgnoreCase("metric")) {
+            return TempFormat.CELSIUS;
+        }
+        return TempFormat.FAHRENHEIT;
     }
 }

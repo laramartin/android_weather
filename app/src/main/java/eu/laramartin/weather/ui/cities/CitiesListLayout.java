@@ -11,6 +11,10 @@ import android.widget.FrameLayout;
 
 import com.eyeem.recyclerviewtools.adapter.WrapAdapter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import eu.laramartin.weather.BuildConfig;
@@ -18,6 +22,7 @@ import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.Dialogs;
+import eu.laramartin.weather.ui.events.SettingsChangedEvent;
 import eu.laramartin.weather.ui.preferences.Settings;
 
 /**
@@ -122,5 +127,24 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
         recyclerView.setAdapter(wrapAdapter);
         wrapAdapter.addFooter(LayoutInflater.from(getContext()).inflate(
                 R.layout.footer, recyclerView, false));
+    }
+
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSettingsChangedEventReceived(SettingsChangedEvent settingsChangedEvent) {
+        adapter.clear();
+        presenter.loadData();
     }
 }
