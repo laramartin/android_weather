@@ -74,7 +74,7 @@ public class CitiesListPresenter {
         callCurrentWeather.enqueue(new Callback<CurrentWeatherResponse>() {
             @Override
             public void onResponse(Call<CurrentWeatherResponse> call, Response<CurrentWeatherResponse> response) {
-                displayForecast(response, view, id, location);
+                displayCurrentWeather(response, view, id, location);
             }
 
             @Override
@@ -87,7 +87,7 @@ public class CitiesListPresenter {
         callForecast.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
-                displayCurrentWeather(response, view, id);
+                displayForecast(response, view, id);
             }
 
             @Override
@@ -97,7 +97,7 @@ public class CitiesListPresenter {
         });
     }
 
-    private void displayCurrentWeather(Response<ForecastResponse> response, CitiesListView view, int id) {
+    private void displayForecast(Response<ForecastResponse> response, CitiesListView view, int id) {
         if (response.body() == null) {
             Log.v(LOG_TAG, "error code: " + response.code());
             if (response.code() == 502) {
@@ -123,7 +123,7 @@ public class CitiesListPresenter {
         view.displayForecast(id, forecastCard);
     }
 
-    private void displayForecast(Response<CurrentWeatherResponse> response, CitiesListView view, int id, String location) {
+    private void displayCurrentWeather(Response<CurrentWeatherResponse> response, CitiesListView view, int id, String location) {
         if (response.body() == null) {
             Log.e(LOG_TAG, "error in ForecastResponse: body is null");
             return;
