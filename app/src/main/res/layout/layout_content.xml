@@ -135,7 +135,7 @@
                             android:layout_marginTop="12dp"
                             android:layout_toRightOf="@+id/temperature_TextView"
                             android:gravity="center"
-                            android:text="@string/degree_celsius"
+                            android:text="@string/unit_degree_celsius"
                             android:textSize="36sp" />
 
                     </RelativeLayout>

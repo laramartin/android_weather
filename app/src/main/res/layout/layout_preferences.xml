@@ -27,7 +27,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/temp_settings_view">
 
             <TextView
                 android:id="@+id/temp_subtitle_settings_text_view"
@@ -46,7 +47,7 @@
                 android:layout_alignBottom="@+id/temp_subtitle_settings_text_view"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                tools:text="C" />
+                tools:text="@string/unit_degree_celsius" />
         </RelativeLayout>
 
         <View
@@ -56,7 +57,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/wind_settings_view">
 
             <TextView
                 android:id="@+id/wind_subtitle_settings_text_view"
@@ -85,7 +87,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/pressure_settings_view">
 
             <TextView
                 android:id="@+id/pressure_subtitle_settings_text_view"
