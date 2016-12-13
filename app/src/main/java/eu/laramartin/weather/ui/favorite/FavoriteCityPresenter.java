@@ -86,7 +86,7 @@ public class FavoriteCityPresenter {
                         response.getWeather().get(0).getDescription()));
         view.displayCurrentHumidity((int) response.getMain().getHumidity());
         view.displayCurrentPressure((int) response.getMain().getPressure());
-        view.displayCurrentWind(response.getWind().getWindSpeed());
+        view.displayCurrentWind(response.getWind().getWindSpeed(), getTempFormat());
         view.displayCurrentCity(
                 TextUtils.setFirstCharInUppercase(
                         response.getCity()));

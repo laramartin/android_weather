@@ -4,7 +4,9 @@
     <string name="unit_degree_celsius">°C</string>
     <string name="humidity">Humidity %d%%</string>
     <string name="pressure">Pressure %d hPa</string>
-    <string name="wind">Wind %.1f m/s</string>
+    <string name="wind" formatted="false">Wind %.1f %2$s</string>
+    <string name="wind_metric_unit">m/s</string>
+    <string name="wind_imperial_unit">m/h</string>
     <string name="max_min_temp_celsius">%2$d/%1$d°C</string>
     <string name="max_min_temp_fahrenheit">%2$d/%1$d°F</string>
     <string name="bottom_nav_favorite_city">Favorite</string>

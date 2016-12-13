@@ -165,8 +165,18 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     }
 
     @Override
-    public void displayCurrentWind(double windSpeed) {
-        windTextView.setText(getContext().getString(R.string.wind, windSpeed));
+    public void displayCurrentWind(double windSpeed, TempFormat tempFormat) {
+        int resString = R.string.wind_metric_unit;
+        switch (tempFormat) {
+            case CELSIUS:
+                resString = R.string.wind_metric_unit;
+                break;
+            case FAHRENHEIT:
+                resString = R.string.wind_imperial_unit;
+                break;
+        }
+        windTextView.setText(getContext().getString(R.string.wind, windSpeed,
+                getContext().getString(resString)));
     }
 
     @Override

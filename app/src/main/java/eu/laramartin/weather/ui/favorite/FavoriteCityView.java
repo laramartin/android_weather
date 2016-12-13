@@ -14,7 +14,7 @@ public interface FavoriteCityView {
 
     void displayCurrentPressure(int pressure);
 
-    void displayCurrentWind(double windSpeed);
+    void displayCurrentWind(double windSpeed, TempFormat tempFormat);
 
     void displayForecast(int i, String dayOfWeek, int minTemp, int maxTemp, int icon, TempFormat tempFormat);
 
