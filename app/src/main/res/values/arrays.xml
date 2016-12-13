@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="temp_units">
-        <item>Celsius °C</item>
-        <item>Fahrenheit °F</item>
+    <string-array name="sys_of_units">
+        <item>Metric °C</item>
+        <item>Imperial °F</item>
     </string-array>
 </resources>

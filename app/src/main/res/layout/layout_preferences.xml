@@ -28,25 +28,25 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/temp_settings_view"
+            android:id="@+id/sys_of_units_settings_view"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground">
 
             <TextView
-                android:id="@+id/temp_subtitle_settings_text_view"
+                android:id="@+id/sys_of_units_subtitle_settings_text_view"
                 style="@style/subtitle_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/temperature_prefs_subtitle"
-                tools:text="Temperature" />
+                android:text="@string/sys_of_units_prefs_subtitle"
+                tools:text="System of units" />
 
             <TextView
-                android:id="@+id/temp_units_settings_text_view"
+                android:id="@+id/sys_of_units_selected_settings_text_view"
                 style="@style/units_option_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/temp_subtitle_settings_text_view"
-                android:layout_alignBottom="@+id/temp_subtitle_settings_text_view"
+                android:layout_alignBaseline="@+id/sys_of_units_subtitle_settings_text_view"
+                android:layout_alignBottom="@+id/sys_of_units_subtitle_settings_text_view"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 tools:text="@string/unit_degree_celsius" />

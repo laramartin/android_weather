@@ -19,8 +19,8 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
 
     private static final String LOG_TAG = PreferencesLayout.class.getCanonicalName();
     private Context context;
-    @BindView(R.id.temp_settings_view)
-    RelativeLayout temp_settings_layout;
+    @BindView(R.id.sys_of_units_settings_view)
+    RelativeLayout sys_of_units_settings_layout;
     PreferencesPresenter presenter;
 
     public PreferencesLayout(Context context) {
@@ -34,10 +34,10 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
         presenter = new PreferencesPresenter(new Settings(context));
         presenter.bind(this);
 
-        temp_settings_layout.setOnClickListener(new OnClickListener() {
+        sys_of_units_settings_layout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialogs.showPreferencesItemListDialog(context, R.string.temperature_prefs_subtitle, R.array.temp_units, new DialogInterface.OnClickListener() {
+                Dialogs.showPreferencesItemListDialog(context, R.string.sys_of_units_prefs_subtitle, R.array.sys_of_units, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         presenter.selectedUnitsSystem(i);

@@ -20,6 +20,7 @@
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:textColor">@color/softGreyForReading</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="separator_title_settings">

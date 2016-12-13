@@ -23,7 +23,7 @@
     <string name="favoriteCityId">favoriteCityId</string>
     <string name="favoriteCityName">favoriteCityName</string>
     <string name="units_prefs_title">Units</string>
-    <string name="temperature_prefs_subtitle">Temperature</string>
+    <string name="sys_of_units_prefs_subtitle">System of units</string>
     <string name="wind_speed_prefs_subtitle">Wind speed</string>
     <string name="pressure_prefs_subtitle">Pressure</string>
     <string name="temp_unit_shared_prefs">tempUnitSharedPrefs</string>
