@@ -5,4 +5,5 @@ package eu.laramartin.weather.ui.preferences;
  */
 
 public interface PreferencesView {
+    void updateSelectedUnits(String unitsSystem);
 }

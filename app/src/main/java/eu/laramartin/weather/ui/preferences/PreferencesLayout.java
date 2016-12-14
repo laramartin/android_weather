@@ -5,11 +5,13 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.ui.common.Dialogs;
+import eu.laramartin.weather.ui.common.TextUtils;
 
 /**
  * Created by Lara on 30/10/2016.
@@ -22,6 +24,8 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
     @BindView(R.id.sys_of_units_settings_view)
     RelativeLayout sys_of_units_settings_layout;
     PreferencesPresenter presenter;
+    @BindView(R.id.sys_of_units_selected_settings_text_view)
+    TextView selectedUnitsTextView;
 
     public PreferencesLayout(Context context) {
         super(context);
@@ -33,6 +37,7 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
         ButterKnife.bind(this, view);
         presenter = new PreferencesPresenter(new Settings(context));
         presenter.bind(this);
+        presenter.load();
 
         sys_of_units_settings_layout.setOnClickListener(new OnClickListener() {
             @Override
@@ -55,5 +60,10 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+    }
+
+    @Override
+    public void updateSelectedUnits(String unitsSystem) {
+        selectedUnitsTextView.setText(TextUtils.setFirstCharInUppercase(unitsSystem));
     }
 }

@@ -33,6 +33,7 @@ public class PreferencesPresenter {
         // TODO
         settings.setAsUnitsSystem(getUnitsSystem(i));
         EventBus.getDefault().post(new SettingsChangedEvent());
+        view.updateSelectedUnits(getUnitsSystem(i));
     }
 
     private String getUnitsSystem(int i) {
@@ -43,5 +44,9 @@ public class PreferencesPresenter {
             case 1:
                 return "imperial";
         }
+    }
+
+    public void load() {
+        view.updateSelectedUnits(settings.getUnitsSystem());
     }
 }
