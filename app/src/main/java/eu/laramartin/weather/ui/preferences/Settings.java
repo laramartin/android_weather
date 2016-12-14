@@ -14,7 +14,7 @@ public class Settings {
 
     private static final int DEFAULT_ID = 0;
     private static final String DEFAULT_CITY_NAME = "berlin";
-    private static final String DEFAULT_UNITs_SYSTEM = "metric";
+    private static final String DEFAULT_UNITS_SYSTEM = "metric";
     SharedPreferences preferences;
     Context context;
 
@@ -46,6 +46,6 @@ public class Settings {
 
     public String getUnitsSystem() {
         return preferences.getString(
-                context.getString(R.string.temp_unit_shared_prefs), DEFAULT_UNITs_SYSTEM);
+                context.getString(R.string.temp_unit_shared_prefs), DEFAULT_UNITS_SYSTEM);
     }
 }
