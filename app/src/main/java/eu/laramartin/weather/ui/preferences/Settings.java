@@ -24,17 +24,17 @@ public class Settings {
     }
 
     public String getFavName() {
-        return preferences.getString(context.getString(R.string.favoriteCityName), DEFAULT_CITY_NAME);
+        return preferences.getString(context.getString(R.string.favorite_city_name), DEFAULT_CITY_NAME);
     }
 
     public int getFavId() {
-        return preferences.getInt(context.getString(R.string.favoriteCityId), DEFAULT_ID);
+        return preferences.getInt(context.getString(R.string.favorite_city_id), DEFAULT_ID);
     }
 
     public void setFavNameAndId(String name, int id) {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(context.getString(R.string.favoriteCityId), id);
-        editor.putString(context.getString(R.string.favoriteCityName), name);
+        editor.putInt(context.getString(R.string.favorite_city_id), id);
+        editor.putString(context.getString(R.string.favorite_city_name), name);
         editor.apply();
     }
 

@@ -22,8 +22,8 @@
     <string name="error_server_message">There was an error in your connection or from server. Try again later :(</string>
     <string name="delete_city_message">Are you sure you want to delete the city from your list?</string>
     <string name="preference_file_key">weather_preferences</string>
-    <string name="favoriteCityId">favoriteCityId</string>
-    <string name="favoriteCityName">favoriteCityName</string>
+    <string name="favorite_city_id">favoriteCityId</string>
+    <string name="favorite_city_name">favoriteCityName</string>
     <string name="units_prefs_title">Units</string>
     <string name="sys_of_units_prefs_subtitle">System of units</string>
     <string name="wind_speed_prefs_subtitle">Wind speed</string>
