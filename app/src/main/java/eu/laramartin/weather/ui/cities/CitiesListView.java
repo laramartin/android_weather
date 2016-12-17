@@ -8,7 +8,7 @@ public interface CitiesListView {
 
     void addCityCard(CityCard cityCard);
 
-    void updateItem(CityCard cityCard);
+    void updateTemp(int id, String temp);
 
     void displayForecast(int id, ForecastCard forecastCard);
 

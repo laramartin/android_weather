@@ -85,8 +85,8 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     }
 
     @Override
-    public void updateItem(CityCard cityCard) {
-        adapter.replace(cityCard);
+    public void updateTemp(int id, String temp) {
+        adapter.replace(id, temp);
     }
 
     @Override

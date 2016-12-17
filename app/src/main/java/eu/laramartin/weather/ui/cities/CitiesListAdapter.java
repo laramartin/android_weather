@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,12 +74,16 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         notifyItemInserted(cityCards.size() - 1);
     }
 
-    public void replace(CityCard cityCard) {
+    public void replace(int id, String temp) {
+        CityCard cityCard = null;
         for (int i = 0; i < cityCards.size(); i++) {
-            if (cityCard.getId() == cityCards.get(i).getId()) {
-                cityCards.set(i, cityCard);
-                notifyItemChanged(i);
+            if (cityCards.get(i).getId() == id) {
+                cityCard = cityCards.get(i);
+                break;
             }
+        }
+        if (cityCard != null) {
+            cityCard.setTemperature(temp);
         }
     }
 

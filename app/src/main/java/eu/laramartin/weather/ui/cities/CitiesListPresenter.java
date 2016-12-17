@@ -133,12 +133,10 @@ public class CitiesListPresenter {
         } else {
             temperature = String.format(Locale.US, "%.0f °F", response.body().getMain().getTemperature());
         }
-        view.updateItem(new CityCard(
-                R.drawable.sample,
+        view.updateTemp(
                 id,
-                location,
                 temperature
-        ));
+        );
     }
 
     public void addCityIfExists(final String inputCity) {
