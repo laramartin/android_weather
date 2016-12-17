@@ -75,15 +75,14 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
     }
 
     public void replace(int id, String temp) {
-        CityCard cityCard = null;
+        CityCard cityCard;
         for (int i = 0; i < cityCards.size(); i++) {
             if (cityCards.get(i).getId() == id) {
                 cityCard = cityCards.get(i);
-                break;
+                cityCard.setTemperature(temp);
+                notifyItemChanged(i);
+                return;
             }
-        }
-        if (cityCard != null) {
-            cityCard.setTemperature(temp);
         }
     }
 
