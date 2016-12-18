@@ -145,12 +145,14 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        presenter.bind(this);
         EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        presenter.unbind();
         EventBus.getDefault().unregister(this);
     }
 
