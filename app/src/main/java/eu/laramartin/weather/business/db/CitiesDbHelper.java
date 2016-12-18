@@ -28,7 +28,7 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        // TODO define onUpgrade method of DbHelper
+        // There's no need to upgrade DB in this version of the app
     }
 
     public void insertCity(String cityName) {

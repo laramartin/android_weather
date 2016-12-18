@@ -30,7 +30,6 @@ public class PreferencesPresenter {
     }
 
     public void selectedUnitsSystem(int i) {
-        // TODO
         settings.setAsUnitsSystem(getUnitsSystem(i));
         EventBus.getDefault().post(new SettingsChangedEvent());
         view.updateSelectedUnits(getUnitsSystem(i));

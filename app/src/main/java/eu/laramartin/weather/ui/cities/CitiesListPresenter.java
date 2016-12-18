@@ -99,9 +99,6 @@ public class CitiesListPresenter {
     private void displayForecast(Response<ForecastResponse> response, CitiesListView view, int id) {
         if (response.body() == null) {
             Log.v(LOG_TAG, "error code: " + response.code());
-            if (response.code() == 502) {
-                // TODO show message in dialog with invalid input
-            }
             return;
         }
         ForecastCard forecastCard = new ForecastCard();

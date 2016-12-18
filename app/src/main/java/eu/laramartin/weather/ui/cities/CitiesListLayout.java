@@ -80,6 +80,7 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     @Override
     public void addCityCard(CityCard cityCard) {
         adapter.add(cityCard);
+        // TODO scroll to diff positions depending on the action
         layoutManager.scrollToPosition(adapter.getItemCount() - 1);
     }
 
@@ -90,7 +91,6 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
 
     @Override
     public void displayForecast(int id, ForecastCard forecastCard) {
-        // TODO
         adapter.addForecast(id, forecastCard);
     }
 
