@@ -104,7 +104,6 @@ public class CitiesListPresenter {
         List<ForecastCard.ForecastCardItem> list = new ArrayList<>();
         for (Forecast forecast : response.body().getForecasts()) {
             ForecastCard.ForecastCardItem forecastCardItem = new ForecastCard.ForecastCardItem();
-
             forecastCardItem.setDayOfTheWeek(getDayOfTheWeek(forecast.getDate()));
             forecastCardItem.setTempMin((int) forecast.getTemperature().getTempMin());
             forecastCardItem.setTempMax((int) forecast.getTemperature().getTempMax());

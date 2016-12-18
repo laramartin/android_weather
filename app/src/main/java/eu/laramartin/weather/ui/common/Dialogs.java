@@ -36,7 +36,6 @@ public class Dialogs {
         builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 String inputCity = editText.getText().toString().trim();
-                Log.v("CitiesListPresenter", "inputCity: " + inputCity);
                 presenter.addCityIfExists(inputCity);
             }
         });
@@ -62,7 +61,6 @@ public class Dialogs {
         builder.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 String inputCity = editText.getText().toString().trim();
-                Log.v("CitiesListPresenter", "inputCity: " + inputCity);
                 presenter.addCityIfExists(inputCity);
             }
         });
