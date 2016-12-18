@@ -22,6 +22,7 @@ import eu.laramartin.weather.R;
 import eu.laramartin.weather.business.WeatherInteractorImpl;
 import eu.laramartin.weather.business.db.CitiesDbHelper;
 import eu.laramartin.weather.ui.common.Dialogs;
+import eu.laramartin.weather.ui.common.TempFormat;
 import eu.laramartin.weather.ui.events.SettingsChangedEvent;
 import eu.laramartin.weather.ui.preferences.Settings;
 
@@ -85,8 +86,18 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     }
 
     @Override
-    public void updateTemp(int id, String temp) {
-        adapter.replace(id, temp);
+    public void updateTemp(int id, int temp, TempFormat tempFormat) {
+        int resString = R.string.unit_degree_celsius;
+        switch (tempFormat) {
+            case CELSIUS:
+                resString = R.string.unit_degree_celsius;
+                break;
+            case FAHRENHEIT:
+                resString = R.string.unit_degree_fahrenheit;
+                break;
+        }
+        String formattedTemp = String.valueOf(temp).concat(getContext().getString(resString));
+        adapter.replace(id, formattedTemp);
     }
 
     @Override

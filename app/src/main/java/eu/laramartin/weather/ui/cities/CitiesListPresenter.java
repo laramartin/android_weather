@@ -8,7 +8,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.api.model.CurrentWeatherResponse;
@@ -122,17 +121,10 @@ public class CitiesListPresenter {
             Log.e(LOG_TAG, "error in ForecastResponse: body is null");
             return;
         }
-
-        // TODO extract hardcoded string
-        String temperature;
-        if (getTempFormat() == TempFormat.CELSIUS) {
-            temperature = String.format(Locale.US, "%.0f °C", response.body().getMain().getTemperature());
-        } else {
-            temperature = String.format(Locale.US, "%.0f °F", response.body().getMain().getTemperature());
-        }
         view.updateTemp(
                 id,
-                temperature
+                (int) response.body().getMain().getTemperature(),
+                getTempFormat()
         );
     }
 
