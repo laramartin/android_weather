@@ -81,8 +81,6 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     @Override
     public void addCityCard(CityCard cityCard) {
         adapter.add(cityCard);
-        // TODO scroll to diff positions depending on the action
-        layoutManager.scrollToPosition(adapter.getItemCount() - 1);
     }
 
     @Override
@@ -123,6 +121,11 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
     @Override
     public void setFavIcon(int cityId, boolean isFavorite) {
         adapter.setFavIcon(cityId, isFavorite);
+    }
+
+    @Override
+    public void scrollToBottom() {
+        layoutManager.scrollToPosition(adapter.getItemCount() - 1);
     }
 
     @Override

@@ -21,4 +21,6 @@ public interface CitiesListView {
     void clear();
 
     void setFavIcon(int cityId, boolean isFavorite);
+
+    void scrollToBottom();
 }

@@ -142,6 +142,7 @@ public class CitiesListPresenter {
                 }
                 if (response.body().getCity().equalsIgnoreCase(inputCity)) {
                     storeCity(inputCity);
+                    view.scrollToBottom();
                 } else {
                     if (view != null) {
                         view.displayCityNotFound(inputCity);
