@@ -1,6 +1,7 @@
 package eu.laramartin.weather.ui.cities;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -216,8 +217,15 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         public boolean onLongClick(View view) {
             if (cityCard != null) {
                 Dialogs.showDeleteCityConfirmationDialog(context, cityCard.getId(), presenter);
-                ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
-                return true;
+                AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+                switch (am.getRingerMode()) {
+                    case AudioManager.RINGER_MODE_SILENT:
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
+                        return true;
+                }
             }
             return false;
         }
