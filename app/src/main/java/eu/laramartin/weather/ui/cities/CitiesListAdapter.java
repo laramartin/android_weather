@@ -216,8 +216,6 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
                 Dialogs.showDeleteCityConfirmationDialog(context, cityCard.getId(), presenter);
                 AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                 switch (am.getRingerMode()) {
-                    case AudioManager.RINGER_MODE_SILENT:
-                        break;
                     case AudioManager.RINGER_MODE_VIBRATE:
                     case AudioManager.RINGER_MODE_NORMAL:
                         ((Vibrator)context.getSystemService(VIBRATOR_SERVICE)).vibrate(100);
