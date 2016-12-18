@@ -55,11 +55,13 @@ public class PreferencesLayout extends FrameLayout implements PreferencesView{
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        presenter.bind(this);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        presenter.unbind();
     }
 
     @Override
