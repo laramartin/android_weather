@@ -51,10 +51,4 @@ public class CustomPagerAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
-
-//    @Override
-//    public CharSequence getPageTitle(int position) {
-//        CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
-//        return mContext.getString(customPagerEnum.getTitleResId());
-//    }
 }

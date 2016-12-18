@@ -76,7 +76,4 @@ public class ForecastCard {
     public void setList(List<ForecastCardItem> list) {
         this.list = list;
     }
-
-
-
 }

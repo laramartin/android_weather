@@ -66,7 +66,6 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
     @BindView(R.id.temp_unit_fav_city_text_view)
     TextView tempUnitFavCityTextView;
 
-
     public FavoriteCityLayout(Context context) {
         super(context);
         init(context);
@@ -77,7 +76,6 @@ public class FavoriteCityLayout extends FrameLayout implements FavoriteCityView,
         ButterKnife.bind(this, view);
         presenter = new FavoriteCityPresenter(new WeatherInteractorImpl(BuildConfig.API_KEY), new Settings(context));
         presenter.bind(this);
-//        presenter.performCall("berlin");
         presenter.performCall();
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));

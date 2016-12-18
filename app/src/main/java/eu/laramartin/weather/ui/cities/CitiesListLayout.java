@@ -59,7 +59,6 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
             }
         });
 
-
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
@@ -128,7 +127,6 @@ public class CitiesListLayout extends FrameLayout implements CitiesListView, Swi
         wrapAdapter.addFooter(LayoutInflater.from(getContext()).inflate(
                 R.layout.footer, recyclerView, false));
     }
-
 
     @Override
     protected void onAttachedToWindow() {

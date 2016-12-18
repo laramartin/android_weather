@@ -21,7 +21,6 @@ import butterknife.ButterKnife;
 import eu.laramartin.weather.R;
 import eu.laramartin.weather.ui.common.Dialogs;
 import eu.laramartin.weather.ui.common.ForecastView;
-import eu.laramartin.weather.ui.common.TempFormat;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -124,14 +123,12 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Vi
         List<ForecastView> forecastViews;
         @BindView(R.id.arrow_expand_collapse_cities_row)
         ImageView arrowExpandCollapseImageView;
-        // TODO hide or show forecast layout instead of forecast views
         @BindView(R.id.forecast_layout)
         LinearLayout forecastLayout;
         @BindView(R.id.favorite_city_image_view)
         ImageView favoriteCityImageView;
         @Nullable
         private CityCard cityCard;
-        TempFormat tempFormat;
 
         public ViewHolder(View itemView) {
             super(itemView);

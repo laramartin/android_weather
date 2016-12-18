@@ -189,20 +189,20 @@ public class CitiesListPresenter {
         loadData();
     }
 
-    public void setAsFavoriteCityInCityCard(CityCard cityCard) {
+    void setAsFavoriteCityInCityCard(CityCard cityCard) {
         settings.setFavNameAndId(cityCard.getCityName(), cityCard.getId());
         setFavoriteCity(cityCard);
     }
 
-    public boolean isFavoriteCity(CityCard cityCard) {
+    boolean isFavoriteCity(CityCard cityCard) {
         return cityCard.getId() == settings.getFavId();
     }
 
-    public int getIdPreviousFavoriteCity() {
+    private int getIdPreviousFavoriteCity() {
         return settings.getFavId();
     }
 
-    public void clickedFavorite(CityCard cityCard) {
+    void clickedFavorite(CityCard cityCard) {
         if (!cityCard.isFavorite()){
             if (view != null) {
                 view.setFavIcon(getIdPreviousFavoriteCity(), false);
@@ -217,11 +217,11 @@ public class CitiesListPresenter {
         cityCard.setFavorite(true);
     }
 
-    public void setAsNotFavoriteCity(CityCard cityCard) {
+    void setAsNotFavoriteCity(CityCard cityCard) {
         cityCard.setFavorite(false);
     }
 
-    public int getFavoriteIcon(CityCard cityCard) {
+    int getFavoriteIcon(CityCard cityCard) {
         if (cityCard.isFavorite()) {
             return R.drawable.ic_favorite_black_24dp;
         } else {
