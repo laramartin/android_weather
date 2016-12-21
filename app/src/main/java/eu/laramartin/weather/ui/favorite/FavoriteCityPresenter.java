@@ -27,6 +27,7 @@ public class FavoriteCityPresenter {
 
     private final static String LOG_TAG = FavoriteCityPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
+    @Nullable
     FavoriteCityView view;
     private Settings settings;
 
