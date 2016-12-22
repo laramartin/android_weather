@@ -66,6 +66,8 @@
             android:layout_above="@+id/linearLayout"
             android:layout_alignLeft="@+id/linearLayout"
             android:layout_alignStart="@+id/linearLayout"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"
             android:orientation="vertical">
 
             <TextView
