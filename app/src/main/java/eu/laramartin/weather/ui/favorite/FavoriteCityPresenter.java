@@ -54,7 +54,9 @@ public class FavoriteCityPresenter {
 
             @Override
             public void onFailure(Call<ForecastResponse> call, Throwable t) {
-                view.setErrorVisibility(true);
+                if (view != null) {
+                    view.setErrorVisibility(true);
+                }
                 Log.e(LOG_TAG, "error in ForecastResponse: " + t.getLocalizedMessage(), t);
             }
         });
@@ -66,7 +68,9 @@ public class FavoriteCityPresenter {
 
             @Override
             public void onFailure(Call<CurrentWeatherResponse> call, Throwable t) {
-                view.setErrorVisibility(true);
+                if (view != null) {
+                    view.setErrorVisibility(true);
+                }
                 Log.e(LOG_TAG, "error in CurrentWeatherResponse: " + t.getLocalizedMessage(), t);
             }
         });
@@ -75,41 +79,49 @@ public class FavoriteCityPresenter {
     @VisibleForTesting
     void displayCurrentWeather(CurrentWeatherResponse response) {
         if (response == null) {
-            view.setErrorVisibility(true);
+            if (view != null) {
+                view.setErrorVisibility(true);
+            }
             return;
         }
-        view.setContentVisibility(true);
-        view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.getDate()));
-        view.displayCurrentHour(getHourFromUnixTime(response.getDate()));
-        view.displayCurrentTemp((int) response.getMain().getTemperature(), getTempFormat());
-        view.displayCurrentDescription(
-                TextUtils.setFirstCharInUppercase(
-                        response.getWeather().get(0).getDescription()));
-        view.displayCurrentHumidity((int) response.getMain().getHumidity());
-        view.displayCurrentPressure((int) response.getMain().getPressure());
-        view.displayCurrentWind(response.getWind().getWindSpeed(), getTempFormat());
-        view.displayCurrentCity(
-                TextUtils.setFirstCharInUppercase(
-                        response.getCity()));
-        view.displayCurrentIcon(response.getWeather().get(0).getIcon());
-        view.displayCurrentSunriseSunsetTime(
-                getHourFromUnixTime(response.getWeatherSys().getSunrise()),
-                getHourFromUnixTime(response.getWeatherSys().getSunset()));
+        if (view != null) {
+            view.setContentVisibility(true);
+            view.displayCurrentDate(DateUtils.getWholeDateOfCurrentWeather(response.getDate()));
+            view.displayCurrentHour(getHourFromUnixTime(response.getDate()));
+            view.displayCurrentTemp((int) response.getMain().getTemperature(), getTempFormat());
+            view.displayCurrentDescription(
+                    TextUtils.setFirstCharInUppercase(
+                            response.getWeather().get(0).getDescription()));
+            view.displayCurrentHumidity((int) response.getMain().getHumidity());
+            view.displayCurrentPressure((int) response.getMain().getPressure());
+            view.displayCurrentWind(response.getWind().getWindSpeed(), getTempFormat());
+            view.displayCurrentCity(
+                    TextUtils.setFirstCharInUppercase(
+                            response.getCity()));
+            view.displayCurrentIcon(response.getWeather().get(0).getIcon());
+            view.displayCurrentSunriseSunsetTime(
+                    getHourFromUnixTime(response.getWeatherSys().getSunrise()),
+                    getHourFromUnixTime(response.getWeatherSys().getSunset()));
+        }
     }
 
     @VisibleForTesting
     void displayForecast(@Nullable ForecastResponse response) {
         if (response == null) {
-            view.setErrorVisibility(true);
+            if (view != null) {
+                view.setErrorVisibility(true);
+            }
             return;
         }
         int i = 0;
         for (Forecast forecast : response.getForecasts()) {
-            view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
-                    (int) forecast.getTemperature().getTempMin(),
-                    (int) forecast.getTemperature().getTempMax(),
-                    WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()),
-                    getTempFormat());
+            if (view != null) {
+                view.displayForecast(i, DateUtils.getDayOfTheWeek(forecast.getDate()),
+                        (int) forecast.getTemperature().getTempMin(),
+                        (int) forecast.getTemperature().getTempMax(),
+                        WeatherIcons.getIcon(forecast.getWeather().get(0).getIcon()),
+                        getTempFormat());
+            }
             i++;
         }
     }

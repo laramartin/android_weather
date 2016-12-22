@@ -35,7 +35,7 @@ public class CitiesListPresenter {
     private final static String LOG_TAG = CitiesListPresenter.class.getCanonicalName();
     private WeatherInteractor interactor;
     @Nullable
-    CitiesListView view;
+    private CitiesListView view;
     private CitiesDbHelper dbHelper;
     private Settings settings;
 
@@ -141,7 +141,9 @@ public class CitiesListPresenter {
                 }
                 if (response.body().getCity().equalsIgnoreCase(inputCity)) {
                     storeCity(inputCity);
-                    view.scrollToBottom();
+                    if (view != null) {
+                        view.scrollToBottom();
+                    }
                 } else {
                     if (view != null) {
                         view.displayCityNotFound(inputCity);
