@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * Created by Lara on 06/11/2016.
@@ -35,17 +34,14 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(CitiesContract.CitiesEntry.COLUMN_NAME, cityName);
-//        values.put(CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP, cityCard.getTemperature());
         long id = db.insert(CitiesContract.CitiesEntry.TABLE_NAME, null, values);
-        Log.v(LOG_TAG, "ID row inserted: " + String.valueOf(id));
     }
 
     public Cursor readCities() {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {
                 CitiesContract.CitiesEntry._ID,
-                CitiesContract.CitiesEntry.COLUMN_NAME,
-//                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP
+                CitiesContract.CitiesEntry.COLUMN_NAME
         };
         Cursor cursor = db.query(
                 CitiesContract.CitiesEntry.TABLE_NAME,
@@ -63,8 +59,7 @@ public class CitiesDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {
                 CitiesContract.CitiesEntry._ID,
-                CitiesContract.CitiesEntry.COLUMN_NAME,
-//                CitiesContract.CitiesEntry.COLUMN_CURRENT_TEMP
+                CitiesContract.CitiesEntry.COLUMN_NAME
         };
         String selection = CitiesContract.CitiesEntry._ID + "=?";
         String[] selectionArgs = new String[] { String.valueOf(itemId) };

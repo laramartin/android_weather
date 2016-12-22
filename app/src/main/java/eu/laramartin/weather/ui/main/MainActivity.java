@@ -35,15 +35,12 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_favorite_city:
-                                Log.v(LOG_TAG, "favorite city");
                                 viewPager.setCurrentItem(0);
                                 break;
                             case R.id.action_select_cities:
-                                Log.v(LOG_TAG, "select cities");
                                 viewPager.setCurrentItem(1);
                                 break;
                             case R.id.action_settings:
-                                Log.v(LOG_TAG, "settings");
                                 viewPager.setCurrentItem(2);
                                 break;
                         }

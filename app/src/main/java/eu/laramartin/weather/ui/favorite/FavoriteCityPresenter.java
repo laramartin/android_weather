@@ -134,7 +134,6 @@ public class FavoriteCityPresenter {
     }
 
     public void performCall() {
-        Log.v(LOG_TAG, "temp units: " + settings.getUnitsSystem());
         performCall(settings.getFavName(), settings.getUnitsSystem());
     }
 }
