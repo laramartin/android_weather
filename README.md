@@ -9,6 +9,16 @@ To see the evolution of the app, take a look to the <a href="https://github.com/
 <img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/v1/v1_week_10_02.png" width="250"/>
 <img src="https://raw.githubusercontent.com/laramartin/android_weather/master/art/v1/v1_week_10_03.png" width="250"/>
 
+## Android Goodies
+
+### Libraries
+
+- Gson
+- Retrofit
+- Butterknife
+- RecyclerViewTools
+- EventBus
+
 ## To use it
 
 - Retrieving data from OpenWeatherMap API. 
